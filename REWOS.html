@@ -110,23 +110,105 @@
         .scroll-btn { display: none; position: fixed; right: 24px; background: rgba(14, 165, 233, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); width: 45px; height: 45px; border-radius: 50%; text-align: center; line-height: 45px; z-index: 100; transition: all 0.3s ease; backdrop-filter: blur(8px); }
         .scroll-btn:hover { background: rgba(14, 165, 233, 0.4); transform: translateY(-3px); color: #fff; box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); }
         #return-to-top { bottom: 80px; } #return-to-down { bottom: 20px; }
+
+        #performance-page { min-height: 100vh; }
+        #performance-page input { position: relative; z-index: 2; }
+        #performancelist tbody tr { display: table-row; }
+    
+        /* ===== MOBILE INTERACTION FIX ===== */
+        #dateinput, #lookingfor, #header-lookingfor, #perf-dateinput, #perf-lookingfor {
+            pointer-events: auto !important;
+            touch-action: manipulation !important;
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        #dateinput, #perf-dateinput {
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer !important;
+        }
+        #datetimepicker1, #search-section, #performance-page .group {
+            pointer-events: auto !important;
+        }
+        @media (max-width: 640px) {
+            #search-section {
+                position: relative !important;
+                z-index: 30 !important;
+            }
+            #dateinput, #lookingfor, #perf-dateinput, #perf-lookingfor {
+                min-height: 48px !important;
+                font-size: 16px !important; /* prevents iOS auto zoom */
+            }
+            .daterangepicker {
+                position: fixed !important;
+                left: 8px !important;
+                right: 8px !important;
+                top: 72px !important;
+                width: auto !important;
+                max-width: calc(100vw - 16px) !important;
+                max-height: calc(100vh - 88px) !important;
+                overflow-y: auto !important;
+                z-index: 2147483647 !important;
+            }
+            .daterangepicker .drp-calendar {
+                width: 100% !important;
+                max-width: none !important;
+                padding: 8px !important;
+            }
+            .daterangepicker .ranges {
+                width: 100% !important;
+            }
+            .daterangepicker .calendar-table th,
+            .daterangepicker .calendar-table td {
+                min-width: 32px !important;
+                height: 32px !important;
+                line-height: 32px !important;
+            }
+        }
+
     </style>
     <script>
         function switchTab(tab) {
             const pill = document.getElementById('switch-pill');
             const realtimeTab = document.getElementById('tab-realtime');
             const performanceTab = document.getElementById('tab-performance');
+            const realtimePage = document.getElementById('realtime-page');
+            const performancePage = document.getElementById('performance-page');
 
-            if (tab === 'realtime') {
-                pill.style.transform = 'translateX(0)';
-                realtimeTab.classList.add('text-white', 'font-semibold'); realtimeTab.classList.remove('text-slate-400', 'font-medium');
-                performanceTab.classList.remove('text-white', 'font-semibold'); performanceTab.classList.add('text-slate-400', 'font-medium');
-            } else {
+            if (!realtimePage || !performancePage) return false;
+
+            if (tab === 'performance') {
                 pill.style.transform = 'translateX(100%)';
-                performanceTab.classList.add('text-white', 'font-semibold'); performanceTab.classList.remove('text-slate-400', 'font-medium');
-                realtimeTab.classList.remove('text-white', 'font-semibold'); realtimeTab.classList.add('text-slate-400', 'font-medium');
+                performanceTab.classList.add('text-white', 'font-semibold');
+                performanceTab.classList.remove('text-slate-400', 'font-medium');
+                realtimeTab.classList.remove('text-white', 'font-semibold');
+                realtimeTab.classList.add('text-slate-400', 'font-medium');
+                realtimePage.style.display = 'none';
+                performancePage.style.display = 'block';
+                if (document.getElementById('mini-stats')) document.getElementById('mini-stats').style.display = 'none';
+                if (history.replaceState) history.replaceState(null, '', location.pathname + location.search + '#performance');
+            } else {
+                pill.style.transform = 'translateX(0)';
+                realtimeTab.classList.add('text-white', 'font-semibold');
+                realtimeTab.classList.remove('text-slate-400', 'font-medium');
+                performanceTab.classList.remove('text-white', 'font-semibold');
+                performanceTab.classList.add('text-slate-400', 'font-medium');
+                realtimePage.style.display = 'block';
+                performancePage.style.display = 'none';
+                if (document.getElementById('mini-stats')) document.getElementById('mini-stats').style.display = '';
+                if (history.replaceState) history.replaceState(null, '', location.pathname + location.search + '#realtime');
             }
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            return false;
         }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            if (location.hash === '#performance') {
+                switchTab('performance');
+            } else {
+                switchTab('realtime');
+            }
+        });
     </script>
 
 <style id="jasmine-fixed-redesign">
@@ -214,10 +296,10 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
                     <div id="switch-pill" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.4)] transition-transform duration-300 ease-out z-0"></div>
                     
                     <!-- Switch Options -->
-                    <a href="imo" onclick="switchTab('realtime')" id="tab-realtime" class="flex-1 relative z-10 flex items-center justify-center py-1.5 text-xs sm:text-sm font-semibold text-white transition-colors duration-300">
+                    <a href="#realtime" onclick="return switchTab('realtime')" id="tab-realtime" class="flex-1 relative z-10 flex items-center justify-center py-1.5 text-xs sm:text-sm font-semibold text-white transition-colors duration-300">
                         <i class="fas fa-satellite-dish mr-1 sm:mr-2"></i>Real Time
                     </a>
-                    <a href="imo2" onclick="switchTab('performance')" id="tab-performance" class="group flex-1 relative z-10 flex items-center justify-center py-1.5 text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">
+                    <a href="#performance" onclick="return switchTab('performance')" id="tab-performance" class="group flex-1 relative z-10 flex items-center justify-center py-1.5 text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">
                         <i class="fas fa-chart-network mr-1 sm:mr-2 group-hover:text-white transition-colors"></i>Performance
                     </a>
                 </div>
@@ -241,7 +323,7 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
         </div>    
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">        
+    <div id="realtime-page" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">        
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">                        
             <div class="rounded-2xl py-6 lg:col-span-2 flex flex-col sm:flex-row gap-5 relative z-20" id="search-section">                
                 <div class="flex-1 w-full">                    
@@ -394,6 +476,88 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
                 </div>            
             </div>        
         </div>    
+    </div>
+
+
+    <!-- PERFORMANCE PAGE: embedded from uploaded PEFORMA.txt -->
+    <div id="performance-page" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12" style="display:none;">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <div class="rounded-2xl py-6 lg:col-span-2 flex flex-col sm:flex-row gap-5 relative z-20">
+                <div class="flex-1 w-full">
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Periode Waktu</label>
+                    <div class="relative w-full group">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <i class="fas fa-calendar-alt text-violet-400/80"></i>
+                        </div>
+                        <input type="text" id="perf-dateinput" readonly
+                            class="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl text-sm bg-black/20 text-slate-200 cursor-pointer transition-all hover:bg-black/40"
+                            value="August 19, 2026 - August 19, 2026" />
+                    </div>
+                    <p id="perf-date-note" class="mt-2 text-[10px] text-slate-500">Data Performance yang tertanam berasal dari file Performance yang kamu kirim.</p>
+                </div>
+                <div class="flex-1 w-full">
+                    <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">Cari ID Data</label>
+                    <div class="relative w-full group">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-violet-400/80"></i>
+                        </div>
+                        <input type="search" id="perf-lookingfor"
+                            class="block w-full pl-10 pr-4 py-3 border border-white/10 rounded-xl text-sm bg-black/20 text-slate-200 placeholder-slate-500 transition-all hover:bg-black/40"
+                            placeholder="Ketik ID..." />
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-6 flex items-center justify-around relative overflow-hidden">
+                <div class="absolute -right-6 -top-6 w-24 h-24 bg-violet-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                <div class="text-center relative z-10 w-1/2">
+                    <h2 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Total ID</h2>
+                    <h1 id="perf-totallead" class="text-4xl font-extrabold text-cyan-400 text-glow-cyan tracking-tight">299</h1>
+                </div>
+                <div class="w-px h-16 bg-white/10 relative z-10"></div>
+                <div class="text-center relative z-10 w-1/2">
+                    <h2 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">Net Earnings</h2>
+                    <h1 class="text-4xl font-extrabold text-emerald-400 text-glow-emerald tracking-tight">$<span id="perf-totalearning">1321.88</span></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel rounded-2xl overflow-hidden flex flex-col">
+            <div class="h-16 px-6 border-b border-white/5 bg-white/[0.02] flex justify-between items-center">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                    <i class="fas fa-chart-network text-violet-400"></i> Performance Data
+                </h3>
+                <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-violet-400/20 bg-violet-400/10 text-violet-300">Embedded</span>
+            </div>
+            <div class="overflow-x-auto custom-scrollbar flex-1">
+                <table class="min-w-full divide-y divide-white/5 results" id="performancelist">
+                    <thead class="bg-black/20">
+                        <tr>
+                            <th onclick="sortPerfTable(0)" class="cursor-pointer group select-none px-5 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition"># <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                            <th onclick="sortPerfTable(1)" class="cursor-pointer group select-none px-5 py-3 text-left text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition">ID <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                            <th onclick="sortPerfTable(2)" class="cursor-pointer group select-none px-5 py-3 text-center text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition">Clicks <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                            <th onclick="sortPerfTable(3)" class="cursor-pointer group select-none px-5 py-3 text-center text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition">Visits <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                            <th onclick="sortPerfTable(4)" class="cursor-pointer group select-none px-5 py-3 text-center text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition">Leads <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                            <th onclick="sortPerfTable(5)" class="cursor-pointer group select-none px-5 py-3 text-right text-xs font-bold text-slate-400 uppercase tracking-wider hover:text-white transition">Earning <i class="fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 whitespace-nowrap text-sm"></tbody>
+                    <tfoot class="bg-white/[0.02] border-t border-white/10">
+                        <tr>
+                            <td colspan="5" class="px-5 py-3 text-right font-bold text-slate-300 tracking-widest">TOTAL EARNING</td>
+                            <td class="px-5 py-3 text-right font-extrabold text-emerald-400 text-lg">$<span id="perf-sum">1321.88</span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div id="perf-no-result" class="text-center py-12 text-slate-500 hidden">
+                    <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-box-open text-2xl text-slate-400"></i>
+                    </div>
+                    <p class="font-medium">Tidak ada data ditemukan</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <a href="javascript:" id="return-to-top" class="scroll-btn shadow-lg" title="Ke Atas"><i class="fas fa-chevron-up"></i></a>    
@@ -815,7 +979,7 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
         };
 
         window.notifyMe = function(msg) {            
-            if (Notification && Notification.permission === "granted") {                
+            if (typeof Notification !== "undefined" && Notification.permission === "granted") {                
                 var notification = new Notification('💰 NEW LEAD: ' + msg.click_id, {                    
                     icon: 'https://cdn-icons-png.flaticon.com/512/1055/1055183.png',                    
                     body: "Region: " + msg.country + " | Earning: $" + Number(msg.payout).toFixed(2),                
@@ -873,8 +1037,13 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
         // SETUP ON READY        
         $(document).ready(function() {
 
-            switchTab('realtime');            
-            if (Notification && Notification.permission !== "granted") { Notification.requestPermission(); }
+            if (location.hash !== '#performance') switchTab('realtime');            
+            if (typeof Notification !== "undefined" && Notification.permission !== "granted") {
+                try {
+                    const p = Notification.requestPermission();
+                    if (p && typeof p.catch === "function") p.catch(function(){});
+                } catch(e) {}
+            }
 
             // Accordion Geo Chart Logic
             $('#geo-panel-header').click(function() {
@@ -929,32 +1098,41 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
                 }            
             });
 
-            // Search dengan Debounce (Memperbaiki lag saat mengetik)
+            // Search dengan Debounce - desktop + mobile
             let searchTimeout;
-            $(".search").off("keyup input").on("keyup input", function() {                
-                const term = $(this).val().toLowerCase();
-                
-                // Sync value ke input yang satunya
+            $(".search").off("keyup input change search").on("keyup input change search", function() {
+                const term = ($(this).val() || "").toLowerCase();
+
                 if (this.id === 'lookingfor') {
                     $('#header-lookingfor').val(this.value);
                 } else if (this.id === 'header-lookingfor') {
                     $('#lookingfor').val(this.value);
                 }
-                
-                // Debounce: Tunggu user selesai mengetik 300ms baru jalankan filter
+
                 clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    window.renderTableFromData(term);            
-                }, 300);
+                searchTimeout = setTimeout(function() {
+                    if (typeof window.renderTableFromData === 'function') {
+                        window.renderTableFromData(term);
+                    }
+                }, 180);
             });
 
             // Klik icon search di HP (scroll kembali ke search utama)
             $('#mobile-header-search-btn').click(function(e) {
                 e.preventDefault();
-                var searchSectionTop = $('#search-section').offset().top - 80; // offset sedikit dari header
-                $('body,html').animate({ scrollTop : searchSectionTop }, 500, function() {
-                    $('#lookingfor').focus();
-                });
+
+                const perfVisible = $('#performance-page').is(':visible');
+                if (perfVisible) {
+                    const top = $('#performance-page').offset().top - 70;
+                    $('body,html').animate({ scrollTop: top }, 350, function() {
+                        $('#perf-lookingfor').trigger('focus');
+                    });
+                } else {
+                    const searchSectionTop = $('#search-section').offset().top - 80;
+                    $('body,html').animate({ scrollTop: searchSectionTop }, 350, function() {
+                        $('#lookingfor').trigger('focus');
+                    });
+                }
             });
 
             // Autocomplete Setup
@@ -1037,6 +1215,12 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
             function getNetworkMoment() { return moment().subtract(7, 'hours'); }
 
             $('#dateinput').val(getNetworkMoment().format('MMMM D, YYYY') + ' - ' + getNetworkMoment().format('MMMM D, YYYY'));            
+            // Pastikan datepicker bisa dibuka lewat tap di HP
+            $('#dateinput').off('touchend.mobilefix').on('touchend.mobilefix', function(e) {
+                e.preventDefault();
+                try { $(this).data('daterangepicker').show(); } catch(err) {}
+            });
+
             $('#dateinput').daterangepicker({                
                 ranges: {                    
                     'Today (Network)': [getNetworkMoment().startOf('day'), getNetworkMoment().endOf('day')],                    
@@ -1050,6 +1234,13 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
                 "opens": "center"            
             }, function(start, end, label) {                
                 if(window.triggerFirebaseLoad) window.triggerFirebaseLoad(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'));            
+            });
+
+            // Rebind setelah daterangepicker selesai dibuat
+            $('#dateinput').off('click.mobilefix touchend.mobilefix').on('click.mobilefix touchend.mobilefix', function(e) {
+                if (e.type === 'touchend') e.preventDefault();
+                const picker = $(this).data('daterangepicker');
+                if (picker) picker.show();
             });
 
             // BUTTON TOGGLES            
@@ -1160,6 +1351,138 @@ input#dateinput:focus,input#lookingfor:focus,input#header-lookingfor:focus{borde
                 }
             });       
         });    
+    </script>
+
+
+    <script>
+    // ===== Embedded Performance module =====
+    window.initialPerformance = [{"id":"2FA","clicks":"617","visits":"1878","leads":"24","earning":41.4642},{"id":"666","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"ABS","clicks":"1","visits":"1","leads":"0","earning":0},{"id":"AHHH","clicks":"84","visits":"197","leads":"4","earning":0.336},{"id":"AJMANAS","clicks":"11","visits":"18","leads":"1","earning":0.3702},{"id":"AKTIF_LAGI","clicks":"8","visits":"54","leads":"1","earning":4},{"id":"ALEXA54","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"ALFITRA","clicks":"13","visits":"32","leads":"1","earning":0.08},{"id":"ALIEN","clicks":"137","visits":"367","leads":"7","earning":17.7094},{"id":"ALVAREZ","clicks":"2","visits":"3","leads":"0","earning":0},{"id":"AMBATUKAM","clicks":"18","visits":"59","leads":"1","earning":5.2},{"id":"ANANTA","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"ANCURITS03","clicks":"59","visits":"145","leads":"1","earning":0.224},{"id":"ANYTHING","clicks":"762","visits":"1763","leads":"56","earning":79.0426},{"id":"ARTOMORO","clicks":"22","visits":"166","leads":"2","earning":7.5437},{"id":"ATENG","clicks":"16","visits":"88","leads":"0","earning":0},{"id":"AYAM_KAMPUS","clicks":"59","visits":"166","leads":"8","earning":21.4669},{"id":"Anarky","clicks":"3","visits":"3","leads":"1","earning":0.016},{"id":"BADIK","clicks":"2","visits":"8","leads":"0","earning":0},{"id":"BALLERINA","clicks":"200","visits":"550","leads":"17","earning":37.4435},{"id":"BAN_TUBLES","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BAPAK_BAPAK","clicks":"8","visits":"10","leads":"1","earning":4},{"id":"BEDES_BELEK","clicks":"5","visits":"13","leads":"0","earning":0},{"id":"BEKEK","clicks":"160","visits":"479","leads":"11","earning":10.2469},{"id":"BELFORT","clicks":"14","visits":"64","leads":"3","earning":4.5549},{"id":"BELLADONA","clicks":"2","visits":"6","leads":"0","earning":0},{"id":"BENCET","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BENDOT","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BEPO","clicks":"2","visits":"5","leads":"0","earning":0},{"id":"BESTIE","clicks":"50","visits":"110","leads":"2","earning":0.072},{"id":"BIGG_MOUSE","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BILQIS","clicks":"4","visits":"13","leads":"1","earning":1.84},{"id":"BINATANG","clicks":"8","visits":"21","leads":"1","earning":0.08},{"id":"BINTANG_MAS","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"BLONYO","clicks":"6","visits":"24","leads":"0","earning":0},{"id":"BLUE","clicks":"28","visits":"98","leads":"1","earning":0.016},{"id":"BOCAHANYARAN","clicks":"61","visits":"257","leads":"2","earning":6.4792},{"id":"BOCAH_VIRAL","clicks":"48","visits":"145","leads":"2","earning":4.9057},{"id":"BOCOR","clicks":"58","visits":"217","leads":"4","earning":5.1949},{"id":"BOCORALUS","clicks":"2","visits":"5","leads":"0","earning":0},{"id":"BOS_MUDA03","clicks":"14","visits":"30","leads":"0","earning":0},{"id":"BRANTAS","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BRENDY","clicks":"4","visits":"7","leads":"2","earning":2.6477},{"id":"BSM","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BUBU_NOGO","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"BUDREK","clicks":"8","visits":"16","leads":"0","earning":0},{"id":"BULAK_BANTENG","clicks":"18","visits":"70","leads":"2","earning":3.0956},{"id":"CABUL","clicks":"30","visits":"93","leads":"1","earning":0.24},{"id":"CAK_SIDO","clicks":"52","visits":"191","leads":"4","earning":10.8045},{"id":"CARLOBIADO","clicks":"3","visits":"7","leads":"1","earning":0.056},{"id":"CBS","clicks":"51","visits":"101","leads":"3","earning":3.52},{"id":"CELAK","clicks":"57","visits":"154","leads":"2","earning":0.048},{"id":"CENDOL","clicks":"171","visits":"423","leads":"8","earning":0.8182},{"id":"CHELSEA","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"CHOPPER","clicks":"2","visits":"6","leads":"0","earning":0},{"id":"CILUKBA","clicks":"15","visits":"45","leads":"1","earning":0.032},{"id":"CLICKEN","clicks":"185","visits":"478","leads":"13","earning":3.896},{"id":"COBRA","clicks":"7","visits":"29","leads":"1","earning":3.1008},{"id":"COCOMELON","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"COCOWI","clicks":"16","visits":"52","leads":"0","earning":0},{"id":"CUAN","clicks":"7","visits":"38","leads":"0","earning":0},{"id":"CUPAPIMUNYANYO","clicks":"312","visits":"1057","leads":"13","earning":14.0578},{"id":"CYCLOPS_KILLER","clicks":"4","visits":"9","leads":"0","earning":0},{"id":"DANADYAKSA","clicks":"8","visits":"42","leads":"0","earning":0},{"id":"DEMPUL","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"DEPLOY","clicks":"42","visits":"120","leads":"4","earning":0.28},{"id":"DEWA_PERANG","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"DIAMOND","clicks":"66","visits":"196","leads":"4","earning":18.942},{"id":"DICTATOR","clicks":"2","visits":"11","leads":"0","earning":0},{"id":"DIGNITY","clicks":"4","visits":"11","leads":"0","earning":0},{"id":"DOREMIFASOLASIDO","clicks":"9","visits":"45","leads":"2","earning":0.36},{"id":"DUREX","clicks":"6","visits":"16","leads":"2","earning":0.072},{"id":"DYRROTH_XYZ","clicks":"5","visits":"14","leads":"0","earning":0},{"id":"ELDIABLO","clicks":"33","visits":"66","leads":"1","earning":0.032},{"id":"ELKERUNG","clicks":"124","visits":"351","leads":"8","earning":12.7309},{"id":"EMINEM","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"ENDOK_PUYUH","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"ERIBERTO","clicks":"1","visits":"1","leads":"0","earning":0},{"id":"ESPRESSO","clicks":"7","visits":"10","leads":"0","earning":0},{"id":"ETNIS","clicks":"132","visits":"396","leads":"4","earning":10.141},{"id":"EXXDER","clicks":"5","visits":"8","leads":"1","earning":6.4},{"id":"FILLER","clicks":"58","visits":"164","leads":"2","earning":0.56},{"id":"FORMALIN","clicks":"40","visits":"184","leads":"0","earning":0},{"id":"FUJI","clicks":"10","visits":"22","leads":"0","earning":0},{"id":"GAMABUNTA","clicks":"4","visits":"8","leads":"0","earning":0},{"id":"GARPO","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"GAS21","clicks":"117","visits":"784","leads":"5","earning":11.2989},{"id":"GASS99","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"GAS_GERMANY","clicks":"328","visits":"1172","leads":"20","earning":35.038},{"id":"GBA","clicks":"169","visits":"330","leads":"11","earning":5.1182},{"id":"GEGERKAKU","clicks":"69","visits":"228","leads":"1","earning":0.152},{"id":"GEMBOK","clicks":"94","visits":"207","leads":"7","earning":1.5622},{"id":"GERANDONG","clicks":"2","visits":"3","leads":"1","earning":0.24},{"id":"GIMBAL","clicks":"0","visits":"4","leads":"1","earning":0.064},{"id":"GOVIN","clicks":"8","visits":"36","leads":"1","earning":4},{"id":"GRANGER","clicks":"4","visits":"6","leads":"0","earning":0},{"id":"GSM","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"GTR","clicks":"1","visits":"8","leads":"1","earning":0.4},{"id":"GUTOL","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"HANCOCK","clicks":"39","visits":"127","leads":"2","earning":0.112},{"id":"HANTU","clicks":"42","visits":"138","leads":"2","earning":3.432},{"id":"HEHEHE","clicks":"584","visits":"1458","leads":"32","earning":29.0149},{"id":"HELLOKITY","clicks":"2","visits":"12","leads":"0","earning":0},{"id":"HERMAN02","clicks":"1","visits":"3","leads":"0","earning":0},{"id":"HIHIHI","clicks":"211","visits":"569","leads":"14","earning":16.462},{"id":"HOLISGAN","clicks":"4","visits":"21","leads":"1","earning":4.4429},{"id":"HOOLIGANS","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"HORAS","clicks":"365","visits":"804","leads":"11","earning":15.6822},{"id":"HUMER","clicks":"30","visits":"80","leads":"5","earning":0.84},{"id":"IFARA","clicks":"48","visits":"122","leads":"6","earning":4.396},{"id":"INDRO","clicks":"157","visits":"501","leads":"5","earning":8.696},{"id":"INVEKSI","clicks":"264","visits":"602","leads":"18","earning":14.618},{"id":"ISMEIGGG","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"JABAL","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"JABIR","clicks":"62","visits":"186","leads":"5","earning":10.698},{"id":"JAGAL_SAPI","clicks":"4","visits":"7","leads":"0","earning":0},{"id":"JAROT","clicks":"6","visits":"13","leads":"0","earning":0},{"id":"JERRY","clicks":"1220","visits":"2663","leads":"66","earning":42.7711},{"id":"JHIYO","clicks":"2","visits":"6","leads":"0","earning":0},{"id":"JOKER","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"JORDAN_BOY","clicks":"84","visits":"210","leads":"6","earning":11.6843},{"id":"JOSH","clicks":"124","visits":"269","leads":"8","earning":21.3232},{"id":"JOSJIS","clicks":"173","visits":"622","leads":"15","earning":12.0171},{"id":"JOSSJISS_CAK","clicks":"2","visits":"6","leads":"1","earning":0.28},{"id":"JUARA_JAMBU","clicks":"7","visits":"21","leads":"0","earning":0},{"id":"KAJI_SHOLIN","clicks":"21","visits":"47","leads":"0","earning":0},{"id":"KAMPAT","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KASNURI","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KATEL","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KAYARAYA","clicks":"175","visits":"499","leads":"1","earning":4.4},{"id":"KEI","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KEKOK","clicks":"1","visits":"4","leads":"0","earning":0},{"id":"KELOMAN","clicks":"11","visits":"40","leads":"0","earning":0},{"id":"KENCENG","clicks":"1","visits":"1","leads":"0","earning":0},{"id":"KEN_AROK","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KETURON","clicks":"118","visits":"412","leads":"6","earning":13.1916},{"id":"KIIMCIL","clicks":"85","visits":"416","leads":"5","earning":17.9754},{"id":"KING","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"KITIRAN","clicks":"225","visits":"664","leads":"11","earning":12.482},{"id":"KITUKX","clicks":"20","visits":"69","leads":"2","earning":0.16},{"id":"KLANTENG","clicks":"1","visits":"15","leads":"0","earning":0},{"id":"KOKICHI","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"KOK_SMEAN","clicks":"71","visits":"185","leads":"5","earning":3.12},{"id":"KOLIL","clicks":"39","visits":"195","leads":"3","earning":10.382},{"id":"KOPASKA_80","clicks":"94","visits":"255","leads":"6","earning":4.0006},{"id":"KOPISUSU","clicks":"1","visits":"1","leads":"0","earning":0},{"id":"KOREKAN","clicks":"4","visits":"11","leads":"0","earning":0},{"id":"KUTOHARJO","clicks":"6","visits":"23","leads":"1","earning":3.2},{"id":"KUVUKILAND","clicks":"19","visits":"56","leads":"1","earning":0.016},{"id":"LABILABI","clicks":"14","visits":"24","leads":"0","earning":0},{"id":"LEMESLONGSOR","clicks":"4","visits":"9","leads":"0","earning":0},{"id":"LONTONG_X","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"MACAN","clicks":"44","visits":"146","leads":"1","earning":0.42},{"id":"MAEM_PAPAT","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"MAFFA08","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"MAKANINOGO","clicks":"15","visits":"46","leads":"0","earning":0},{"id":"MAMAFARAH","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"MAMAGHUFRON","clicks":"4","visits":"11","leads":"0","earning":0},{"id":"MAMI","clicks":"18","visits":"42","leads":"5","earning":4.912},{"id":"MANCINGMANIA","clicks":"56","visits":"176","leads":"4","earning":2.712},{"id":"MARIJUANA","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"MAYET_UREP","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"MAYMIRZA","clicks":"15","visits":"31","leads":"0","earning":0},{"id":"MBAH_HUR","clicks":"1","visits":"4","leads":"0","earning":0},{"id":"MBEKONYOK","clicks":"66","visits":"278","leads":"4","earning":11.471},{"id":"MBG","clicks":"373","visits":"912","leads":"21","earning":33.6157},{"id":"MELUNCUR","clicks":"279","visits":"608","leads":"25","earning":16.9958},{"id":"MENDEM_NONGKO","clicks":"2","visits":"6","leads":"1","earning":3.2},{"id":"MISTERIUS","clicks":"65","visits":"118","leads":"4","earning":4.6909},{"id":"MISTER_X","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"MLOROT","clicks":"1","visits":"4","leads":"0","earning":0},{"id":"MLUMAH_03","clicks":"37","visits":"69","leads":"1","earning":0.4},{"id":"MORIARTY","clicks":"0","visits":"3","leads":"0","earning":0},{"id":"MOSOK","clicks":"3","visits":"5","leads":"0","earning":0},{"id":"MRINGIS","clicks":"58","visits":"129","leads":"4","earning":3.496},{"id":"MWK","clicks":"3","visits":"14","leads":"0","earning":0},{"id":"NABATI","clicks":"30","visits":"142","leads":"4","earning":4.8589},{"id":"NAYLIE","clicks":"4","visits":"14","leads":"0","earning":0},{"id":"NEBULA","clicks":"16","visits":"39","leads":"1","earning":2.2},{"id":"NGGEBLAK","clicks":"107","visits":"444","leads":"5","earning":6.8976},{"id":"NGOKOP","clicks":"280","visits":"683","leads":"16","earning":5.9014},{"id":"NGOMBE","clicks":"12","visits":"37","leads":"3","earning":5.6774},{"id":"NINA","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"NINJASS","clicks":"10","visits":"57","leads":"0","earning":0},{"id":"NUTRISARI","clicks":"195","visits":"815","leads":"10","earning":26.3065},{"id":"NYAMBEK","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"NYAWIT","clicks":"28","visits":"50","leads":"3","earning":0.44},{"id":"NYONYO","clicks":"23","visits":"79","leads":"1","earning":0.016},{"id":"OCEAN","clicks":"53","visits":"130","leads":"2","earning":4.628},{"id":"OLALA","clicks":"3","visits":"8","leads":"0","earning":0},{"id":"OPLOSAN","clicks":"3","visits":"4","leads":"0","earning":0},{"id":"PAKOYPANTURA","clicks":"60","visits":"140","leads":"3","earning":8.8978},{"id":"PAKUBUMI","clicks":"2","visits":"7","leads":"0","earning":0},{"id":"PASTICAIR","clicks":"3","visits":"8","leads":"1","earning":0.8},{"id":"PCX_1","clicks":"25","visits":"65","leads":"3","earning":4.024},{"id":"PCX_2","clicks":"5","visits":"12","leads":"0","earning":0},{"id":"PCX_3","clicks":"32","visits":"115","leads":"2","earning":4.08},{"id":"PCX_4","clicks":"36","visits":"86","leads":"1","earning":0.012},{"id":"PEMOEDA80","clicks":"23","visits":"66","leads":"0","earning":0},{"id":"PICEK","clicks":"46","visits":"141","leads":"1","earning":3.0082},{"id":"PICUPICU","clicks":"29","visits":"73","leads":"0","earning":0},{"id":"PIKACU","clicks":"6","visits":"26","leads":"2","earning":0.48},{"id":"PILUS","clicks":"15","visits":"33","leads":"3","earning":4.8206},{"id":"PINOKIO","clicks":"0","visits":"4","leads":"0","earning":0},{"id":"PINOY","clicks":"16","visits":"32","leads":"1","earning":0.08},{"id":"PLONTER-PLONTER","clicks":"79","visits":"186","leads":"3","earning":0.944},{"id":"POKCULEK","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"POK_INGOK","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"PRAGOS_SENG","clicks":"12","visits":"38","leads":"1","earning":3.2},{"id":"PRIA_SOLO","clicks":"375","visits":"1416","leads":"30","earning":57.7347},{"id":"PROCOT","clicks":"7","visits":"26","leads":"0","earning":0},{"id":"PUMA","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"PUREL","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"P_KOPAG","clicks":"19","visits":"58","leads":"2","earning":4.012},{"id":"RANGER_MERAH","clicks":"5","visits":"20","leads":"0","earning":0},{"id":"RDT","clicks":"162","visits":"363","leads":"10","earning":30.312},{"id":"REALMADRID","clicks":"135","visits":"374","leads":"5","earning":5.594},{"id":"REBELLIONROSE","clicks":"90","visits":"202","leads":"4","earning":0.75},{"id":"RELAX","clicks":"8","visits":"52","leads":"2","earning":8.4692},{"id":"REQUEST","clicks":"11","visits":"34","leads":"0","earning":0},{"id":"ROKEDI","clicks":"2","visits":"5","leads":"0","earning":0},{"id":"ROSE","clicks":"3","visits":"15","leads":"0","earning":0},{"id":"ROSEBRAND","clicks":"5","visits":"13","leads":"0","earning":0},{"id":"ROZI","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"RWB","clicks":"22","visits":"71","leads":"3","earning":9.232},{"id":"SAHABAT_LC","clicks":"35","visits":"85","leads":"0","earning":0},{"id":"SAILENDRA","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"SAKA","clicks":"1","visits":"8","leads":"0","earning":0},{"id":"SAKIT-SAYANG","clicks":"163","visits":"561","leads":"7","earning":9.416},{"id":"SAMADIKAP","clicks":"55","visits":"193","leads":"4","earning":2.928},{"id":"SAMUKIT","clicks":"18","visits":"69","leads":"2","earning":4.7526},{"id":"SAPIKIN","clicks":"20","visits":"424","leads":"3","earning":0.496},{"id":"SASAWI","clicks":"14","visits":"65","leads":"1","earning":4},{"id":"SATSET","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"SATTEMBO_X","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"SEPI","clicks":"3","visits":"9","leads":"0","earning":0},{"id":"SERABEH","clicks":"59","visits":"153","leads":"4","earning":0.592},{"id":"SERDADU","clicks":"4","visits":"16","leads":"1","earning":0.016},{"id":"SERUNDENG","clicks":"0","visits":"3","leads":"0","earning":0},{"id":"SESSIONBOX","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"SEVANO","clicks":"15","visits":"37","leads":"0","earning":0},{"id":"SINCHAN","clicks":"94","visits":"505","leads":"5","earning":9.9965},{"id":"SI_PEOT","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"SI_UTUN","clicks":"38","visits":"131","leads":"2","earning":0.032},{"id":"SLUNDUPAN","clicks":"5","visits":"7","leads":"0","earning":0},{"id":"SOAD","clicks":"1","visits":"5","leads":"0","earning":0},{"id":"SODOK_DOWO","clicks":"69","visits":"178","leads":"8","earning":8.208},{"id":"SOLASI","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"SOMBRO","clicks":"23","visits":"67","leads":"1","earning":0.24},{"id":"SORA","clicks":"5","visits":"22","leads":"0","earning":0},{"id":"STECU","clicks":"304","visits":"853","leads":"12","earning":14.0264},{"id":"SUGENG","clicks":"70","visits":"331","leads":"4","earning":10.8445},{"id":"SUKUNA","clicks":"22","visits":"60","leads":"1","earning":0.08},{"id":"SUMPEK","clicks":"0","visits":"2","leads":"0","earning":0},{"id":"SUNTIKAN","clicks":"53","visits":"118","leads":"4","earning":0.532},{"id":"SURFSHARK","clicks":"2","visits":"4","leads":"0","earning":0},{"id":"SUROSO02","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"SUS","clicks":"414","visits":"1340","leads":"20","earning":28.1766},{"id":"SUWINEAA","clicks":"36","visits":"68","leads":"4","earning":3.8182},{"id":"SVB","clicks":"2","visits":"3","leads":"0","earning":0},{"id":"SkyBlue","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"TAKIMSALTO","clicks":"3","visits":"6","leads":"0","earning":0},{"id":"TANGKIS","clicks":"267","visits":"590","leads":"12","earning":9.1707},{"id":"TARZAN45","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"TEH_PUCUK","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"TELUR_DADAR","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"TEMPILENG_SAITIK","clicks":"11","visits":"65","leads":"1","earning":0.016},{"id":"TEMUTAN","clicks":"207","visits":"529","leads":"8","earning":12.546},{"id":"TERNAK_MULYONO","clicks":"302","visits":"731","leads":"22","earning":5.124},{"id":"TILIS","clicks":"5","visits":"12","leads":"2","earning":0.52},{"id":"TIMOTHY_RONALD","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"TINGKIWINGKI","clicks":"13","visits":"39","leads":"0","earning":0},{"id":"TOKDALANG","clicks":"94","visits":"551","leads":"6","earning":18.3799},{"id":"TORNADO21","clicks":"38","visits":"156","leads":"1","earning":2.48},{"id":"TPI","clicks":"7","visits":"11","leads":"0","earning":0},{"id":"TRETESMENYAPA","clicks":"8","visits":"26","leads":"1","earning":6.4},{"id":"TRILIUNERRR","clicks":"28","visits":"84","leads":"3","earning":0.536},{"id":"TURU_TAMBAK","clicks":"498","visits":"1686","leads":"16","earning":10.132},{"id":"UCUPS","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"UDANG99","clicks":"47","visits":"212","leads":"1","earning":3.1008},{"id":"UMAR","clicks":"1","visits":"8","leads":"0","earning":0},{"id":"UPIN","clicks":"481","visits":"1750","leads":"20","earning":16.479},{"id":"URL_21","clicks":"4","visits":"7","leads":"2","earning":4.456},{"id":"USERAGENT","clicks":"17","visits":"82","leads":"1","earning":0.24},{"id":"VIOLA","clicks":"6","visits":"25","leads":"0","earning":0},{"id":"WAKREBO","clicks":"2","visits":"4","leads":"0","earning":0},{"id":"WELCOME","clicks":"29","visits":"152","leads":"4","earning":12.4229},{"id":"WIDENG_88","clicks":"28","visits":"88","leads":"0","earning":0},{"id":"WOIYY","clicks":"1","visits":"2","leads":"0","earning":0},{"id":"XENA21","clicks":"1441","visits":"3163","leads":"66","earning":43.5262},{"id":"XXX_01","clicks":"168","visits":"422","leads":"11","earning":19.136},{"id":"YAMENE","clicks":"0","visits":"1","leads":"0","earning":0},{"id":"YAPIRO","clicks":"314","visits":"1033","leads":"22","earning":41.4441},{"id":"YEP","clicks":"168","visits":"472","leads":"8","earning":0.844},{"id":"YONO","clicks":"227","visits":"985","leads":"7","earning":23.5968},{"id":"YUKMU_NJOK_MANGAN","clicks":"988","visits":"3291","leads":"34","earning":37.5304},{"id":"YUKNDIK99","clicks":"0","visits":"2","leads":"1","earning":2.88},{"id":"ZIKZAX","clicks":"2","visits":"6","leads":"1","earning":0.08},{"id":"rwb","clicks":"0","visits":"1","leads":"0","earning":0}];
+    window.perfFiltered = window.initialPerformance.slice();
+    window.perfSortDirection = [true, true, true, true, true, true];
+
+    window.renderPerformance = function(data) {
+        const tbody = document.querySelector('#performancelist tbody');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        let total = 0;
+
+        data.forEach((item, index) => {
+            const earning = Number(item.earning) || 0;
+            const leads = Number(item.leads) || 0;
+            total += earning;
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-white/5 transition-colors border-b border-white/5';
+            tr.innerHTML =
+                '<td class="px-5 py-2.5 no text-slate-500">' + (index + 1) + '</td>' +
+                '<td class="px-5 py-2.5 font-semibold text-slate-200 perf-click-id">' + escapePerf(item.id) + '</td>' +
+                '<td class="px-5 py-2.5 text-center text-slate-300">' + Number(item.clicks || 0) + '</td>' +
+                '<td class="px-5 py-2.5 text-center text-slate-300">' + Number(item.visits || 0) + '</td>' +
+                '<td class="px-5 py-2.5 text-center ' + (leads > 0 ? 'text-cyan-400 font-bold' : 'text-slate-500') + '">' + leads + '</td>' +
+                '<td class="px-5 py-2.5 text-right font-bold text-emerald-400 perf-payout">' + earning.toFixed(4) + '</td>';
+            tbody.appendChild(tr);
+        });
+
+        document.getElementById('perf-totallead').textContent = data.length;
+        document.getElementById('perf-totalearning').textContent = total.toFixed(2);
+        document.getElementById('perf-sum').textContent = total.toFixed(2);
+        document.getElementById('perf-no-result').classList.toggle('hidden', data.length !== 0);
+        document.getElementById('performancelist').classList.toggle('hidden', data.length === 0);
+    };
+
+    function escapePerf(value) {
+        return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+            return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'})[ch];
+        });
+    }
+
+    window.filterPerformance = function() {
+        const q = ((document.getElementById('perf-lookingfor') && document.getElementById('perf-lookingfor').value) || '').trim().toLowerCase();
+        window.perfFiltered = !q
+            ? window.initialPerformance.slice()
+            : window.initialPerformance.filter(x => String(x.id || '').toLowerCase().includes(q));
+        window.renderPerformance(window.perfFiltered);
+    };
+
+    window.sortPerfTable = function(columnIndex) {
+        const keys = ['__index', 'id', 'clicks', 'visits', 'leads', 'earning'];
+        const key = keys[columnIndex] || 'id';
+        const asc = window.perfSortDirection[columnIndex];
+        window.perfSortDirection[columnIndex] = !asc;
+
+        window.perfFiltered.sort((a,b) => {
+            let av, bv;
+            if (key === '__index') {
+                av = window.initialPerformance.indexOf(a);
+                bv = window.initialPerformance.indexOf(b);
+            } else if (key === 'id') {
+                av = String(a.id || '');
+                bv = String(b.id || '');
+                return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+            } else {
+                av = Number(a[key] || 0);
+                bv = Number(b[key] || 0);
+            }
+            return asc ? av - bv : bv - av;
+        });
+        window.renderPerformance(window.perfFiltered);
+
+        document.querySelectorAll('#performancelist thead th i').forEach(i => {
+            i.className = 'fas fa-sort text-slate-600 ml-1 group-hover:text-violet-400 transition';
+        });
+        const active = (document.querySelectorAll('#performancelist thead th')[columnIndex] ? document.querySelectorAll('#performancelist thead th')[columnIndex].querySelector('i') : null);
+        if (active) active.className = asc ? 'fas fa-sort-up text-violet-400 ml-1' : 'fas fa-sort-down text-violet-400 ml-1';
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        window.renderPerformance(window.initialPerformance.slice());
+
+        const perfSearch = document.getElementById('perf-lookingfor');
+        if (perfSearch) {
+            ['input','keyup','change','search'].forEach(function(evt) {
+                perfSearch.addEventListener(evt, window.filterPerformance, {passive:true});
+            });
+        }
+
+        // Make the header search useful on the active Performance tab as well.
+        const headerSearch = document.getElementById('header-lookingfor');
+        if (headerSearch) {
+            headerSearch.addEventListener('input', function() {
+                if ((document.getElementById('performance-page') && document.getElementById('performance-page').style.display !== 'none')) {
+                    perfSearch.value = this.value;
+                    window.filterPerformance();
+                }
+            });
+        }
+
+        // The uploaded Performance file contains a server-rendered snapshot.
+        // Keep its date UI stable and prevent a broken form-submit when hosted on GitHub Pages.
+        if (window.jQuery && jQuery.fn.daterangepicker) {
+            const embeddedDate = moment('2026-08-19', 'YYYY-MM-DD');
+            $('#perf-dateinput').daterangepicker({
+                startDate: embeddedDate,
+                endDate: embeddedDate,
+                autoApply: true,
+                ranges: {
+                    'Data File': [embeddedDate, embeddedDate]
+                },
+                locale: { format: 'MMMM D, YYYY' },
+                opens: 'center'
+            }, function(start, end) {
+                $('#perf-dateinput').val(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                if (start.format('YYYY-MM-DD') !== '2026-08-19' || end.format('YYYY-MM-DD') !== '2026-08-19') {
+                    if (typeof showToast === 'function') {
+                        showToast('File Performance yang dikirim hanya membawa data snapshot 19 Agustus 2026.', 'info');
+                    }
+                }
+            });
+
+            $('#perf-dateinput').off('click.mobilefix touchend.mobilefix').on('click.mobilefix touchend.mobilefix', function(e) {
+                if (e.type === 'touchend') e.preventDefault();
+                const picker = $(this).data('daterangepicker');
+                if (picker) picker.show();
+            });
+        }
+    });
     </script>
 
     <script type="module">        
