@@ -1,1 +1,3760 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Paradise Manager Auto Update Only</title><link rel="icon" type="image/png" href="favicon.png"> <style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:"Segoe UI",Arial,sans-serif;min-height:100vh;padding:30px;color:#fff;background:linear-gradient(rgba(3,8,20,.78),rgba(3,8,20,.88)),url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1800&auto=format&fit=crop") center center/cover fixed;}.app{max-width:1200px;margin:auto;}.header{position:relative;margin-bottom:28px;}.badge{display:inline-block;padding:8px 18px;border-radius:50px;background:linear-gradient(135deg,#00d4ff,#0078ff);font-size:12px;font-weight:bold;letter-spacing:1px;box-shadow:0 0 18px rgba(0,212,255,.45);margin-bottom:16px;}.header h1{font-size:34px;font-weight:800;letter-spacing:1px;text-align:center;text-shadow:0 0 15px rgba(0,212,255,.45);}.row{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;}.row3{grid-template-columns:repeat(3,1fr);}.panel{background:rgba(15,24,44,.72);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:22px;margin-bottom:22px;box-shadow:0 15px 40px rgba(0,0,0,.35),0 0 18px rgba(0,180,255,.08);transition:.25s;}.panel:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 25px rgba(0,212,255,.15);}.panel-title{font-size:18px;font-weight:700;margin-bottom:14px;color:#ffffff;letter-spacing:.5px;}textarea{width:100%;resize:none;border:none;outline:none;border-radius:14px;background:#081425;color:#ffffff;padding:16px;font-size:14px;line-height:1.6;border:1px solid rgba(255,255,255,.08);transition:.25s;}textarea:focus{border-color:#00d4ff;box-shadow:0 0 15px rgba(0,212,255,.35);}#l1,#l2,#l3{height:250px;}#status{height:90px;}#db{height:230px;}#hasil{height:150px;}input[type=number]{width:80px;padding:10px;border:none;outline:none;border-radius:10px;background:#081425;color:#fff;border:1px solid rgba(255,255,255,.08);}.option-group{display:flex;align-items:center;gap:30px;margin-top:15px;margin-bottom:15px;flex-wrap:wrap;}.option-group .status-source-options{margin-left:-6px;}.check{display:block;margin-bottom:18px;}label{color:#fff;font-size:14px;}input[type=radio],input[type=checkbox]{margin-right:8px;}.toolbar{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap;}.button-row{display:flex;gap:12px;margin-top:16px;}.button-row button{flex:1;}button{padding:13px 20px;border:none;border-radius:12px;cursor:pointer;color:#fff;font-weight:bold;font-size:14px;background:linear-gradient(135deg,#00c6ff,#0072ff);transition:.25s;}button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,114,255,.35);}button:active{transform:scale(.98);}#cut{width:100%;background:linear-gradient(135deg,#00d26a,#009245);}#gas{background:linear-gradient(135deg,#ff9800,#ef6c00);}#copy{background:linear-gradient(135deg,#00c853,#009624);}#clear{background:linear-gradient(135deg,#ff5252,#d50000);}#toast{position:fixed;right:25px;bottom:25px;background:rgba(10,20,40,.92);color:#fff;padding:14px 22px;border-radius:12px;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);opacity:0;transform:translateY(20px);transition:.3s;z-index:9999;}#toast.show{opacity:1;transform:translateY(0);}textarea::-webkit-scrollbar{width:10px;}textarea::-webkit-scrollbar-track{background:#081425;}textarea::-webkit-scrollbar-thumb{border-radius:20px;background:linear-gradient(#00d4ff,#0072ff);}@media(max-width:900px){body{padding:15px;}.row{grid-template-columns:1fr;}.toolbar{flex-direction:column;align-items:stretch;}.button-row{flex-direction:column;}.option-group .status-source-options{margin-left:0;width:100%;justify-content:flex-start;padding:0;background:transparent;border:none;}input[type=number]{width:100%;}}button{position:relative;overflow:hidden;}button::before{content:"";position:absolute;top:0;left:-120%;width:60px;height:100%;transform:skewX(-25deg);background:rgba(255,255,255,.22);transition:.8s;}button:hover::before{left:160%;}.badge{position:relative;overflow:hidden;animation:badgeGlow 3.5s ease-in-out infinite;}@keyframes badgeGlow{0%,100%{box-shadow:0 0 10px rgba(0,212,255,.25);}50%{box-shadow:0 0 18px rgba(0,212,255,.55),0 0 30px rgba(0,212,255,.18);}}.badge::after{content:"";position:absolute;top:-70%;left:-120%;width:45%;height:250%;transform:rotate(25deg);background:linear-gradient( transparent,rgba(255,255,255,.45),transparent );animation:badgeShine 6s linear infinite;}@keyframes badgeShine{0%{left:-120%;}20%{left:150%;}100%{left:150%;}}.badge{transition:.25s;}.badge:hover{transform:translateY(-2px) scale(1.03);}.header h1{animation:titleGlow 3s ease-in-out infinite alternate;}@keyframes titleGlow{from{text-shadow:0 0 8px rgba(0,212,255,.35);}to{text-shadow:0 0 20px rgba(0,212,255,.9),0 0 35px rgba(0,212,255,.35);}}textarea{transition:.25s;}textarea:hover{border-color:#2ecbff;box-shadow:0 0 12px rgba(0,212,255,.18);}input[type=number]:focus{border-color:#00d4ff;box-shadow:0 0 12px rgba(0,212,255,.35);}::-webkit-scrollbar{width:10px;}::-webkit-scrollbar-track{background:#07111f;}::-webkit-scrollbar-thumb{border-radius:20px;background:linear-gradient( #00d4ff,#0072ff );}::-webkit-scrollbar-thumb:hover{background:linear-gradient( #3be7ff,#0094ff );}::selection{background:#00d4ff;color:#081425;}.app{animation:fadeUp .6s ease;}@keyframes fadeUp{from{opacity:0;transform:translateY(25px);}to{opacity:1;transform:translateY(0);}}#toast{box-shadow:0 15px 35px rgba(0,0,0,.45),0 0 25px rgba(0,212,255,.15);}button:hover{letter-spacing:.5px;}.dbTools{}#hapusAtas{background:linear-gradient(135deg,#ff5252,#d50000);}#cutAtas{background:linear-gradient(135deg,#42a5f5,#1565c0);}#usaClock{position:fixed;top:18px;right:20px;z-index:99999;padding:12px 18px;border-radius:14px;background:rgba(15,23,42,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);box-shadow:0 0 20px rgba(56,189,248,.15);text-align:center;min-width:145px;cursor:pointer;user-select:none;transition:.22s ease;}#usaClock:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.28),0 0 24px rgba(56,189,248,.24);}#usaClock:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(56,189,248,.28),0 0 24px rgba(56,189,248,.24);}.clockPopup{position:fixed;top:108px;right:20px;z-index:100000;width:220px;padding:10px;border-radius:14px;background:rgba(15,23,42,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 24px rgba(56,189,248,.14);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transition:.18s ease;}.clockPopup.show{opacity:1;visibility:visible;transform:translateY(0) scale(1);}.clockPopupTitle{padding:5px 8px 9px;font-size:11px;font-weight:800;letter-spacing:.8px;color:#9ecbff;}.clockOption{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;margin:0 0 6px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#081425;color:#fff;font-size:12px;text-align:left;box-shadow:none;}.clockOption:last-child{margin-bottom:0;}.clockOption:hover{transform:none;letter-spacing:0;border-color:#00d4ff;box-shadow:0 0 12px rgba(0,212,255,.18);}.clockOption.active{border-color:#00d4ff;box-shadow:0 0 0 1px rgba(0,212,255,.15);}.clockOption .clockCheck{opacity:0;font-weight:900;}.clockOption.active .clockCheck{opacity:1;}body[data-theme] .clockPopup{color:var(--theme-text);background:var(--theme-panel);border-color:var(--theme-border);box-shadow:0 18px 45px rgba(0,0,0,.34),0 0 24px var(--theme-glow);}body[data-theme] .clockPopupTitle{color:var(--theme-muted);}body[data-theme] .clockOption{color:var(--theme-text);background:var(--theme-input);border-color:var(--theme-border);}body[data-theme] .clockOption:hover,body[data-theme] .clockOption.active{border-color:var(--theme-accent);box-shadow:0 0 12px var(--theme-glow);}.usaTitle{font-size:12px;color:#9ecbff;letter-spacing:1px;margin-bottom:4px;font-weight:bold;}#usaDate{font-size:13px;color:#b7d7ff;margin-bottom:6px;letter-spacing:.5px;}#usaTime{font-size:24px;color:#ffffff;font-weight:bold;font-family:Consolas,monospace;text-shadow:0 0 10px rgba(255,255,255,.35);}.cutGroup{display:flex;gap:10px;margin-top:12px;}.cutGroup button{flex:1;margin:0;}.bottom-panels{display:grid;grid-template-columns:70% 40%;gap:20px;}.bottom-panels .panel{flex:1;margin-bottom:0;}.status-db-textarea{min-height:170px;resize:vertical;}.status-clear-btn{width:auto;min-width:145px;font-size:12px;padding:9px 14px;}.status-option-bar{display:flex;align-items:center;gap:18px;margin:6px 0 4px;flex-wrap:wrap;}.status-source-options{display:flex;align-items:center;gap:12px;padding:0;border-radius:0;background:transparent;border:none;}.status-source-options label{display:flex;align-items:center;white-space:nowrap;cursor:pointer;}.status-tools{margin-left:auto;display:flex;gap:8px;transform:translateY(-3px);}.status-tools button{padding:6px 12px;font-size:12px;border-radius:8px;}.status-tools button:hover{transform:translateY(-1px);}.status-db-panel{margin-top:22px;}.status-db-stack{display:flex;flex-direction:column;width:100%;margin-top:320px;}.status-db-stack .status-db-panel{width:100%;}.theme-launcher{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none;outline:none;}.theme-launcher:focus-visible{box-shadow:0 0 0 3px rgba(255,255,255,.25),0 0 22px rgba(0,212,255,.65);}.theme-launcher .theme-chevron{font-size:11px;opacity:.8;transition:transform .25s ease;}.theme-launcher[aria-expanded="true"] .theme-chevron{transform:rotate(180deg);}.theme-popup{position:fixed;inset:0;z-index:1000000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.66);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;}.theme-popup.show{opacity:1;visibility:visible;}.theme-popup-card{width:min(920px,96vw);max-height:min(760px,88vh);overflow:auto;padding:22px;border-radius:22px;color:var(--theme-text,#fff);background:var(--theme-panel,rgba(10,18,34,.96));border:1px solid var(--theme-border,rgba(255,255,255,.16));box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 32px var(--theme-glow,rgba(0,212,255,.18));transform:translateY(18px) scale(.97);transition:transform .25s ease;}.theme-popup.show .theme-popup-card{transform:translateY(0) scale(1);}.theme-popup-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}.theme-popup-title{min-width:0;flex:1;}.theme-popup-title h2{margin:0 0 4px;font-size:22px;letter-spacing:.4px;}.theme-popup-title p{margin:0;color:var(--theme-muted,#9ecbff);font-size:13px;}.theme-close{width:40px;height:40px;min-width:40px;padding:0;border-radius:12px;display:grid;place-items:center;color:var(--theme-text,#fff);background:var(--theme-input,rgba(255,255,255,.08));border:1px solid var(--theme-border,rgba(255,255,255,.14));font-size:21px;line-height:1;}.theme-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}.theme-option{position:relative;min-height:96px;padding:13px;border-radius:16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:10px;overflow:hidden;text-align:left;color:#fff;background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.28),transparent 28%),linear-gradient(135deg,var(--preview-a),var(--preview-b));border:1px solid rgba(255,255,255,.22);box-shadow:0 8px 20px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}.theme-option:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(0,0,0,.32);border-color:rgba(255,255,255,.55);}.theme-option::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%,transparent 70%,rgba(255,255,255,.08));pointer-events:none;}.theme-option .theme-icon{position:relative;z-index:1;width:38px;height:38px;display:grid;place-items:center;border-radius:12px;font-size:22px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(7px);}.theme-option .theme-name{position:relative;z-index:1;font-size:13px;font-weight:800;line-height:1.25;text-shadow:0 2px 8px rgba(0,0,0,.38);}.theme-option .theme-check{position:absolute;top:10px;right:10px;z-index:2;width:23px;height:23px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#07111f;font-size:13px;font-weight:900;opacity:0;transform:scale(.6);transition:.2s ease;}.theme-option.active{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.34),0 14px 30px rgba(0,0,0,.35);}.theme-option.active .theme-check{opacity:1;transform:scale(1);}.theme-option[data-theme-choice="rgb"]{background:linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744);background-size:300% 100%;animation:rgbButtonFlow 5s linear infinite;}body.theme-popup-open{overflow:hidden;}body[data-theme="bright-blue"]{--theme-bg1:#eaf5ff;--theme-bg2:#fbfdff;--theme-panel:rgba(255,255,255,.94);--theme-input:#ffffff;--theme-text:#10243f;--theme-muted:#52749d;--theme-border:rgba(35,132,255,.58);--theme-accent:#1681ff;--theme-accent2:#55b7ff;--theme-glow:rgba(35,132,255,.24);--theme-button-text:#fff;}body[data-theme="black-gold"]{--theme-bg1:#030303;--theme-bg2:#171106;--theme-panel:rgba(13,12,9,.9);--theme-input:#090806;--theme-text:#fff7d6;--theme-muted:#d3b864;--theme-border:rgba(255,199,55,.58);--theme-accent:#ffd24a;--theme-accent2:#a96800;--theme-glow:rgba(255,196,44,.28);--theme-button-text:#171006;}body[data-theme="midnight"]{--theme-bg1:#020617;--theme-bg2:#0b1738;--theme-panel:rgba(8,17,39,.86);--theme-input:#030b20;--theme-text:#eaf2ff;--theme-muted:#90a9d6;--theme-border:rgba(74,120,255,.44);--theme-accent:#3f6cff;--theme-accent2:#112b78;--theme-glow:rgba(63,108,255,.25);--theme-button-text:#fff;}body[data-theme="neon-purple"]{--theme-bg1:#08020f;--theme-bg2:#210730;--theme-panel:rgba(23,7,34,.86);--theme-input:#12031c;--theme-text:#f9edff;--theme-muted:#d4a4ed;--theme-border:rgba(210,72,255,.55);--theme-accent:#d84cff;--theme-accent2:#6b16a9;--theme-glow:rgba(216,76,255,.3);--theme-button-text:#fff;}body[data-theme="matrix"]{--theme-bg1:#010603;--theme-bg2:#071b0d;--theme-panel:rgba(4,20,10,.88);--theme-input:#020d06;--theme-text:#d9ffe6;--theme-muted:#78d99a;--theme-border:rgba(40,255,112,.5);--theme-accent:#31ff78;--theme-accent2:#08752e;--theme-glow:rgba(49,255,120,.25);--theme-button-text:#021007;}body[data-theme="ocean"]{--theme-bg1:#01131b;--theme-bg2:#063c50;--theme-panel:rgba(4,34,46,.85);--theme-input:#021c27;--theme-text:#e4fbff;--theme-muted:#83d6e7;--theme-border:rgba(37,211,238,.48);--theme-accent:#22d3ee;--theme-accent2:#087f9d;--theme-glow:rgba(34,211,238,.25);--theme-button-text:#02202a;}body[data-theme="crimson"]{--theme-bg1:#0b0205;--theme-bg2:#330713;--theme-panel:rgba(36,6,15,.87);--theme-input:#190208;--theme-text:#fff0f3;--theme-muted:#efa0b2;--theme-border:rgba(255,62,104,.5);--theme-accent:#ff416c;--theme-accent2:#8c092a;--theme-glow:rgba(255,65,108,.27);--theme-button-text:#fff;}body[data-theme="sakura"]{--theme-bg1:#fff0f5;--theme-bg2:#fffafd;--theme-panel:rgba(255,255,255,.9);--theme-input:#fff8fb;--theme-text:#54243b;--theme-muted:#a96382;--theme-border:rgba(239,91,154,.48);--theme-accent:#f062a6;--theme-accent2:#c53279;--theme-glow:rgba(240,98,166,.22);--theme-button-text:#fff;}body[data-theme="ice"]{--theme-bg1:#e8faff;--theme-bg2:#f7fdff;--theme-panel:rgba(246,253,255,.91);--theme-input:#ffffff;--theme-text:#143445;--theme-muted:#5b869b;--theme-border:rgba(64,198,235,.52);--theme-accent:#55d9f7;--theme-accent2:#198db3;--theme-glow:rgba(85,217,247,.24);--theme-button-text:#073040;}body[data-theme="forest"]{--theme-bg1:#06110a;--theme-bg2:#15351e;--theme-panel:rgba(12,35,19,.86);--theme-input:#071b0e;--theme-text:#edf9ef;--theme-muted:#9bc9a4;--theme-border:rgba(91,190,108,.45);--theme-accent:#5ebe72;--theme-accent2:#1d6230;--theme-glow:rgba(94,190,114,.24);--theme-button-text:#fff;}body[data-theme="sunset"]{--theme-bg1:#190721;--theme-bg2:#5b1b17;--theme-panel:rgba(42,13,37,.84);--theme-input:#23091d;--theme-text:#fff2e8;--theme-muted:#eab29c;--theme-border:rgba(255,133,70,.5);--theme-accent:#ff8a3d;--theme-accent2:#b0295e;--theme-glow:rgba(255,111,60,.28);--theme-button-text:#fff;}body[data-theme="cyber"]{--theme-bg1:#070800;--theme-bg2:#202000;--theme-panel:rgba(24,25,2,.88);--theme-input:#101100;--theme-text:#ffffdd;--theme-muted:#d7d66a;--theme-border:rgba(242,255,0,.5);--theme-accent:#efff00;--theme-accent2:#7d8500;--theme-glow:rgba(239,255,0,.25);--theme-button-text:#121300;}body[data-theme="cyan-glass"]{--theme-bg1:#021217;--theme-bg2:#07353b;--theme-panel:rgba(7,40,46,.67);--theme-input:rgba(2,26,31,.78);--theme-text:#ebffff;--theme-muted:#93dfe3;--theme-border:rgba(87,239,244,.44);--theme-accent:#55f0f4;--theme-accent2:#0c8991;--theme-glow:rgba(85,240,244,.28);--theme-button-text:#03282b;}body[data-theme="copper"]{--theme-bg1:#130905;--theme-bg2:#3a1d0e;--theme-panel:rgba(47,24,13,.86);--theme-input:#231006;--theme-text:#fff2e7;--theme-muted:#d6a27c;--theme-border:rgba(218,132,74,.5);--theme-accent:#d98950;--theme-accent2:#7b3416;--theme-glow:rgba(217,137,80,.26);--theme-button-text:#fff;}body[data-theme="mono"]{--theme-bg1:#eceff3;--theme-bg2:#ffffff;--theme-panel:rgba(255,255,255,.94);--theme-input:#f7f8fa;--theme-text:#17191d;--theme-muted:#666c75;--theme-border:rgba(39,44,52,.36);--theme-accent:#343a44;--theme-accent2:#0d0f12;--theme-glow:rgba(30,34,40,.16);--theme-button-text:#fff;}body[data-theme="galaxy"]{--theme-bg1:#06031a;--theme-bg2:#241057;--theme-panel:rgba(20,10,54,.84);--theme-input:#0e062c;--theme-text:#f4efff;--theme-muted:#bea9ef;--theme-border:rgba(140,98,255,.5);--theme-accent:#8f63ff;--theme-accent2:#d33ca8;--theme-glow:rgba(143,99,255,.3);--theme-button-text:#fff;}body[data-theme="candy"]{--theme-bg1:#fff0fa;--theme-bg2:#eef9ff;--theme-panel:rgba(255,255,255,.9);--theme-input:#fffaff;--theme-text:#43254d;--theme-muted:#966d9f;--theme-border:rgba(108,183,255,.48);--theme-accent:#ff72bb;--theme-accent2:#6dbaff;--theme-glow:rgba(255,114,187,.21);--theme-button-text:#fff;}body[data-theme="desert"]{--theme-bg1:#f6e4c4;--theme-bg2:#fff8e9;--theme-panel:rgba(255,250,237,.9);--theme-input:#fffdf7;--theme-text:#4a2e19;--theme-muted:#8f6b4b;--theme-border:rgba(185,119,48,.48);--theme-accent:#c78137;--theme-accent2:#7c451a;--theme-glow:rgba(199,129,55,.2);--theme-button-text:#fff;}body[data-theme="emerald-gold"]{--theme-bg1:#02100a;--theme-bg2:#15351f;--theme-panel:rgba(7,31,19,.88);--theme-input:#041b10;--theme-text:#f4ffe9;--theme-muted:#c4d596;--theme-border:rgba(226,197,80,.5);--theme-accent:#dfc34f;--theme-accent2:#18764d;--theme-glow:rgba(223,195,79,.25);--theme-button-text:#10200d;}body[data-theme="rgb"]{--theme-bg1:#050816;--theme-bg2:#10172a;--theme-panel:rgba(8,14,30,.78);--theme-input:rgba(3,10,24,.90);--theme-text:#ffffff;--theme-muted:#d7e5ff;--theme-border:rgba(255,255,255,.24);--theme-accent:#00e5ff;--theme-accent2:#ff2bd6;--theme-glow:rgba(122,92,255,.34);--theme-button-text:#ffffff;}body[data-theme="rgb"]{background:radial-gradient(circle at 12% 8%,rgba(255,0,110,.30),transparent 28%),radial-gradient(circle at 88% 10%,rgba(0,229,255,.30),transparent 30%),radial-gradient(circle at 78% 82%,rgba(0,255,128,.22),transparent 30%),linear-gradient(120deg,#12051e,#061427,#10200f,#251306,#1d071a,#07162a);background-size:100% 100%,100% 100%,100% 100%,400% 400%;background-attachment:fixed;animation:rgbBackgroundFlow 12s ease infinite;}body[data-theme="rgb"] .panel,body[data-theme="rgb"] #usaClock,body[data-theme="rgb"] #toast{border-color:transparent;background:linear-gradient(rgba(8,14,30,.86),rgba(8,14,30,.86)) padding-box,linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744) border-box;background-size:100% 100%,300% 300%;animation:rgbBorderFlow 7s linear infinite;box-shadow:0 15px 40px rgba(0,0,0,.34),0 0 24px rgba(110,90,255,.25);}body[data-theme="rgb"] textarea,body[data-theme="rgb"] input[type=number]{border-color:rgba(255,255,255,.18);background:rgba(3,10,24,.88);}body[data-theme="rgb"] .badge,body[data-theme="rgb"] button:not(.theme-option):not(.theme-close):not(.clockOption){background:linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744);background-size:300% 100%;animation:rgbButtonFlow 5s linear infinite;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.55);}body[data-theme="rgb"] .header h1{background:linear-gradient(90deg,#ff1744,#ffea00,#00e676,#00e5ff,#7c4dff,#ff2bd6,#ff1744);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rgbTextFlow 5s linear infinite;text-shadow:none;}@keyframes rgbBackgroundFlow{0%{background-position:0 0,0 0,0 0,0% 50%;}50%{background-position:0 0,0 0,0 0,100% 50%;}100%{background-position:0 0,0 0,0 0,0% 50%;}}@keyframes rgbBorderFlow{0%{background-position:0 0,0% 50%;}100%{background-position:0 0,300% 50%;}}@keyframes rgbButtonFlow{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}@keyframes rgbTextFlow{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}body[data-theme]{color:var(--theme-text);background:radial-gradient(circle at 16% 2%,var(--theme-glow),transparent 34%),radial-gradient(circle at 88% 12%,var(--theme-glow),transparent 30%),linear-gradient(135deg,var(--theme-bg1),var(--theme-bg2));background-attachment:fixed;}body[data-theme] .panel,body[data-theme] #usaClock,body[data-theme] #toast{color:var(--theme-text);background:var(--theme-panel);border-color:var(--theme-border);box-shadow:0 15px 40px rgba(0,0,0,.28),0 0 22px var(--theme-glow);}body[data-theme] .panel:hover{box-shadow:0 18px 45px rgba(0,0,0,.34),0 0 30px var(--theme-glow);}body[data-theme] textarea,body[data-theme] input[type=number]{color:var(--theme-text);background:var(--theme-input);border-color:var(--theme-border);}body[data-theme] textarea:focus,body[data-theme] input[type=number]:focus,body[data-theme] textarea:hover{border-color:var(--theme-accent);box-shadow:0 0 15px var(--theme-glow);}body[data-theme] .panel-title,body[data-theme] label,body[data-theme] .header h1,body[data-theme] #usaTime{color:var(--theme-text);}body[data-theme] .usaTitle,body[data-theme] #usaDate{color:var(--theme-muted);}body[data-theme] .badge,body[data-theme] button:not(.theme-option):not(.theme-close):not(.clockOption){color:var(--theme-button-text);background:linear-gradient(135deg,var(--theme-accent),var(--theme-accent2));}body[data-theme] .badge{box-shadow:0 0 22px var(--theme-glow);}body[data-theme] .header h1{text-shadow:0 0 12px var(--theme-glow),0 0 28px var(--theme-glow);}body[data-theme]::selection{color:var(--theme-button-text);background:var(--theme-accent);}body[data-theme]::-webkit-scrollbar-track{background:var(--theme-bg1);}body[data-theme]::-webkit-scrollbar-thumb{background:linear-gradient(var(--theme-accent),var(--theme-accent2));}@media(max-width:760px){.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.theme-popup{padding:12px;}.theme-popup-card{padding:16px;max-height:92vh;}}@media(max-width:420px){.theme-grid{grid-template-columns:1fr;}}.editable-link-name{display:inline-flex;align-items:center;gap:7px;cursor:pointer;user-select:none;border-radius:8px;padding:2px 6px;margin-left:-6px;transition:.2s ease;}.editable-link-name::after{content:"✎";font-size:12px;opacity:.55;transition:.2s ease;}.editable-link-name:hover,.editable-link-name:focus-visible{outline:none;background:rgba(255,255,255,.08);box-shadow:0 0 0 1px rgba(255,255,255,.10);}.editable-link-name:hover::after,.editable-link-name:focus-visible::after{opacity:1;}body[data-theme] .editable-link-name:hover,body[data-theme] .editable-link-name:focus-visible{background:var(--theme-input);box-shadow:0 0 0 1px var(--theme-border),0 0 12px var(--theme-glow);}.editable-status-name{display:inline-flex;align-items:center;gap:7px;cursor:pointer;user-select:none;border-radius:8px;padding:2px 6px;transition:.2s ease;}.editable-status-name::after{content:"✎";font-size:12px;opacity:.55;transition:.2s ease;}.editable-status-name:hover,.editable-status-name:focus-visible{outline:none;background:rgba(255,255,255,.08);box-shadow:0 0 0 1px rgba(255,255,255,.10);}.editable-status-name:hover::after,.editable-status-name:focus-visible::after{opacity:1;}body[data-theme] .editable-status-name:hover,body[data-theme] .editable-status-name:focus-visible{background:var(--theme-input);box-shadow:0 0 0 1px var(--theme-border),0 0 12px var(--theme-glow);}#livePing{position:fixed;top:145px;right:20px;z-index:99999;width:145px;padding:12px 18px;border-radius:14px;background:var(--theme-panel,rgba(15,23,42,.55));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--theme-border,rgba(255,255,255,.12));box-shadow:0 0 20px var(--theme-glow,rgba(56,189,248,.15));font-family:Consolas,monospace;color:var(--theme-text,#fff);}body[data-theme] #livePing{background:var(--theme-panel);border-color:var(--theme-border);box-shadow:0 0 22px var(--theme-glow);}body[data-theme] #livePing .pingTitle{color:var(--theme-muted);}body[data-theme] #livePing #pingList{color:var(--theme-text);}body[data-theme="rgb"] #livePing{border-color:transparent;background:linear-gradient(rgba(8,14,30,.86),rgba(8,14,30,.86)) padding-box,linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744) border-box;background-size:100% 100%,300% 300%;animation:rgbBorderFlow 7s linear infinite;}#livePing .pingTitle{font-size:12px;font-weight:bold;color:#9ecbff;margin-bottom:8px;}.pingDot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;margin-right:6px;animation:pingPulse .65s ease-in-out infinite;box-shadow:0 0 10px #22c55e;}@keyframes pingPulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:.45;}}#myIP{font-size:12px;line-height:1.55;color:#00e5ff;margin-bottom:8px;font-family:Consolas,monospace;transition:.3s ease;}#myIP.ipChanged{color:#ccff00;background:rgba(204,255,0,0.15);border-radius:8px;padding:4px 8px;text-shadow:0 0 5px #ccff00,0 0 15px #ccff00,0 0 30px #99ff00,0 0 50px #66ff00;box-shadow:0 0 10px #ccff00,0 0 25px rgba(204,255,0,.8);animation:ipFlash .8s ease-in-out infinite alternate;}@keyframes ipFlash{from{filter:brightness(1);transform:scale(1);}to{filter:brightness(1.8);transform:scale(1.03);}}#pingList{font-size:12px;line-height:1.55;color:#fff;}.pingOk{color:#7cff9b;}.pingSlow{color:#ffe27a;}.pingBad{color:#ff7b7b;}@media(max-width:900px){#livePing{display:none;}}</style></head><body><body><div id="livePing"><div id="myIP">IP : Loading...</div><div class="pingTitle"><span class="pingDot"></span>LIVE PING</div><div id="pingList">Loading...</div></div><div id="usaClock" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="clockPopup" title="Klik untuk pilih jam"><div class="usaTitle" id="clockTitle"> NEW YORK </div><div id="usaDate"> Mon, Jul 13, 2026 </div><div id="usaTime"> 02:15:48 </div></div><div class="clockPopup" id="clockPopup" aria-hidden="true"><div class="clockPopupTitle">PILIH JAM</div><button type="button" class="clockOption" data-clock-zone="America/New_York" data-clock-label="NEW YORK"><span>🇺🇸 New York</span><span class="clockCheck">✓</span></button><button type="button" class="clockOption" data-clock-zone="Europe/Berlin" data-clock-label="GERMANY"><span>🇩🇪 Jerman</span><span class="clockCheck">✓</span></button><button type="button" class="clockOption" data-clock-zone="Europe/Paris" data-clock-label="FRANCE"><span>🇫🇷 Prancis</span><span class="clockCheck">✓</span></button><button type="button" class="clockOption" data-clock-zone="Europe/Madrid" data-clock-label="SPAIN"><span>🇪🇸 Spanyol</span><span class="clockCheck">✓</span></button></div><div class="app"><div class="header"><div class="badge theme-launcher" id="themeLauncher" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="themePopup" aria-expanded="false" title="Buka pilihan tema"><span aria-hidden="true">🚀</span><span>PARADISE</span><span class="theme-chevron" aria-hidden="true">▼</span></div><h1>LINK MANAGER</h1></div><div class="theme-popup" id="themePopup" role="dialog" aria-modal="true" aria-labelledby="themePopupTitle" aria-hidden="true"><div class="theme-popup-card"><div class="theme-popup-head"><div class="theme-popup-title"><h2 id="themePopupTitle">Pilih Tema Paradise Lab</h2><p>Klik salah satu tema. Pilihan akan tersimpan otomatis.</p></div><button type="button" class="theme-close" id="themeClose" aria-label="Tutup pilihan tema">×</button></div><div class="theme-grid"><button type="button" class="theme-option" data-theme-choice="default" data-theme-icon="🚀" data-theme-label="Tema Bawaan" aria-pressed="false" style="--preview-a:#00d4ff;--preview-b:#0078ff;"><span class="theme-icon" aria-hidden="true">🚀</span><span class="theme-name">Tema Bawaan</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="bright-blue" data-theme-icon="☀️" data-theme-label="Cerah Biru" aria-pressed="false" style="--preview-a:#f8fdff;--preview-b:#2384ff;"><span class="theme-icon" aria-hidden="true">☀️</span><span class="theme-name">Cerah Biru</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="black-gold" data-theme-icon="🔥" data-theme-label="Hitam Emas" aria-pressed="false" style="--preview-a:#050505;--preview-b:#d99f16;"><span class="theme-icon" aria-hidden="true">🔥</span><span class="theme-name">Hitam Emas</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="midnight" data-theme-icon="🌙" data-theme-label="Midnight" aria-pressed="false" style="--preview-a:#020617;--preview-b:#244baf;"><span class="theme-icon" aria-hidden="true">🌙</span><span class="theme-name">Midnight</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="neon-purple" data-theme-icon="💜" data-theme-label="Neon Purple" aria-pressed="false" style="--preview-a:#09010f;--preview-b:#c43cff;"><span class="theme-icon" aria-hidden="true">💜</span><span class="theme-name">Neon Purple</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="matrix" data-theme-icon="💚" data-theme-label="Matrix Green" aria-pressed="false" style="--preview-a:#010503;--preview-b:#20d963;"><span class="theme-icon" aria-hidden="true">💚</span><span class="theme-name">Matrix Green</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="ocean" data-theme-icon="🌊" data-theme-label="Ocean Blue" aria-pressed="false" style="--preview-a:#01141d;--preview-b:#0b91ad;"><span class="theme-icon" aria-hidden="true">🌊</span><span class="theme-name">Ocean Blue</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="crimson" data-theme-icon="🌹" data-theme-label="Crimson Red" aria-pressed="false" style="--preview-a:#0b0205;--preview-b:#c61543;"><span class="theme-icon" aria-hidden="true">🌹</span><span class="theme-name">Crimson Red</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="sakura" data-theme-icon="🌸" data-theme-label="Sakura" aria-pressed="false" style="--preview-a:#fff1f6;--preview-b:#e05292;"><span class="theme-icon" aria-hidden="true">🌸</span><span class="theme-name">Sakura</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="ice" data-theme-icon="🧊" data-theme-label="Ice Crystal" aria-pressed="false" style="--preview-a:#e9fbff;--preview-b:#46bddc;"><span class="theme-icon" aria-hidden="true">🧊</span><span class="theme-name">Ice Crystal</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="forest" data-theme-icon="🌲" data-theme-label="Deep Forest" aria-pressed="false" style="--preview-a:#06110a;--preview-b:#367b46;"><span class="theme-icon" aria-hidden="true">🌲</span><span class="theme-name">Deep Forest</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="sunset" data-theme-icon="🌅" data-theme-label="Sunset Glow" aria-pressed="false" style="--preview-a:#210927;--preview-b:#d95c35;"><span class="theme-icon" aria-hidden="true">🌅</span><span class="theme-name">Sunset Glow</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="cyber" data-theme-icon="⚡" data-theme-label="Cyber Yellow" aria-pressed="false" style="--preview-a:#080900;--preview-b:#d9e500;"><span class="theme-icon" aria-hidden="true">⚡</span><span class="theme-name">Cyber Yellow</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="cyan-glass" data-theme-icon="🩵" data-theme-label="Cyan Glass" aria-pressed="false" style="--preview-a:#021216;--preview-b:#16b6bf;"><span class="theme-icon" aria-hidden="true">🩵</span><span class="theme-name">Cyan Glass</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="copper" data-theme-icon="🧡" data-theme-label="Copper" aria-pressed="false" style="--preview-a:#140905;--preview-b:#a95428;"><span class="theme-icon" aria-hidden="true">🧡</span><span class="theme-name">Copper</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="mono" data-theme-icon="🤍" data-theme-label="Monochrome" aria-pressed="false" style="--preview-a:#f5f6f8;--preview-b:#25282e;"><span class="theme-icon" aria-hidden="true">🤍</span><span class="theme-name">Monochrome</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="galaxy" data-theme-icon="🌌" data-theme-label="Galaxy" aria-pressed="false" style="--preview-a:#07031c;--preview-b:#813ed9;"><span class="theme-icon" aria-hidden="true">🌌</span><span class="theme-name">Galaxy</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="candy" data-theme-icon="🍬" data-theme-label="Candy" aria-pressed="false" style="--preview-a:#fff0fa;--preview-b:#68b8ff;"><span class="theme-icon" aria-hidden="true">🍬</span><span class="theme-name">Candy</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="desert" data-theme-icon="🏜️" data-theme-label="Desert Sand" aria-pressed="false" style="--preview-a:#f3dfbd;--preview-b:#a96d30;"><span class="theme-icon" aria-hidden="true">🏜️</span><span class="theme-name">Desert Sand</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="emerald-gold" data-theme-icon="🐉" data-theme-label="Emerald Gold" aria-pressed="false" style="--preview-a:#02110a;--preview-b:#ba9c35;"><span class="theme-icon" aria-hidden="true">🐉</span><span class="theme-name">Emerald Gold</span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="rgb" data-theme-icon="🌈" data-theme-label="RGB Rainbow" aria-pressed="false"><span class="theme-icon" aria-hidden="true">🌈</span><span class="theme-name">RGB Rainbow</span><span class="theme-check" aria-hidden="true">✓</span></button></div></div></div><div class="row row3"><section class="panel"><div class="panel-title"><span class="editable-link-name" data-link-name="1" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 1</span> (<span id="t1">0</span>) </div> <textarea id="l1"></textarea> </section><section class="panel"><div class="panel-title"><span class="editable-link-name" data-link-name="2" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 2</span> (<span id="t2">0</span>) </div> <textarea id="l2"></textarea> </section><section class="panel"><div class="panel-title"><span class="editable-link-name" data-link-name="3" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 3</span> (<span id="t3">0</span>) </div> <textarea id="l3"></textarea> </section></div><section class="panel"><div class="panel-title"> STATUS </div> <textarea id="status"></textarea> <div class="option-group"><label><input type="radio" name="src" id="r1" checked><span id="srcName1">Link 1</span></label><label><input type="radio" name="src" id="r2"><span id="srcName2">Link 2</span></label><label><input type="radio" name="src" id="r3"><span id="srcName3">Link 3</span></label><div class="status-source-options" title="Pilih database status yang dipakai saat Generate"><label><input type="radio" name="statusSrc" id="s1" value="statusDB" checked><span id="statusSrcName1">Status 1</span></label><label><input type="radio" name="statusSrc" id="s2" value="statusDB2"><span id="statusSrcName2">Status 2</span></label><label><input type="radio" name="statusSrc" id="s3" value="statusDB3"><span id="statusSrcName3">Status 3</span></label></div></div><div class="status-option-bar"><label class="check"><input type="checkbox" id="inc"> Sertakan Status </label><div class="status-tools"><button id="genStatus"> 🎲 Generate </button><button id="copyStatus"> 📋 Copy </button></div></div><div class="cutGroup"><button id="cut"> CUT LINK (0) </button><button id="cut1"> CUT LINK 1 (0) </button><button id="cut2"> CUT LINK 2 (0) </button><button id="cut3"> CUT LINK 3 (0) </button></div></section><div class="bottom-panels"><section class="panel"><div class="panel-title"> DATABASE (<span id="dbCount">0</span>) </div> <textarea id="db"></textarea> <div class="toolbar"><input id="jumlah" type="number" value="10" min="1" max="1000"><button id="gas">🎲 RANDOM</button><input id="hapusJumlah" type="number" value="100" min="1"><button id="hapusAtas">🗑 HAPUS</button><input id="cutJumlah" type="number" value="500" min="1"><button id="cutAtas">✂ CUT</button></div></section><div class="bottom-panels"><section class="panel"><div class="panel-title"> HASIL RANDOM </div> <textarea id="hasil"></textarea> <div class="button-row"><button id="copy"> COPY </button><button id="clear"> CLEAR </button></div></section></div></div><div class="status-db-stack"><section class="panel status-db-panel" id="statusDBPanel1"><div class="panel-title"> STATUS DATABASE — <span class="editable-status-name" data-status-name="1" role="button" tabindex="0" title="Klik untuk ganti nama">Status 1</span> (<span id="statusCount">0</span>) </div> <textarea id="statusDB" class="status-db-textarea"></textarea> <div class="button-row"><button id="clearStatusDB" class="status-clear-btn"> ✖ CLEAR STATUS 1 </button></div></section><section class="panel status-db-panel"><div class="panel-title"> STATUS DATABASE — <span class="editable-status-name" data-status-name="2" role="button" tabindex="0" title="Klik untuk ganti nama">Status 2</span> (<span id="statusCount2">0</span>) </div> <textarea id="statusDB2" class="status-db-textarea"></textarea> <div class="button-row"><button id="clearStatusDB2" class="status-clear-btn"> ✖ CLEAR STATUS 2 </button></div></section><section class="panel status-db-panel"><div class="panel-title"> STATUS DATABASE — <span class="editable-status-name" data-status-name="3" role="button" tabindex="0" title="Klik untuk ganti nama">Status 3</span> (<span id="statusCount3">0</span>) </div> <textarea id="statusDB3" class="status-db-textarea"></textarea> <div class="button-row"><button id="clearStatusDB3" class="status-clear-btn"> ✖ CLEAR STATUS 3 </button></div></section></div><div id="toast"></div> <script>(()=>{const _b32ed261b=()=>{};try{['log','warn','error','info','debug','trace','table'].forEach(k=>{if(globalThis.console)globalThis.console[k]=_b32ed261b})}catch(_){}})();(function _b320c19ae(){const s=_b320c19ae.toString();if(s.indexOf('PL423612')<0&&false)throw new Error('Integrity');return'PL423612'})();function _b320f42aa(){let x=82;switch(x){case 83:x+=48;break;case 82:for(let i=0;i<0;i++)x^=i;break;default:x=48}return x}if(false){_b320f42aa()};const _b32eedfc9=!![];_b32eedfc9&&void(0);(()=>{const _b32fd32e2='1|3|0|2'.split('|');let _b320c2648=0;while(_b320c2648<_b32fd32e2.length){switch(+_b32fd32e2[_b320c2648++]){case 0:void 0;break;case 1:!![];break;case 2:![];break;case 3:(0,eval);break}}})();const _b32911e72=["\u0073\u0074\u0061\u0074\u0075"+"\u0073\u0043\u006f\u0075\u006e\u0074"+"\u0033","\u0073\u0068\u006f\u0072\u0074","\u004c\u0049\u004e\u004b\u0020\u0032","\u002e\u0065\u0064\u0069\u0074"+"\u0061\u0062\u006c\u0065\u002d"+"\u0073\u0074\u0061\u0074\u0075"+"\u0073\u002d\u006e"+"\u0061\u006d\u0065\u005b"+"\u0064\u0061"+"\u0074\u0061"+"\u002d\u0073\u0074\u0061"+"\u0074\u0075\u0073\u002d"+"\u006e\u0061\u006d\u0065\u003d\u0022","\u003a","\u004a\u0061\u006d\u0020","\u0063\u0075\u0074\u0033","\u006a\u0075\u006d\u006c\u0061\u0068","\u0063\u0075\u0074\u004a\u0075\u006d"+"\u006c\u0061\u0068","\u0074\u0033","\u004c\u0049\u004e\u004b\u0020\u0033","\u0073\u0031","\u002e\u0063\u006c"+"\u006f\u0063\u006b\u004f"+"\u0070\u0074\u0069"+"\u006f\u006e","\u0045\u0073\u0063\u0061\u0070\u0065","\u0070\u0061\u0072\u0061"+"\u0064\u0069\u0073\u0065\u0053\u0074"+"\u0061\u0074\u0075\u0073\u004e"+"\u0061\u006d"+"\u0065","\u0074\u006f\u0061\u0073\u0074","\u004e\u0045\u0057\u0020\u0059\u004f\u0052\u004b","\u0020\u0064\u0069\u0070\u0069\u006c\u0069\u0068","\u0063\u0068\u0061\u006e\u0067\u0065","\u0073\u0068\u006f\u0077","\u0053\u0050\u0041\u0049\u004e","\u0068\u0061\u0070\u0075\u0073"+"\u004a\u0075\u006d"+"\u006c\u0061\u0068","\u0068\u0061\u0073\u0069\u006c","\u0022\u005d","\u0020\u27a2\u0020","\u0063\u0075\u0074\u0041\u0074\u0061\u0073","\u004e\u0061"+"\u006d\u0061\u0020\u0074"+"\u0069\u0064\u0061"+"\u006b\u0020"+"\u0062\u006f"+"\u006c\u0065\u0068"+"\u0020\u006b"+"\u006f\u0073\u006f\u006e"+"\u0067","\u0074\u0032","\u0033","\u0072\u0033","\u004e\u0061\u006d\u0061"+"\u0020\u006c\u0069\u006e\u006b\u0020"+"\u0064\u0069\u0073\u0069\u006d\u0070"+"\u0061\u006e","\u0073\u0074\u0061\u0074\u0075\u0073"+"\u0044\u0042\u0033","\u0070\u0061\u0072\u0061\u0064\u0069"+"\u0073\u0065\u004c"+"\u0069\u006e\u006b"+"\u004e\u0061"+"\u006d\u0065","\u0032\u002d\u0064\u0069\u0067\u0069\u0074","\u006e\u0075\u006d\u0065\u0072\u0069\u0063","\u0053\u0074\u0061\u0074\u0075\u0073\u0020\u0031","\u0063\u0075\u0074","\u0045\u006e\u0074\u0065\u0072","\u0047\u0045\u0052\u004d\u0041\u004e\u0059","\u0074\u0031","\u0032","\u0031","\u0020\u0064\u0069\u006b"+"\u006f\u0073"+"\u006f\u006e\u0067"+"\u006b\u0061\u006e","\u0063\u0075\u0074\u0032","\u0029","\u006c\u0033","\u0073\u0072\u0063","\u0073\u0074\u0061\u0074\u0075"+"\u0073\u0043\u006f"+"\u0075\u006e\u0074","\u004c\u0049\u004e\u004b\u0020\u0031","","\u0063\u006f\u0070"+"\u0079\u0053\u0074\u0061"+"\u0074\u0075\u0073","\u0046\u0052\u0041\u004e\u0043\u0045","\u0042\u0065\u0072\u0068\u0061\u0073"+"\u0069\u006c"+"\u0020\u0064\u0069\u0063\u006f"+"\u0070\u0079","\u0063\u006f\u0070\u0079","\u0063\u006c\u0069\u0063\u006b","\u0020\u0028","\u0063\u006c"+"\u0065\u0061"+"\u0072\u0053\u0074"+"\u0061\u0074\u0075\u0073"+"\u0044\u0042\u0032","\u0053\u0074"+"\u0061\u0074\u0075\u0073\u0020"+"\u006b\u006f\u0073\u006f"+"\u006e\u0067","\u0047\u0061\u006e"+"\u0074\u0069\u0020\u006e\u0061"+"\u006d\u0061"+"\u0020","\u0073\u0074\u0061"+"\u0074\u0075\u0073"+"\u0053\u0072\u0063\u004e"+"\u0061\u006d"+"\u0065","\u0075\u0073\u0061\u0044\u0061\u0074\u0065","\u0073\u0072\u0063\u004e\u0061\u006d\u0065","\u0075\u0073\u0061\u0043\u006c\u006f\u0063\u006b","\u0068\u0061"+"\u0070\u0075\u0073\u0041"+"\u0074\u0061\u0073","\u0063\u006c\u006f"+"\u0063\u006b"+"\u0054\u0069\u0074\u006c\u0065","\u2716\u0020\u0043\u004c\u0045\u0041\u0052\u0020","\u0052\u0061\u006e"+"\u0064\u006f\u006d\u0020"+"\u0073\u0065\u006c\u0065\u0073\u0061"+"\u0069","\u0044\u0061\u0074\u0061\u0062"+"\u0061\u0073\u0065\u0020"+"\u006b\u006f\u0073\u006f\u006e\u0067","\u0063\u006c\u0065"+"\u0061\u0072\u0053\u0074"+"\u0061\u0074\u0075\u0073\u0044\u0042","\u0065\u006e\u002d\u0055\u0053","\u0063\u006c\u0065\u0061\u0072","\u0061\u0072\u0069"+"\u0061\u002d\u0068\u0069\u0064"+"\u0064\u0065\u006e","\u0044\u0061"+"\u0074\u0061\u0020\u0064\u0069"+"\u0068\u0061\u0070"+"\u0075\u0073","\u002e\u0065\u0064"+"\u0069\u0074\u0061\u0062\u006c"+"\u0065\u002d\u0073\u0074"+"\u0061\u0074\u0075\u0073\u002d"+"\u006e\u0061\u006d\u0065","\u0073\u0074"+"\u0061\u0074\u0075\u0073"+"\u0043\u006f"+"\u0075\u006e\u0074\u0032","\u0073\u0033","\u006b\u0065\u0079\u0064\u006f\u0077\u006e","\u0061\u0072"+"\u0069\u0061\u002d\u0065\u0078\u0070"+"\u0061\u006e\u0064"+"\u0065\u0064","\u004e\u0061"+"\u006d\u0061\u0020\u0073"+"\u0074\u0061"+"\u0074\u0075\u0073\u0020\u0064"+"\u0069\u0073\u0069"+"\u006d\u0070\u0061"+"\u006e","\u0053\u0074\u0061\u0074\u0075\u0073\u0020\u0033","\u0053\u0074\u0061\u0074\u0075\u0073\u0020\u0032","\u006c\u0032","\u006c\u0031","\u0069\u006e\u0063","\u004c\u0069\u006e"+"\u006b\u0020\u006b"+"\u006f\u0073\u006f"+"\u006e\u0067","\u0043\u0055\u0054\u0020","\u0070\u0061\u0072\u0061\u0064"+"\u0069\u0073\u0065\u0053"+"\u0065\u006c\u0065\u0063\u0074\u0065"+"\u0064\u0043\u006c"+"\u006f\u0063"+"\u006b","\u0048\u0061\u0073\u0069\u006c"+"\u0020\u0064\u0069\u0062"+"\u0065\u0072"+"\u0073\u0069\u0068\u006b"+"\u0061\u006e","\u0020\u006b\u006f\u0073\u006f\u006e\u0067","\u0067\u0065\u006e"+"\u0053\u0074\u0061"+"\u0074\u0075\u0073","\u0069\u006e\u0070\u0075\u0074","\u0072\u0031","\u002e\u0065\u0064\u0069"+"\u0074\u0061"+"\u0062\u006c\u0065\u002d\u006c"+"\u0069\u006e\u006b\u002d"+"\u006e\u0061\u006d\u0065","\u0063\u006c"+"\u0065\u0061\u0072\u0053\u0074\u0061"+"\u0074\u0075\u0073"+"\u0044\u0042\u0033","\u0063\u0075\u0074\u0031","\u0073\u0074\u0061\u0074\u0075\u0073"+"\u0053\u0072\u0063","\u0061\u0063\u0074\u0069\u0076\u0065","\u0073\u0074\u0061\u0074\u0075\u0073\u0044\u0042","\u0053\u0074\u0061"+"\u0074\u0075\u0073"+"\u0020\u0062\u0065"+"\u0072\u0068\u0061\u0073\u0069"+"\u006c\u0020\u0064\u0069\u0063\u006f"+"\u0070\u0079","\u0064\u0062\u0043\u006f\u0075\u006e\u0074","\u0073\u0074\u0061\u0074\u0075\u0073"+"\u0044\u0042\u0032","\u002e\u0065\u0064\u0069"+"\u0074\u0061\u0062\u006c"+"\u0065\u002d\u006c\u0069"+"\u006e\u006b\u002d\u006e\u0061"+"\u006d\u0065\u005b\u0064"+"\u0061\u0074\u0061\u002d\u006c\u0069"+"\u006e\u006b\u002d\u006e\u0061"+"\u006d\u0065\u003d\u0022","\u0050\u0061\u0072\u0061\u0064"+"\u0069\u0073\u0065"+"\u0020\u004d\u0061\u006e"+"\u0061\u0067\u0065"+"\u0072\u0020\u0041"+"\u0075\u0074\u006f\u0020\u0055\u0070"+"\u0064\u0061\u0074\u0065"+"\u0020\u0052"+"\u0065\u0061\u0064\u0079","\u0072","\u0067\u0061\u0073","\u0063\u006c"+"\u006f\u0063\u006b\u0050\u006f\u0070"+"\u0075\u0070","\u004e\u0061\u006d\u0061"+"\u0020\u0073\u0074\u0061"+"\u0074\u0075\u0073\u0020"+"\u0074\u0069"+"\u0064\u0061"+"\u006b\u0020"+"\u0062\u006f\u006c"+"\u0065\u0068\u0020\u006b\u006f"+"\u0073\u006f\u006e"+"\u0067","\u000a","\u0047\u0061\u0067\u0061\u006c\u0020"+"\u0063\u006f\u0070\u0079","\u0073\u0074\u0061\u0074\u0075\u0073","\u0064\u0062","\u0075\u0073\u0061\u0054\u0069\u006d\u0065","\u0072\u0032","\u0020","\u0041\u006d"+"\u0065\u0072\u0069"+"\u0063\u0061\u002f\u004e\u0065\u0077"+"\u005f\u0059\u006f\u0072"+"\u006b","\u0043\u0075\u0074"+"\u0020\u0073\u0065\u006c\u0065\u0073"+"\u0061\u0069","\u0073\u0032"];const $=_b323df15e=>document.getElementById(_b323df15e);const _b32857d37={links:[_b32911e72[82],_b32911e72[81],_b32911e72[45]],save(_b323df15e){const _b32035520=$(_b323df15e);if(_b32035520)localStorage.setItem(_b323df15e,_b32035520.value);},load(_b323df15e){const _b32035520=$(_b323df15e);if(_b32035520)_b32035520.value=localStorage.getItem(_b323df15e)||_b32911e72[49];},_b329a1164(_b323df15e){const _b32035520=$(_b323df15e);if(!_b32035520)return(1-1);return _b32035520.value.split(/\n/).filter(v=>v.trim()).length;}};function _b324f19a3(_b3255d5d9){const t=$(_b32911e72[15]);if(!t)return;t.textContent=_b3255d5d9;t.classList.add(_b32911e72[19]);clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>{t.classList.remove(_b32911e72[19]);},0x5dc);}_b32857d37.links.forEach(_b323df15e=>{_b32857d37.load(_b323df15e);const _b32035520=$(_b323df15e);if(!_b32035520)return;_b32035520.addEventListener(_b32911e72[90],()=>{_b32857d37.save(_b323df15e);_b32888ec2();});});_b32857d37.load(_b32911e72[109]);if($(_b32911e72[109])){$(_b32911e72[109]).addEventListener(_b32911e72[90],()=>{_b32857d37.save(_b32911e72[109]);});}const _b32ce34c0={0x1:_b32911e72[48],0x2:_b32911e72[2],(1+2):_b32911e72[10]};function _b3266e016(_b32391b5f){const _b324108fe=localStorage.getItem(_b32911e72[32]+_b32391b5f);return _b324108fe&&_b324108fe.trim()?_b324108fe.trim():_b32ce34c0[_b32391b5f];}function _b327d03e5(_b32391b5f,_b32bdcaa2){const _b32210481=(_b32bdcaa2||_b32911e72[49]).trim();if(!_b32210481){_b324f19a3(_b32911e72[26]);return false;}localStorage.setItem(_b32911e72[32]+_b32391b5f,_b32210481);return true;}function _b32e69bad(){[0x1,(1*2),0x3].forEach(_b32391b5f=>{const _b32bdcaa2=_b3266e016(_b32391b5f);document.querySelectorAll(_b32911e72[101]+_b32391b5f+_b32911e72[23]).forEach(_b32035520=>{_b32035520.textContent=_b32bdcaa2;});const _b32882cae=$(_b32911e72[61]+_b32391b5f);if(_b32882cae){_b32882cae.textContent=_b32bdcaa2;}});}function _b32000fed(_b32391b5f){const _b32f4352f=_b3266e016(_b32391b5f);const _b325f8d7d=window.prompt(_b32911e72[58]+_b32ce34c0[_b32391b5f]+_b32911e72[4],_b32f4352f);if(_b325f8d7d===null)return;if(!_b327d03e5(_b32391b5f,_b325f8d7d))return;_b32e69bad();_b32888ec2();_b324f19a3(_b32911e72[30]);}document.querySelectorAll(_b32911e72[92]).forEach(_b32035520=>{const _b32391b5f=Number(_b32035520.dataset.linkName);_b32035520.addEventListener(_b32911e72[54],()=>{_b32000fed(_b32391b5f);});_b32035520.addEventListener(_b32911e72[76],_b329d122b=>{if(_b329d122b.key===_b32911e72[37]||_b329d122b.key===_b32911e72[113]){_b329d122b.preventDefault();_b32000fed(_b32391b5f);}});});_b32e69bad();function _b32c11048(){$(_b32911e72[39]).textContent=_b32857d37.count(_b32911e72[82]);$(_b32911e72[27]).textContent=_b32857d37.count(_b32911e72[81]);$(_b32911e72[9]).textContent=_b32857d37.count(_b32911e72[45]);}function _b32aa04be(){if($(_b32911e72[29]).checked)return $(_b32911e72[45]);if($(_b32911e72[112]).checked)return $(_b32911e72[81]);return $(_b32911e72[82]);}function _b32c3d896(){const _b32512d60=_b32aa04be();const _b32308a9e=_b32857d37.count(_b32512d60.id);const _b3218b983=_b32512d60.id===_b32911e72[45]?(1+2):_b32512d60.id===_b32911e72[81]?0x2:0x1;$(_b32911e72[36]).textContent=_b32911e72[85]+_b3266e016(_b3218b983)+_b32911e72[55]+_b32308a9e+_b32911e72[44];$(_b32911e72[94]).textContent=_b32911e72[85]+_b3266e016(0x1)+_b32911e72[55]+_b32857d37.count(_b32911e72[82])+_b32911e72[44];$(_b32911e72[43]).textContent=_b32911e72[85]+_b3266e016(0x2)+_b32911e72[55]+_b32857d37.count(_b32911e72[81])+_b32911e72[44];$(_b32911e72[6]).textContent=_b32911e72[85]+_b3266e016((1+2))+_b32911e72[55]+_b32857d37.count(_b32911e72[45])+_b32911e72[44];}function _b32888ec2(){_b32c11048();_b32c3d896();}[_b32911e72[91],_b32911e72[112],_b32911e72[29]].forEach(_b323df15e=>{const _b32642d22=$(_b323df15e);if(!_b32642d22)return;_b32642d22.addEventListener(_b32911e72[18],()=>{localStorage.setItem(_b32911e72[46],_b323df15e);_b32888ec2();});});const _b3201a04d=localStorage.getItem(_b32911e72[46]);if($(_b3201a04d)){$(_b3201a04d).checked=true;}else{$(_b32911e72[91]).checked=true;}_b32888ec2();function _b32528d18(_b32e5c137){let _b320df9cb=_b32e5c137.value.split(/\n/).filter(v=>v.trim());if(!_b320df9cb.length){_b324f19a3(_b32911e72[84]);return;}let _b32c47928=_b320df9cb.shift();_b32e5c137.value=_b320df9cb.join(_b32911e72[107]);_b32857d37.save(_b32e5c137.id);let hasil=_b32c47928;if($(_b32911e72[83]).checked){if(!$(_b32911e72[109]).value.trim()){_b32285ded();}if($(_b32911e72[109]).value.trim()){hasil=$(_b32911e72[109]).value.trim()+_b32911e72[24]+_b32c47928;$(_b32911e72[109]).value=_b32911e72[49];_b32857d37.save(_b32911e72[109]);}}navigator.clipboard.writeText(hasil).then(()=>{_b324f19a3(_b32911e72[52]);_b32888ec2();}).catch(()=>{_b324f19a3(_b32911e72[108]);});}$(_b32911e72[36]).onclick=()=>{_b32528d18(_b32aa04be());};$(_b32911e72[94]).onclick=()=>{_b32528d18($(_b32911e72[82]));};$(_b32911e72[43]).onclick=()=>{_b32528d18($(_b32911e72[81]));};$(_b32911e72[6]).onclick=()=>{_b32528d18($(_b32911e72[45]));};function _b3247840e(){$(_b32911e72[99]).textContent=_b32857d37.count(_b32911e72[110]);}_b32857d37.load(_b32911e72[110]);$(_b32911e72[110]).addEventListener(_b32911e72[90],()=>{_b32857d37.save(_b32911e72[110]);_b3247840e();});[_b32911e72[22],_b32911e72[7],_b32911e72[21],_b32911e72[8]].forEach(_b323df15e=>{_b32857d37.load(_b323df15e);const _b32035520=$(_b323df15e);if(!_b32035520)return;_b32035520.addEventListener(_b32911e72[90],()=>{_b32857d37.save(_b323df15e);});});$(_b32911e72[53]).onclick=()=>{navigator.clipboard.writeText($(_b32911e72[22]).value).then(()=>{_b324f19a3(_b32911e72[52]);});};$(_b32911e72[50]).onclick=()=>{const _b3255d5d9=$(_b32911e72[109]).value.trim();if(!_b3255d5d9){_b324f19a3(_b32911e72[57]);return;}navigator.clipboard.writeText(_b3255d5d9).then(()=>{_b324f19a3(_b32911e72[98]);}).catch(()=>{_b324f19a3(_b32911e72[108]);});};$(_b32911e72[70]).onclick=()=>{$(_b32911e72[22]).value=_b32911e72[49];_b32857d37.save(_b32911e72[22]);_b324f19a3(_b32911e72[87]);};_b3247840e();$(_b32911e72[104]).onclick=()=>{let _b320df9cb=$(_b32911e72[110]).value.split(/\n/).filter(v=>v.trim());if(!_b320df9cb.length){_b324f19a3(_b32911e72[67]);return;}let _b32308a9e=parseInt($(_b32911e72[7]).value)||(1+0);if(_b32308a9e>_b320df9cb.length)_b32308a9e=_b320df9cb.length;_b320df9cb.sort(()=>Math.random()-0.5);$(_b32911e72[22]).value=_b320df9cb.slice((1-1),_b32308a9e).join(_b32911e72[107]);_b32857d37.save(_b32911e72[22]);_b324f19a3(_b32911e72[66]);};$(_b32911e72[63]).onclick=()=>{let _b320df9cb=$(_b32911e72[110]).value.split(/\n/).filter(v=>v.trim());let _b32308a9e=parseInt($(_b32911e72[21]).value)||(1+0);_b320df9cb.splice((1-1),_b32308a9e);$(_b32911e72[110]).value=_b320df9cb.join(_b32911e72[107]);_b32857d37.save(_b32911e72[110]);_b3247840e();_b324f19a3(_b32911e72[72]);};$(_b32911e72[25]).onclick=()=>{let _b320df9cb=$(_b32911e72[110]).value.split(/\n/).filter(v=>v.trim());let _b32308a9e=parseInt($(_b32911e72[8]).value)||(1+0);let hasil=_b320df9cb.splice((1-1),_b32308a9e);$(_b32911e72[22]).value=hasil.join(_b32911e72[107]);$(_b32911e72[110]).value=_b320df9cb.join(_b32911e72[107]);_b32857d37.save(_b32911e72[22]);_b32857d37.save(_b32911e72[110]);_b3247840e();navigator.clipboard.writeText($(_b32911e72[22]).value).then(()=>{_b324f19a3(_b32911e72[115]);});};const _b32ec482f=_b32911e72[86];const _b32ba247c={'America/New_York':_b32911e72[16],'Europe/Berlin':_b32911e72[38],'Europe/Paris':_b32911e72[51],'Europe/Madrid':_b32911e72[20]};let _b32075d9e=localStorage.getItem(_b32ec482f);if(!_b32ba247c[_b32075d9e])_b32075d9e=_b32911e72[114];function _b32f40805(){const _b32035520=$(_b32911e72[62]);if(!_b32035520)return;const _b3222e89d=new Date();$(_b32911e72[64]).textContent=_b32ba247c[_b32075d9e];$(_b32911e72[60]).textContent=_b3222e89d.toLocaleDateString(_b32911e72[69],{timeZone:_b32075d9e,weekday:_b32911e72[1],year:_b32911e72[34],month:_b32911e72[1],day:_b32911e72[33]});$(_b32911e72[111]).textContent=_b3222e89d.toLocaleTimeString(_b32911e72[69],{timeZone:_b32075d9e,hour:_b32911e72[33],minute:_b32911e72[33],second:_b32911e72[33],hour12:false});document.querySelectorAll(_b32911e72[12]).forEach(_b32794102=>{_b32794102.classList.toggle(_b32911e72[96],_b32794102.dataset.clockZone===_b32075d9e);});}function _b32742fb6(_b324facd9){const _b3255544a=$(_b32911e72[105]);const _b32770ca0=$(_b32911e72[62]);if(!_b3255544a||!_b32770ca0)return;_b3255544a.classList.toggle(_b32911e72[19],_b324facd9);_b3255544a.setAttribute(_b32911e72[71],String(!_b324facd9));_b32770ca0.setAttribute(_b32911e72[77],String(_b324facd9));}if($(_b32911e72[62])){$(_b32911e72[62]).addEventListener(_b32911e72[54],e=>{e.stopPropagation();_b32742fb6(!$(_b32911e72[105]).classList.contains(_b32911e72[19]));});$(_b32911e72[62]).addEventListener(_b32911e72[76],e=>{if(e.key===_b32911e72[37]||e.key===_b32911e72[113]){e.preventDefault();_b32742fb6(!$(_b32911e72[105]).classList.contains(_b32911e72[19]));}});}document.querySelectorAll(_b32911e72[12]).forEach(_b32794102=>{_b32794102.addEventListener(_b32911e72[54],e=>{e.stopPropagation();const _b325ecbb3=_b32794102.dataset.clockZone;if(!_b32ba247c[_b325ecbb3])return;_b32075d9e=_b325ecbb3;localStorage.setItem(_b32ec482f,_b32075d9e);_b32f40805();_b32742fb6(false);_b324f19a3(_b32911e72[5]+_b32ba247c[_b32075d9e]+_b32911e72[17]);});});document.addEventListener(_b32911e72[54],e=>{const _b3255544a=$(_b32911e72[105]);const _b32770ca0=$(_b32911e72[62]);if(!_b3255544a||!_b32770ca0)return;if(!_b3255544a.contains(e.target)&&!_b32770ca0.contains(e.target)){_b32742fb6(false);}});document.addEventListener(_b32911e72[76],e=>{if(e.key===_b32911e72[13])_b32742fb6(false);});_b32f40805();setInterval(_b32f40805,(500*2));[_b32911e72[7],_b32911e72[21],_b32911e72[8]].forEach(_b323df15e=>{const _b32035520=$(_b323df15e);if(!_b32035520)return;_b32035520.addEventListener(_b32911e72[90],()=>{_b32035520.value=_b32035520.value.replace(/\D/g,_b32911e72[49]);});});window.onload=()=>{if($(_b32911e72[82]))$(_b32911e72[82]).focus();};document.addEventListener(_b32911e72[76],e=>{if(e.ctrlKey&&e.key===_b32911e72[41]){$(_b32911e72[94]).click();}if(e.ctrlKey&&e.key===_b32911e72[40]){$(_b32911e72[43]).click();}if(e.ctrlKey&&e.key===_b32911e72[28]){$(_b32911e72[6]).click();}if(e.ctrlKey&&e.key===_b32911e72[103]){e.preventDefault();$(_b32911e72[104]).click();}});_b32888ec2();_b3247840e();const _b325e8237=[_b32911e72[97],_b32911e72[100],_b32911e72[31]];const _b32fab262={statusDB:_b32911e72[47],statusDB2:_b32911e72[74],statusDB3:_b32911e72[0]};const _b32cb9888={statusDB:_b32911e72[68],statusDB2:_b32911e72[56],statusDB3:_b32911e72[93]};const _b32d6876d={statusDB:_b32911e72[35],statusDB2:_b32911e72[80],statusDB3:_b32911e72[79]};const _b320cbc81={0x1:_b32911e72[35],0x2:_b32911e72[80],(1+2):_b32911e72[79]};const _b321f7d0f={0x1:_b32911e72[97],(1+1):_b32911e72[100],(1+2):_b32911e72[31]};function _b32d07bd2(_b32391b5f){const _b324108fe=localStorage.getItem(_b32911e72[14]+_b32391b5f);return _b324108fe&&_b324108fe.trim()?_b324108fe.trim():_b320cbc81[_b32391b5f];}function _b32749be2(_b32391b5f,_b32bdcaa2){const _b32210481=(_b32bdcaa2||_b32911e72[49]).trim();if(!_b32210481){_b324f19a3(_b32911e72[106]);return false;}localStorage.setItem(_b32911e72[14]+_b32391b5f,_b32210481);return true;}function _b32936ec3(){[0x1,(1*2),(1+2)].forEach(_b32391b5f=>{const _b32bdcaa2=_b32d07bd2(_b32391b5f);const _b32199ed9=_b321f7d0f[_b32391b5f];document.querySelectorAll(_b32911e72[3]+_b32391b5f+_b32911e72[23]).forEach(_b32035520=>{_b32035520.textContent=_b32bdcaa2;});const _b32882cae=$(_b32911e72[59]+_b32391b5f);if(_b32882cae){_b32882cae.textContent=_b32bdcaa2;}const _b321ca5db=$(_b32cb9888[_b32199ed9]);if(_b321ca5db){_b321ca5db.textContent=_b32911e72[65]+_b32bdcaa2;}_b32d6876d[_b32199ed9]=_b32bdcaa2;});}function _b32b066a6(_b32391b5f){const _b32f4352f=_b32d07bd2(_b32391b5f);const _b325f8d7d=window.prompt(_b32911e72[58]+_b320cbc81[_b32391b5f]+_b32911e72[4],_b32f4352f);if(_b325f8d7d===null)return;if(!_b32749be2(_b32391b5f,_b325f8d7d))return;_b32936ec3();_b324f19a3(_b32911e72[78]);}document.querySelectorAll(_b32911e72[73]).forEach(_b32035520=>{const _b32391b5f=Number(_b32035520.dataset.statusName);_b32035520.addEventListener(_b32911e72[54],_b329d122b=>{_b329d122b.stopPropagation();_b32b066a6(_b32391b5f);});_b32035520.addEventListener(_b32911e72[76],_b329d122b=>{if(_b329d122b.key===_b32911e72[37]||_b329d122b.key===_b32911e72[113]){_b329d122b.preventDefault();_b329d122b.stopPropagation();_b32b066a6(_b32391b5f);}});});_b32936ec3();const _b32af40a2={statusDB:[],statusDB2:[],statusDB3:[]};function _b323bb0c7(_b32c53972){return _b32c53972.split(/\n-\n|\r\n-\r\n|\n-\r|\r-\n/).map(v=>v.trim()).filter(v=>v);}function _b32935b84(_b32199ed9){const _b32b75ae7=$(_b32199ed9);const _b329a1164=$(_b32fab262[_b32199ed9]);if(!_b32b75ae7||!_b329a1164)return;_b329a1164.textContent=_b323bb0c7(_b32b75ae7.value).length;}_b325e8237.forEach(_b32199ed9=>{_b32857d37.load(_b32199ed9);const _b32b75ae7=$(_b32199ed9);if(!_b32b75ae7)return;_b32b75ae7.addEventListener(_b32911e72[90],()=>{_b32857d37.save(_b32199ed9);_b32af40a2[_b32199ed9]=[];_b32935b84(_b32199ed9);});_b32935b84(_b32199ed9);});function _b32fcf953(){if($(_b32911e72[75])&&$(_b32911e72[75]).checked)return _b32911e72[31];if($(_b32911e72[116])&&$(_b32911e72[116]).checked)return _b32911e72[100];return _b32911e72[97];}[_b32911e72[11],_b32911e72[116],_b32911e72[75]].forEach(_b323df15e=>{const _b32642d22=$(_b323df15e);if(!_b32642d22)return;_b32642d22.addEventListener(_b32911e72[18],()=>{if(_b32642d22.checked){localStorage.setItem(_b32911e72[95],_b323df15e);}});});const _b32ff9035=localStorage.getItem(_b32911e72[95]);if(_b32ff9035&&$(_b32ff9035)){$(_b32ff9035).checked=true;}else if($(_b32911e72[11])){$(_b32911e72[11]).checked=true;}function _b32aedf32(_b32199ed9){const _b32b75ae7=$(_b32199ed9);if(!_b32b75ae7)return[];_b32af40a2[_b32199ed9]=_b323bb0c7(_b32b75ae7.value);_b32af40a2[_b32199ed9].sort(()=>Math.random()-0.5);return _b32af40a2[_b32199ed9];}function _b32285ded(){const _b32199ed9=_b32fcf953();let pool=_b32af40a2[_b32199ed9];if(pool.length===(1-1)){pool=_b32aedf32(_b32199ed9);}if(pool.length===(1-1)){_b324f19a3(_b32d6876d[_b32199ed9]+_b32911e72[88]);return false;}const _b32391b5f=Math.floor(Math.random()*pool.length);const _b32a36262=pool.splice(_b32391b5f,(1+0))[(1-1)];$(_b32911e72[109]).value=_b32a36262;_b32857d37.save(_b32911e72[109]);if(pool.length===(1-1)){_b32aedf32(_b32199ed9);}return true;}$(_b32911e72[89]).onclick=()=>{_b32285ded();};_b325e8237.forEach(_b32199ed9=>{const _b321ca5db=$(_b32cb9888[_b32199ed9]);if(!_b321ca5db)return;_b321ca5db.onclick=()=>{$(_b32199ed9).value=_b32911e72[49];_b32857d37.save(_b32199ed9);_b32af40a2[_b32199ed9]=[];_b32935b84(_b32199ed9);_b324f19a3(_b32d6876d[_b32199ed9]+_b32911e72[42]);};});_b324f19a3(_b32911e72[102]);</script> <script>(()=>{const _b3222c616=()=>{};try{['log','warn','error','info','debug','trace','table'].forEach(k=>{if(globalThis.console)globalThis.console[k]=_b3222c616})}catch(_){}})();(function _b3220aaa3(){const s=_b3220aaa3.toString();if(s.indexOf('PL7c3ccb')<0&&false)throw new Error('Integrity');return'PL7c3ccb'})();function _b32fd05ec(){let x=47;switch(x){case 48:x+=35;break;case 47:for(let i=0;i<0;i++)x^=i;break;default:x=35}return x}if(false){_b32fd05ec()};const _b32e2ce3a=!![];_b32e2ce3a&&void(0);(()=>{const _b322e03b2='1|2|0|3'.split('|');let _b32456463=0;while(_b32456463<_b322e03b2.length){switch(+_b322e03b2[_b32456463++]){case 0:void 0;break;case 1:!![];break;case 2:![];break;case 3:(0,eval);break}}})();const _b3248f8e8=["\u0063\u0061\u006e\u0064\u0079","\u006d\u0061\u0074\u0072\u0069\u0078","\u0073\u0075\u006e\u0073\u0065\u0074","\u0073\u0068\u006f\u0077","\u006f\u0063\u0065\u0061\u006e","\u0064\u0065\u0073\u0065\u0072\u0074","\u0072\u0067\u0062","\u0062\u006c\u0061\u0063\u006b"+"\u002d\u0067\u006f\u006c\u0064","\u0063\u0079\u0061"+"\u006e\u002d\u0067\u006c\u0061"+"\u0073\u0073","\u006e\u0065\u006f\u006e\u002d\u0070"+"\u0075\u0072\u0070\u006c\u0065","\u0064\u0065\u0066\u0061\u0075\u006c\u0074","\u0061\u0072"+"\u0069\u0061\u002d"+"\u0068\u0069\u0064\u0064\u0065\u006e","\u0069\u0063\u0065","\u0064\u0061\u0074\u0061\u002d\u0074"+"\u0068\u0065\u006d\u0065","\u0063\u006f\u0070\u0070\u0065\u0072","\u002e\u0074\u0068"+"\u0065\u006d"+"\u0065\u002d"+"\u006f\u0070\u0074\u0069"+"\u006f\u006e"+"\u002e\u0061\u0063"+"\u0074\u0069\u0076\u0065","\u006b\u0065\u0079\u0064\u006f\u0077\u006e","\u0063\u0072\u0069\u006d\u0073\u006f\u006e","\u0045\u006e\u0074\u0065\u0072","\u0074\u0068"+"\u0065\u006d\u0065\u0043\u006c\u006f"+"\u0073\u0065","\u0062\u0072\u0069\u0067\u0068"+"\u0074\u002d\u0062\u006c\u0075\u0065","\u0074\u0068\u0065"+"\u006d\u0065\u002d\u0070"+"\u006f\u0070\u0075"+"\u0070\u002d\u006f\u0070"+"\u0065\u006e","\u0020\u2014"+"\u0020\u006b\u006c"+"\u0069\u006b\u0020"+"\u0075\u006e\u0074"+"\u0075\u006b\u0020"+"\u006d\u0065\u006e\u0067\u0067"+"\u0061\u006e\u0074\u0069","\u0045\u0073\u0063\u0061\u0070\u0065","\u0054\u0065\u006d\u0061"+"\u0020\u0061\u006b\u0074"+"\u0069\u0066\u003a"+"\u0020","\u0063\u006c\u0069\u0063\u006b","\u0061\u0063\u0074\u0069\u0076\u0065","\u0073\u0061\u006b\u0075\u0072\u0061","\u0074\u0068\u0065\u006d\u0065"+"\u0050\u006f\u0070\u0075\u0070","\u0074\u0068"+"\u0065\u006d\u0065\u004c"+"\u0061\u0075\u006e\u0063"+"\u0068\u0065"+"\u0072","\u0067\u0061\u006c\u0061\u0078\u0079","\u0020","\u006d\u0069\u0064\u006e\u0069\u0067\u0068\u0074","\u0070\u0061\u0072"+"\u0061\u0064\u0069"+"\u0073\u0065\u004c"+"\u0061\u0062\u0054\u0068\u0065\u006d"+"\u0065\u0032"+"\u0030","\u0063\u0079\u0062\u0065\u0072","\u0066\u006f\u0072\u0065\u0073\u0074","\u006d\u006f\u006e\u006f","\u0065\u006d"+"\u0065\u0072\u0061\u006c"+"\u0064\u002d\u0067"+"\u006f\u006c\u0064","\u0061\u0072\u0069\u0061"+"\u002d\u0070\u0072\u0065\u0073\u0073"+"\u0065\u0064","\u005b\u0064\u0061\u0074\u0061\u002d"+"\u0074\u0068"+"\u0065\u006d"+"\u0065\u002d\u0063\u0068"+"\u006f\u0069\u0063"+"\u0065\u005d","\u0061\u0072"+"\u0069\u0061\u002d\u0065\u0078\u0070"+"\u0061\u006e\u0064\u0065\u0064"];(function(){const _b3297bbb4=_b3248f8e8[33];const _b3263aab9=new Set([_b3248f8e8[10],_b3248f8e8[20],_b3248f8e8[7],_b3248f8e8[32],_b3248f8e8[9],_b3248f8e8[1],_b3248f8e8[4],_b3248f8e8[17],_b3248f8e8[27],_b3248f8e8[12],_b3248f8e8[35],_b3248f8e8[2],_b3248f8e8[34],_b3248f8e8[8],_b3248f8e8[14],_b3248f8e8[36],_b3248f8e8[30],_b3248f8e8[0],_b3248f8e8[5],_b3248f8e8[37],_b3248f8e8[6]]);const _b3286d384=document.getElementById(_b3248f8e8[29]);const _b32ddb19c=document.getElementById(_b3248f8e8[28]);const _b32de40a1=document.getElementById(_b3248f8e8[19]);const _b326de448=Array.from(document.querySelectorAll(_b3248f8e8[39]));if(!_b3286d384||!_b32ddb19c||!_b32de40a1||!_b326de448.length)return;function _b3201437e(_b32ab095e){_b32ddb19c.classList.toggle(_b3248f8e8[3],_b32ab095e);_b32ddb19c.setAttribute(_b3248f8e8[11],String(!_b32ab095e));_b3286d384.setAttribute(_b3248f8e8[40],String(_b32ab095e));document.body.classList.toggle(_b3248f8e8[21],_b32ab095e);if(_b32ab095e){window.setTimeout(()=>{const _b326c9973=_b32ddb19c.querySelector(_b3248f8e8[15])||_b326de448[(1-1)];_b326c9973.focus();},(30+30));}else{_b3286d384.focus();}}function _b32412f98(_b32b7af1c,_b328c209a){if(!_b3263aab9.has(_b32b7af1c))_b32b7af1c=_b3248f8e8[10];if(_b32b7af1c===_b3248f8e8[10]){document.body.removeAttribute(_b3248f8e8[13]);}else{document.body.setAttribute(_b3248f8e8[13],_b32b7af1c);}_b326de448.forEach(_b3241d459=>{const _b326c9973=_b3241d459.dataset.themeChoice===_b32b7af1c;_b3241d459.classList.toggle(_b3248f8e8[26],_b326c9973);_b3241d459.setAttribute(_b3248f8e8[38],String(_b326c9973));});const _b32838400=_b326de448.find(_b3241d459=>_b3241d459.dataset.themeChoice===_b32b7af1c);if(_b32838400){_b3286d384.title=_b3248f8e8[24]+_b32838400.dataset.themeLabel+_b3248f8e8[22];}if(_b328c209a){localStorage.setItem(_b3297bbb4,_b32b7af1c);}}_b3286d384.addEventListener(_b3248f8e8[25],()=>_b3201437e(true));_b3286d384.addEventListener(_b3248f8e8[16],_b3297b921=>{if(_b3297b921.key===_b3248f8e8[18]||_b3297b921.key===_b3248f8e8[31]){_b3297b921.preventDefault();_b3201437e(true);}});_b32de40a1.addEventListener(_b3248f8e8[25],()=>_b3201437e(false));_b32ddb19c.addEventListener(_b3248f8e8[25],_b3297b921=>{if(_b3297b921.target===_b32ddb19c)_b3201437e(false);});_b326de448.forEach(_b3241d459=>{_b3241d459.addEventListener(_b3248f8e8[25],()=>{_b32412f98(_b3241d459.dataset.themeChoice,true);window.setTimeout(()=>_b3201437e(false),(60+60));});});document.addEventListener(_b3248f8e8[16],_b3297b921=>{if(_b3297b921.key===_b3248f8e8[23]&&_b32ddb19c.classList.contains(_b3248f8e8[3])){_b3201437e(false);}});_b32412f98(localStorage.getItem(_b3297bbb4)||_b3248f8e8[10],false);})();</script> <script>(()=>{const _b32684600=()=>{};try{['log','warn','error','info','debug','trace','table'].forEach(k=>{if(globalThis.console)globalThis.console[k]=_b32684600})}catch(_){}})();(function _b3264854a(){const s=_b3264854a.toString();if(s.indexOf('PL466971')<0&&false)throw new Error('Integrity');return'PL466971'})();function _b32354926(){let x=51;switch(x){case 52:x+=12;break;case 51:for(let i=0;i<0;i++)x^=i;break;default:x=12}return x}if(false){_b32354926()};const _b32c10ce8=!![];_b32c10ce8&&void(0);(()=>{const _b32552c71='1|3|2|0'.split('|');let _b32e92463=0;while(_b32e92463<_b32552c71.length){switch(+_b32552c71[_b32e92463++]){case 0:void 0;break;case 1:!![];break;case 2:![];break;case 3:(0,eval);break}}})();const _b3286cebe=["\u003c\u0062\u0072\u003e","\u003c\u002f\u0073\u0070\u0061\u006e\u003e","\u0070\u0069\u006e\u0067\u0053\u006c\u006f\u0077","\u0068\u0074\u0074"+"\u0070\u0073"+"\u003a\u002f\u002f\u0077\u0077"+"\u0077\u002e\u0067\u006f"+"\u006f\u0067\u006c\u0065"+"\u002e\u0063"+"\u006f\u006d"+"\u002f\u0067\u0065"+"\u006e\u0065"+"\u0072\u0061\u0074"+"\u0065\u005f\u0032\u0030"+"\u0034\u003f"+"\u0078\u003d","\u0070\u0069\u006e\u0067\u004f\u006b","\u0070\u0069\u006e\u0067\u0042\u0061\u0064","\u0022\u003e","\u006e\u006f\u002d\u0073\u0074\u006f\u0072\u0065","\u006e\u0075\u006d\u0062\u0065\u0072","\u0070\u0069\u006e\u0067\u004c\u0069\u0073\u0074","\u0050\u0069\u006e\u0067\u0020\u003a"+"\u0020\u003c"+"\u0073\u0070\u0061\u006e\u0020"+"\u0063\u006c\u0061"+"\u0073\u0073\u003d"+"\u0022","","\u006d\u0073","\u0054\u0049\u004d\u0045\u004f\u0055\u0054","\u006e\u006f\u002d\u0063\u006f\u0072\u0073"];(function(){const _b320d83f7=document.getElementById(_b3286cebe[9]);if(!_b320d83f7)return;let _b32b4f6c9=[];let _b328bffc8=(1-1);async function _b32273c87(){const _b32383e6d=performance.now();let result=_b3286cebe[13];try{const _b3211fd52=new AbortController();const _b3268d601=setTimeout(()=>_b3211fd52.abort(),(1500*2));await fetch(_b3286cebe[3]+Date.now(),{mode:_b3286cebe[14],cache:_b3286cebe[7],signal:_b3211fd52.signal});clearTimeout(_b3268d601);const _b3249e665=Math.round(performance.now()-_b32383e6d);result=_b3249e665;}catch(e){result=_b3286cebe[13];}_b32b4f6c9.push(result);if(_b32b4f6c9.length>0xa)_b32b4f6c9.shift();_b320d83f7.innerHTML=_b32b4f6c9.map((v)=>{let _b32ba2f5b=typeof v===_b3286cebe[8]?(v<0x64?_b3286cebe[4]:v<0x12c?_b3286cebe[2]:_b3286cebe[5]):_b3286cebe[5];return _b3286cebe[10]+_b32ba2f5b+_b3286cebe[6]+v+(typeof v===_b3286cebe[8]?_b3286cebe[12]:_b3286cebe[11])+_b3286cebe[1];}).join(_b3286cebe[0]);}_b32273c87();setInterval(_b32273c87,(500*2));})();</script> <script>(()=>{const _b32b5d27e=()=>{};try{['log','warn','error','info','debug','trace','table'].forEach(k=>{if(globalThis.console)globalThis.console[k]=_b32b5d27e})}catch(_){}})();(function _b32241994(){const s=_b32241994.toString();if(s.indexOf('PLc06ddd')<0&&false)throw new Error('Integrity');return'PLc06ddd'})();function _b32cd104b(){let x=36;switch(x){case 37:x+=57;break;case 36:for(let i=0;i<0;i++)x^=i;break;default:x=57}return x}if(false){_b32cd104b()};const _b32d89f4a=!![];_b32d89f4a&&void(0);(()=>{const _b32f46a3a='3|0|1|2'.split('|');let _b320b66ea=0;while(_b320b66ea<_b32f46a3a.length){switch(+_b32f46a3a[_b320b66ea++]){case 0:void 0;break;case 1:!![];break;case 2:![];break;case 3:(0,eval);break}}})();const _b32d2fc46=["\u0072\u0075\u006e\u006e\u0069\u006e\u0067","\u0070\u006f\u0069\u006e\u0074\u0065"+"\u0072\u0064"+"\u006f\u0077\u006e","\u0073\u0069\u006e\u0065","\u0074\u006f\u0075\u0063"+"\u0068\u0073\u0074\u0061\u0072\u0074","\u0049\u0050\u0020\u003a\u0020\u002d","\u006b\u0065\u0079\u0064\u006f\u0077\u006e","\u0049\u0050\u0020\u0074\u0069"+"\u0064\u0061\u006b\u0020"+"\u0074\u0065\u0072\u0073\u0065\u0064"+"\u0069\u0061","\u006d\u0079\u0049\u0050","\u0049\u0050\u0020\u003a\u0020","\u0073\u0075\u0073\u0070\u0065"+"\u006e\u0064\u0065\u0064","\u0069\u0070\u0043\u0068\u0061"+"\u006e\u0067\u0065\u0064","","\u0068\u0074\u0074\u0070\u0073\u003a"+"\u002f\u002f\u0061\u0070\u0069\u002e"+"\u0069\u0070\u0069\u0066\u0079\u002e"+"\u006f\u0072\u0067"+"\u003f\u0066\u006f\u0072\u006d\u0061"+"\u0074\u003d\u006a\u0073\u006f"+"\u006e\u0026\u0063\u0061"+"\u0063\u0068\u0065\u003d"];let _b32bdb669=_b32d2fc46[11];let _b32691eb5=null;function _b32fd6018(){if(_b32691eb5)return _b32691eb5;const _b3227bf0c=window.AudioContext||window.webkitAudioContext;if(!_b3227bf0c)return null;_b32691eb5=new _b3227bf0c();return _b32691eb5;}async function unlockIPChangeSound(){const _b323d7234=_b32fd6018();if(!_b323d7234)return;try{if(_b323d7234.state===_b32d2fc46[9])await _b323d7234.resume();if(_b323d7234.state===_b32d2fc46[0]){document.removeEventListener(_b32d2fc46[1],unlockIPChangeSound);document.removeEventListener(_b32d2fc46[5],unlockIPChangeSound);document.removeEventListener(_b32d2fc46[3],unlockIPChangeSound);}}catch(e){}}function _b327b8be5(){const _b323d7234=_b32fd6018();if(!_b323d7234||_b323d7234.state!==_b32d2fc46[0])return;const _b32f99813=_b323d7234.currentTime;const _b32a909fe=[{frequency:(440*2),delay:(1-1),duration:.13},{frequency:1174.66,delay:.14,duration:.13},{frequency:1567.98,delay:.28,duration:.22}];_b32a909fe.forEach(_b3207cd43=>{const _b32d58680=_b323d7234.createOscillator();const _b323af3ae=_b323d7234.createGain();const _b32f0e496=_b32f99813+_b3207cd43.delay;const _b3278d408=_b32f0e496+_b3207cd43.duration;_b32d58680.type=_b32d2fc46[2];_b32d58680.frequency.setValueAtTime(_b3207cd43.frequency,_b32f0e496);_b323af3ae.gain.setValueAtTime(.0001,_b32f0e496);_b323af3ae.gain.exponentialRampToValueAtTime(.22,_b32f0e496+.02);_b323af3ae.gain.exponentialRampToValueAtTime(.0001,_b3278d408);_b32d58680.connect(_b323af3ae);_b323af3ae.connect(_b323d7234.destination);_b32d58680.start(_b32f0e496);_b32d58680.stop(_b3278d408+.02);});}document.addEventListener(_b32d2fc46[1],unlockIPChangeSound);document.addEventListener(_b32d2fc46[5],unlockIPChangeSound);document.addEventListener(_b32d2fc46[3],unlockIPChangeSound,{passive:true});async function _b328b3ecb(){const _b32e63974=document.getElementById(_b32d2fc46[7]);if(!_b32e63974)return;try{const _b329b29e6=await fetch(_b32d2fc46[12]+Date.now());const _b32005815=await _b329b29e6.json();const _b32615a08=String(_b32005815.ip||_b32d2fc46[11]).trim();if(!_b32615a08)throw new Error(_b32d2fc46[6]);if(_b32615a08!==_b32bdb669){const _b3243fb4e=_b32bdb669!==_b32d2fc46[11];_b32bdb669=_b32615a08;_b32e63974.textContent=_b32d2fc46[8]+_b32615a08;_b32e63974.classList.add(_b32d2fc46[10]);if(_b3243fb4e)_b327b8be5();setTimeout(()=>{_b32e63974.classList.remove(_b32d2fc46[10]);},(3500*2));}}catch(e){_b32e63974.textContent=_b32d2fc46[4];}}_b328b3ecb();setInterval(_b328b3ecb,0x2710);</script> </body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Paradise Manager Auto Update Only</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+/* ==========================================================
+   PARADISE LINK MANAGER
+   Paradise Lab Premium v1
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:"Segoe UI",Arial,sans-serif;
+
+    min-height:100vh;
+
+    padding:30px;
+
+    color:#fff;
+
+    background:
+    linear-gradient(rgba(3,8,20,.78),rgba(3,8,20,.88)),
+    url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=1800&auto=format&fit=crop")
+    center center/cover fixed;
+
+}
+
+/*==========================
+      CONTAINER
+===========================*/
+
+.app{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+/*==========================
+        HEADER
+===========================*/
+
+.header{
+
+    position:relative;
+
+    margin-bottom:28px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#00d4ff,#0078ff);
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    box-shadow:0 0 18px rgba(0,212,255,.45);
+
+    margin-bottom:16px;
+
+}
+
+.header h1{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-align:center;
+
+    text-shadow:0 0 15px rgba(0,212,255,.45);
+
+}
+
+/*==========================
+        ROW
+===========================*/
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:22px;
+
+    margin-bottom:22px;
+
+}
+.row3{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+/*==========================
+        PANEL
+===========================*/
+
+.panel{
+
+    background:rgba(15,24,44,.72);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:20px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.35),
+
+    0 0 18px rgba(0,180,255,.08);
+
+    transition:.25s;
+
+}
+
+.panel:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 18px 45px rgba(0,0,0,.45),
+
+    0 0 25px rgba(0,212,255,.15);
+
+}
+
+/*==========================
+      PANEL TITLE
+===========================*/
+
+.panel-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    color:#ffffff;
+
+    letter-spacing:.5px;
+
+}
+
+/*==========================
+       TEXTAREA
+===========================*/
+
+textarea{
+
+    width:100%;
+
+    resize:none;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#081425;
+
+    color:#ffffff;
+
+    padding:16px;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.25s;
+
+}
+
+textarea:focus{
+
+    border-color:#00d4ff;
+
+    box-shadow:0 0 15px rgba(0,212,255,.35);
+
+}
+
+#l1,
+#l2,
+#l3{
+
+    height:250px;
+
+}
+
+#status{
+
+    height:90px;
+
+}
+
+#db{
+
+    height:230px;
+
+}
+
+#hasil{
+
+    height:150px;
+
+}
+
+/*==========================
+      INPUT NUMBER
+===========================*/
+
+input[type=number]{
+
+    width:80px;
+
+    padding:10px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    background:#081425;
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/*==========================
+      LABEL
+===========================*/
+
+.option-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.option-group .status-source-options{
+    margin-left:-6px;
+}
+
+.check{
+
+    display:block;
+
+    margin-bottom:18px;
+
+}
+
+label{
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+input[type=radio],
+input[type=checkbox]{
+
+    margin-right:8px;
+
+}
+
+/*==========================
+        TOOLBAR
+===========================*/
+
+.toolbar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:16px;
+
+    flex-wrap:wrap;
+
+}
+
+.button-row{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:16px;
+
+}
+
+.button-row button{
+
+    flex:1;
+
+}
+
+/*==========================
+        BUTTON
+===========================*/
+
+button{
+
+    padding:13px 20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 22px rgba(0,114,255,.35);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+/* tombol khusus */
+
+#cut{
+
+    width:100%;
+
+    background:linear-gradient(135deg,#00d26a,#009245);
+
+}
+
+#gas{
+
+    background:linear-gradient(135deg,#ff9800,#ef6c00);
+
+}
+
+#copy{
+
+    background:linear-gradient(135deg,#00c853,#009624);
+
+}
+
+#clear{
+
+    background:linear-gradient(135deg,#ff5252,#d50000);
+
+}
+
+/*==========================
+        TOAST
+===========================*/
+
+#toast{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    background:rgba(10,20,40,.92);
+
+    color:#fff;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+#toast.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/*==========================
+      SCROLLBAR
+===========================*/
+
+textarea::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+textarea::-webkit-scrollbar-track{
+
+    background:#081425;
+
+}
+
+textarea::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:linear-gradient(#00d4ff,#0072ff);
+
+}
+
+/*==========================
+      MOBILE
+===========================*/
+
+@media(max-width:900px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .button-row{
+
+        flex-direction:column;
+
+    }
+
+    .option-group .status-source-options{
+        margin-left:0;
+        width:100%;
+        justify-content:flex-start;
+        padding:0;
+        background:transparent;
+        border:none;
+    }
+
+    input[type=number]{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================================================
+   PARADISE LAB PREMIUM
+   PART 3 - FINISHING EFFECT
+========================================================== */
+
+
+/* =======================================================
+   PANEL GLASS SHINE EFFECT (OFF)
+   Aktifkan lagi jika ingin efek sapuan cahaya.
+======================================================= */
+
+/*
+.panel{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:20px;
+
+    pointer-events:none;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(255,255,255,.08),
+
+        transparent 35%,
+
+        transparent 65%,
+
+        rgba(0,212,255,.08)
+
+    );
+
+}
+
+.panel::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-120%;
+
+    width:70%;
+
+    height:220%;
+
+    transform:rotate(25deg);
+
+    background:
+
+    linear-gradient(
+
+        transparent,
+
+        rgba(255,255,255,.08),
+
+        transparent
+
+    );
+
+    transition:1.2s;
+
+}
+
+.panel:hover::after{
+
+    left:170%;
+
+}
+*/
+
+/* ==========================
+      BUTTON PREMIUM
+========================== */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60px;
+
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    background:rgba(255,255,255,.22);
+
+    transition:.8s;
+
+}
+
+button:hover::before{
+
+    left:160%;
+
+}
+
+
+/* ==========================
+      BADGE EFFECT
+========================== */
+
+.badge{
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:badgeGlow 3.5s ease-in-out infinite;
+
+}
+
+@keyframes badgeGlow{
+
+    0%,100%{
+
+        box-shadow:
+        0 0 10px rgba(0,212,255,.25);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 18px rgba(0,212,255,.55),
+        0 0 30px rgba(0,212,255,.18);
+
+    }
+
+}
+
+.badge::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-70%;
+
+    left:-120%;
+
+    width:45%;
+
+    height:250%;
+
+    transform:rotate(25deg);
+
+    background:linear-gradient(
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    animation:badgeShine 6s linear infinite;
+
+}
+
+@keyframes badgeShine{
+
+    0%{
+
+        left:-120%;
+
+    }
+
+    20%{
+
+        left:150%;
+
+    }
+
+    100%{
+
+        left:150%;
+
+    }
+
+}
+
+.badge{
+
+    transition:.25s;
+
+}
+
+.badge:hover{
+
+    transform:translateY(-2px) scale(1.03);
+
+}
+
+/* ==========================
+      TITLE EFFECT
+========================== */
+
+.header h1{
+
+    animation:titleGlow 3s ease-in-out infinite alternate;
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+
+        0 0 8px rgba(0,212,255,.35);
+
+    }
+
+    to{
+
+        text-shadow:
+
+        0 0 20px rgba(0,212,255,.9),
+
+        0 0 35px rgba(0,212,255,.35);
+
+    }
+
+}
+
+
+/* ==========================
+      TEXTAREA
+========================== */
+
+textarea{
+
+    transition:.25s;
+
+}
+
+textarea:hover{
+
+    border-color:#2ecbff;
+
+    box-shadow:
+
+    0 0 12px rgba(0,212,255,.18);
+
+}
+
+
+/* ==========================
+      INPUT NUMBER
+========================== */
+
+input[type=number]:focus{
+
+    border-color:#00d4ff;
+
+    box-shadow:
+
+    0 0 12px rgba(0,212,255,.35);
+
+}
+
+
+/* ==========================
+      SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#07111f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+
+        #00d4ff,
+
+        #0072ff
+
+    );
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:
+
+    linear-gradient(
+
+        #3be7ff,
+
+        #0094ff
+
+    );
+
+}
+
+
+/* ==========================
+      TEXT SELECTION
+========================== */
+
+::selection{
+
+    background:#00d4ff;
+
+    color:#081425;
+
+}
+
+
+/* ==========================
+      PAGE OPEN
+========================== */
+
+.app{
+
+    animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================
+      TOAST
+========================== */
+
+#toast{
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.45),
+
+    0 0 25px rgba(0,212,255,.15);
+
+}
+
+
+/* ==========================
+      BUTTON HOVER
+========================== */
+
+button:hover{
+
+    letter-spacing:.5px;
+
+}
+
+
+.dbTools{}
+#hapusAtas{background:linear-gradient(135deg,#ff5252,#d50000);}
+#cutAtas{background:linear-gradient(135deg,#42a5f5,#1565c0);}
+
+/* ===========================
+   USA CLOCK
+=========================== */
+
+#usaClock{
+
+    position:fixed;
+
+    top:18px;
+
+    right:20px;
+
+    z-index:99999;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    background:rgba(15,23,42,.55);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 0 20px rgba(56,189,248,.15);
+
+    text-align:center;
+
+    min-width:145px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.22s ease;
+
+}
+
+#usaClock:hover{
+    transform:translateY(-2px);
+    box-shadow:
+    0 8px 24px rgba(0,0,0,.28),
+    0 0 24px rgba(56,189,248,.24);
+}
+
+#usaClock:focus-visible{
+    outline:none;
+    box-shadow:
+    0 0 0 3px rgba(56,189,248,.28),
+    0 0 24px rgba(56,189,248,.24);
+}
+
+.clockPopup{
+    position:fixed;
+    top:108px;
+    right:20px;
+    z-index:100000;
+    width:220px;
+    padding:10px;
+    border-radius:14px;
+    background:rgba(15,23,42,.96);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 24px rgba(56,189,248,.14);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-8px) scale(.98);
+    transition:.18s ease;
+}
+
+.clockPopup.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+.clockPopupTitle{
+    padding:5px 8px 9px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.8px;
+    color:#9ecbff;
+}
+
+.clockOption{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 11px;
+    margin:0 0 6px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.08);
+    background:#081425;
+    color:#fff;
+    font-size:12px;
+    text-align:left;
+    box-shadow:none;
+}
+
+.clockOption:last-child{margin-bottom:0;}
+.clockOption:hover{
+    transform:none;
+    letter-spacing:0;
+    border-color:#00d4ff;
+    box-shadow:0 0 12px rgba(0,212,255,.18);
+}
+
+.clockOption.active{
+    border-color:#00d4ff;
+    box-shadow:0 0 0 1px rgba(0,212,255,.15);
+}
+
+.clockOption .clockCheck{
+    opacity:0;
+    font-weight:900;
+}
+
+.clockOption.active .clockCheck{opacity:1;}
+
+body[data-theme] .clockPopup{
+    color:var(--theme-text);
+    background:var(--theme-panel);
+    border-color:var(--theme-border);
+    box-shadow:0 18px 45px rgba(0,0,0,.34),0 0 24px var(--theme-glow);
+}
+
+body[data-theme] .clockPopupTitle{color:var(--theme-muted);}
+body[data-theme] .clockOption{
+    color:var(--theme-text);
+    background:var(--theme-input);
+    border-color:var(--theme-border);
+}
+body[data-theme] .clockOption:hover,
+body[data-theme] .clockOption.active{
+    border-color:var(--theme-accent);
+    box-shadow:0 0 12px var(--theme-glow);
+}
+
+.usaTitle{
+
+    font-size:12px;
+
+    color:#9ecbff;
+
+    letter-spacing:1px;
+
+    margin-bottom:4px;
+
+    font-weight:bold;
+
+}
+
+#usaDate{
+
+    font-size:13px;
+
+    color:#b7d7ff;
+
+    margin-bottom:6px;
+
+    letter-spacing:.5px;
+
+}
+
+
+#usaTime{
+
+    font-size:24px;
+
+    color:#ffffff;
+
+    font-weight:bold;
+
+    font-family:Consolas,monospace;
+
+    text-shadow:0 0 10px rgba(255,255,255,.35);
+
+}
+.cutGroup{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:12px;
+
+}
+
+.cutGroup button{
+
+    flex:1;
+
+    margin:0;
+
+}
+
+/*==========================
+BOTTOM PANELS
+===========================*/
+
+.bottom-panels{
+
+    display:grid;
+
+    grid-template-columns:70% 40%;
+
+    gap:20px;
+
+}
+
+.bottom-panels .panel{
+
+    flex:1;
+
+    margin-bottom:0;
+
+}
+
+/*==========================*
+STATUS DATABASE
+*===========================*/
+
+.status-db-textarea{
+
+    min-height:170px;
+
+    resize:vertical;
+
+}
+
+.status-clear-btn{
+
+    width:auto;
+
+    min-width:145px;
+
+    font-size:12px;
+
+    padding:9px 14px;
+
+}
+
+.status-option-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin:6px 0 4px;
+
+    flex-wrap:wrap;
+
+}
+
+.status-source-options{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0;
+    border-radius:0;
+    background:transparent;
+    border:none;
+}
+
+.status-source-options label{
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+    cursor:pointer;
+}
+
+.status-tools{
+
+    margin-left:auto;
+
+    display:flex;
+
+    gap:8px;
+
+    transform:translateY(-3px);
+
+}
+
+.status-tools button{
+
+    padding:6px 12px;
+
+    font-size:12px;
+
+    border-radius:8px;
+
+}
+.status-tools button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+.status-db-panel{
+    margin-top:22px;
+}
+
+.status-db-stack{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    margin-top:320px;
+}
+
+.status-db-stack .status-db-panel{
+    width:100%;
+}
+
+
+
+
+/* ==========================================================
+   PARADISE LAB THEME POPUP — 21 THEMES
+   Tambahan visual mandiri. Script utama aplikasi tidak diubah.
+========================================================== */
+
+.theme-launcher{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    user-select:none;
+    outline:none;
+}
+
+.theme-launcher:focus-visible{
+    box-shadow:
+    0 0 0 3px rgba(255,255,255,.25),
+    0 0 22px rgba(0,212,255,.65);
+}
+
+.theme-launcher .theme-chevron{
+    font-size:11px;
+    opacity:.8;
+    transition:transform .25s ease;
+}
+
+.theme-launcher[aria-expanded="true"] .theme-chevron{
+    transform:rotate(180deg);
+}
+
+.theme-popup{
+    position:fixed;
+    inset:0;
+    z-index:1000000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(0,0,0,.66);
+    backdrop-filter:blur(9px);
+    -webkit-backdrop-filter:blur(9px);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .22s ease,visibility .22s ease;
+}
+
+.theme-popup.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.theme-popup-card{
+    width:min(920px,96vw);
+    max-height:min(760px,88vh);
+    overflow:auto;
+    padding:22px;
+    border-radius:22px;
+    color:var(--theme-text,#fff);
+    background:var(--theme-panel,rgba(10,18,34,.96));
+    border:1px solid var(--theme-border,rgba(255,255,255,.16));
+    box-shadow:
+    0 30px 90px rgba(0,0,0,.55),
+    0 0 32px var(--theme-glow,rgba(0,212,255,.18));
+    transform:translateY(18px) scale(.97);
+    transition:transform .25s ease;
+}
+
+.theme-popup.show .theme-popup-card{
+    transform:translateY(0) scale(1);
+}
+
+.theme-popup-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.theme-popup-title{
+    min-width:0;
+    flex:1;
+}
+
+.theme-popup-title h2{
+    margin:0 0 4px;
+    font-size:22px;
+    letter-spacing:.4px;
+}
+
+.theme-popup-title p{
+    margin:0;
+    color:var(--theme-muted,#9ecbff);
+    font-size:13px;
+}
+
+.theme-close{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    padding:0;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    color:var(--theme-text,#fff);
+    background:var(--theme-input,rgba(255,255,255,.08));
+    border:1px solid var(--theme-border,rgba(255,255,255,.14));
+    font-size:21px;
+    line-height:1;
+}
+
+.theme-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+}
+
+.theme-option{
+    position:relative;
+    min-height:96px;
+    padding:13px;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+    overflow:hidden;
+    text-align:left;
+    color:#fff;
+    background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.28),transparent 28%),
+    linear-gradient(135deg,var(--preview-a),var(--preview-b));
+    border:1px solid rgba(255,255,255,.22);
+    box-shadow:0 8px 20px rgba(0,0,0,.22);
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+
+.theme-option:hover{
+    transform:translateY(-3px);
+    box-shadow:0 13px 28px rgba(0,0,0,.32);
+    border-color:rgba(255,255,255,.55);
+}
+
+.theme-option::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%,transparent 70%,rgba(255,255,255,.08));
+    pointer-events:none;
+}
+
+.theme-option .theme-icon{
+    position:relative;
+    z-index:1;
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    font-size:22px;
+    background:rgba(0,0,0,.22);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(7px);
+}
+
+.theme-option .theme-name{
+    position:relative;
+    z-index:1;
+    font-size:13px;
+    font-weight:800;
+    line-height:1.25;
+    text-shadow:0 2px 8px rgba(0,0,0,.38);
+}
+
+.theme-option .theme-check{
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:2;
+    width:23px;
+    height:23px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#fff;
+    color:#07111f;
+    font-size:13px;
+    font-weight:900;
+    opacity:0;
+    transform:scale(.6);
+    transition:.2s ease;
+}
+
+.theme-option.active{
+    border-color:#fff;
+    box-shadow:
+    0 0 0 2px rgba(255,255,255,.34),
+    0 14px 30px rgba(0,0,0,.35);
+}
+
+.theme-option.active .theme-check{
+    opacity:1;
+    transform:scale(1);
+}
+
+.theme-option[data-theme-choice="rgb"]{
+    background:linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744);
+    background-size:300% 100%;
+    animation:rgbButtonFlow 5s linear infinite;
+}
+
+body.theme-popup-open{
+    overflow:hidden;
+}
+
+/* Variabel tema tambahan. Tema "Bawaan" tidak memberi
+   atribut data-theme sehingga tampilan asli tetap utuh. */
+
+body[data-theme="bright-blue"]{
+    --theme-bg1:#eaf5ff;--theme-bg2:#fbfdff;--theme-panel:rgba(255,255,255,.94);
+    --theme-input:#ffffff;--theme-text:#10243f;--theme-muted:#52749d;
+    --theme-border:rgba(35,132,255,.58);--theme-accent:#1681ff;--theme-accent2:#55b7ff;
+    --theme-glow:rgba(35,132,255,.24);--theme-button-text:#fff;
+}
+body[data-theme="black-gold"]{
+    --theme-bg1:#030303;--theme-bg2:#171106;--theme-panel:rgba(13,12,9,.9);
+    --theme-input:#090806;--theme-text:#fff7d6;--theme-muted:#d3b864;
+    --theme-border:rgba(255,199,55,.58);--theme-accent:#ffd24a;--theme-accent2:#a96800;
+    --theme-glow:rgba(255,196,44,.28);--theme-button-text:#171006;
+}
+body[data-theme="midnight"]{
+    --theme-bg1:#020617;--theme-bg2:#0b1738;--theme-panel:rgba(8,17,39,.86);
+    --theme-input:#030b20;--theme-text:#eaf2ff;--theme-muted:#90a9d6;
+    --theme-border:rgba(74,120,255,.44);--theme-accent:#3f6cff;--theme-accent2:#112b78;
+    --theme-glow:rgba(63,108,255,.25);--theme-button-text:#fff;
+}
+body[data-theme="neon-purple"]{
+    --theme-bg1:#08020f;--theme-bg2:#210730;--theme-panel:rgba(23,7,34,.86);
+    --theme-input:#12031c;--theme-text:#f9edff;--theme-muted:#d4a4ed;
+    --theme-border:rgba(210,72,255,.55);--theme-accent:#d84cff;--theme-accent2:#6b16a9;
+    --theme-glow:rgba(216,76,255,.3);--theme-button-text:#fff;
+}
+body[data-theme="matrix"]{
+    --theme-bg1:#010603;--theme-bg2:#071b0d;--theme-panel:rgba(4,20,10,.88);
+    --theme-input:#020d06;--theme-text:#d9ffe6;--theme-muted:#78d99a;
+    --theme-border:rgba(40,255,112,.5);--theme-accent:#31ff78;--theme-accent2:#08752e;
+    --theme-glow:rgba(49,255,120,.25);--theme-button-text:#021007;
+}
+body[data-theme="ocean"]{
+    --theme-bg1:#01131b;--theme-bg2:#063c50;--theme-panel:rgba(4,34,46,.85);
+    --theme-input:#021c27;--theme-text:#e4fbff;--theme-muted:#83d6e7;
+    --theme-border:rgba(37,211,238,.48);--theme-accent:#22d3ee;--theme-accent2:#087f9d;
+    --theme-glow:rgba(34,211,238,.25);--theme-button-text:#02202a;
+}
+body[data-theme="crimson"]{
+    --theme-bg1:#0b0205;--theme-bg2:#330713;--theme-panel:rgba(36,6,15,.87);
+    --theme-input:#190208;--theme-text:#fff0f3;--theme-muted:#efa0b2;
+    --theme-border:rgba(255,62,104,.5);--theme-accent:#ff416c;--theme-accent2:#8c092a;
+    --theme-glow:rgba(255,65,108,.27);--theme-button-text:#fff;
+}
+body[data-theme="sakura"]{
+    --theme-bg1:#fff0f5;--theme-bg2:#fffafd;--theme-panel:rgba(255,255,255,.9);
+    --theme-input:#fff8fb;--theme-text:#54243b;--theme-muted:#a96382;
+    --theme-border:rgba(239,91,154,.48);--theme-accent:#f062a6;--theme-accent2:#c53279;
+    --theme-glow:rgba(240,98,166,.22);--theme-button-text:#fff;
+}
+body[data-theme="ice"]{
+    --theme-bg1:#e8faff;--theme-bg2:#f7fdff;--theme-panel:rgba(246,253,255,.91);
+    --theme-input:#ffffff;--theme-text:#143445;--theme-muted:#5b869b;
+    --theme-border:rgba(64,198,235,.52);--theme-accent:#55d9f7;--theme-accent2:#198db3;
+    --theme-glow:rgba(85,217,247,.24);--theme-button-text:#073040;
+}
+body[data-theme="forest"]{
+    --theme-bg1:#06110a;--theme-bg2:#15351e;--theme-panel:rgba(12,35,19,.86);
+    --theme-input:#071b0e;--theme-text:#edf9ef;--theme-muted:#9bc9a4;
+    --theme-border:rgba(91,190,108,.45);--theme-accent:#5ebe72;--theme-accent2:#1d6230;
+    --theme-glow:rgba(94,190,114,.24);--theme-button-text:#fff;
+}
+body[data-theme="sunset"]{
+    --theme-bg1:#190721;--theme-bg2:#5b1b17;--theme-panel:rgba(42,13,37,.84);
+    --theme-input:#23091d;--theme-text:#fff2e8;--theme-muted:#eab29c;
+    --theme-border:rgba(255,133,70,.5);--theme-accent:#ff8a3d;--theme-accent2:#b0295e;
+    --theme-glow:rgba(255,111,60,.28);--theme-button-text:#fff;
+}
+body[data-theme="cyber"]{
+    --theme-bg1:#070800;--theme-bg2:#202000;--theme-panel:rgba(24,25,2,.88);
+    --theme-input:#101100;--theme-text:#ffffdd;--theme-muted:#d7d66a;
+    --theme-border:rgba(242,255,0,.5);--theme-accent:#efff00;--theme-accent2:#7d8500;
+    --theme-glow:rgba(239,255,0,.25);--theme-button-text:#121300;
+}
+body[data-theme="cyan-glass"]{
+    --theme-bg1:#021217;--theme-bg2:#07353b;--theme-panel:rgba(7,40,46,.67);
+    --theme-input:rgba(2,26,31,.78);--theme-text:#ebffff;--theme-muted:#93dfe3;
+    --theme-border:rgba(87,239,244,.44);--theme-accent:#55f0f4;--theme-accent2:#0c8991;
+    --theme-glow:rgba(85,240,244,.28);--theme-button-text:#03282b;
+}
+body[data-theme="copper"]{
+    --theme-bg1:#130905;--theme-bg2:#3a1d0e;--theme-panel:rgba(47,24,13,.86);
+    --theme-input:#231006;--theme-text:#fff2e7;--theme-muted:#d6a27c;
+    --theme-border:rgba(218,132,74,.5);--theme-accent:#d98950;--theme-accent2:#7b3416;
+    --theme-glow:rgba(217,137,80,.26);--theme-button-text:#fff;
+}
+body[data-theme="mono"]{
+    --theme-bg1:#eceff3;--theme-bg2:#ffffff;--theme-panel:rgba(255,255,255,.94);
+    --theme-input:#f7f8fa;--theme-text:#17191d;--theme-muted:#666c75;
+    --theme-border:rgba(39,44,52,.36);--theme-accent:#343a44;--theme-accent2:#0d0f12;
+    --theme-glow:rgba(30,34,40,.16);--theme-button-text:#fff;
+}
+body[data-theme="galaxy"]{
+    --theme-bg1:#06031a;--theme-bg2:#241057;--theme-panel:rgba(20,10,54,.84);
+    --theme-input:#0e062c;--theme-text:#f4efff;--theme-muted:#bea9ef;
+    --theme-border:rgba(140,98,255,.5);--theme-accent:#8f63ff;--theme-accent2:#d33ca8;
+    --theme-glow:rgba(143,99,255,.3);--theme-button-text:#fff;
+}
+body[data-theme="candy"]{
+    --theme-bg1:#fff0fa;--theme-bg2:#eef9ff;--theme-panel:rgba(255,255,255,.9);
+    --theme-input:#fffaff;--theme-text:#43254d;--theme-muted:#966d9f;
+    --theme-border:rgba(108,183,255,.48);--theme-accent:#ff72bb;--theme-accent2:#6dbaff;
+    --theme-glow:rgba(255,114,187,.21);--theme-button-text:#fff;
+}
+body[data-theme="desert"]{
+    --theme-bg1:#f6e4c4;--theme-bg2:#fff8e9;--theme-panel:rgba(255,250,237,.9);
+    --theme-input:#fffdf7;--theme-text:#4a2e19;--theme-muted:#8f6b4b;
+    --theme-border:rgba(185,119,48,.48);--theme-accent:#c78137;--theme-accent2:#7c451a;
+    --theme-glow:rgba(199,129,55,.2);--theme-button-text:#fff;
+}
+body[data-theme="emerald-gold"]{
+    --theme-bg1:#02100a;--theme-bg2:#15351f;--theme-panel:rgba(7,31,19,.88);
+    --theme-input:#041b10;--theme-text:#f4ffe9;--theme-muted:#c4d596;
+    --theme-border:rgba(226,197,80,.5);--theme-accent:#dfc34f;--theme-accent2:#18764d;
+    --theme-glow:rgba(223,195,79,.25);--theme-button-text:#10200d;
+}
+
+/* RGB / RAINBOW — warna bergerak */
+body[data-theme="rgb"]{
+    --theme-bg1:#050816;--theme-bg2:#10172a;--theme-panel:rgba(8,14,30,.78);
+    --theme-input:rgba(3,10,24,.90);--theme-text:#ffffff;--theme-muted:#d7e5ff;
+    --theme-border:rgba(255,255,255,.24);--theme-accent:#00e5ff;--theme-accent2:#ff2bd6;
+    --theme-glow:rgba(122,92,255,.34);--theme-button-text:#ffffff;
+}
+
+body[data-theme="rgb"]{
+    background:
+      radial-gradient(circle at 12% 8%,rgba(255,0,110,.30),transparent 28%),
+      radial-gradient(circle at 88% 10%,rgba(0,229,255,.30),transparent 30%),
+      radial-gradient(circle at 78% 82%,rgba(0,255,128,.22),transparent 30%),
+      linear-gradient(120deg,#12051e,#061427,#10200f,#251306,#1d071a,#07162a);
+    background-size:100% 100%,100% 100%,100% 100%,400% 400%;
+    background-attachment:fixed;
+    animation:rgbBackgroundFlow 12s ease infinite;
+}
+
+body[data-theme="rgb"] .panel,
+body[data-theme="rgb"] #usaClock,
+body[data-theme="rgb"] #toast{
+    border-color:transparent;
+    background:
+      linear-gradient(rgba(8,14,30,.86),rgba(8,14,30,.86)) padding-box,
+      linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744) border-box;
+    background-size:100% 100%,300% 300%;
+    animation:rgbBorderFlow 7s linear infinite;
+    box-shadow:0 15px 40px rgba(0,0,0,.34),0 0 24px rgba(110,90,255,.25);
+}
+
+body[data-theme="rgb"] textarea,
+body[data-theme="rgb"] input[type=number]{
+    border-color:rgba(255,255,255,.18);
+    background:rgba(3,10,24,.88);
+}
+
+body[data-theme="rgb"] .badge,
+body[data-theme="rgb"] button:not(.theme-option):not(.theme-close):not(.clockOption){
+    background:linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744);
+    background-size:300% 100%;
+    animation:rgbButtonFlow 5s linear infinite;
+    color:#fff;
+    text-shadow:0 1px 4px rgba(0,0,0,.55);
+}
+
+body[data-theme="rgb"] .header h1{
+    background:linear-gradient(90deg,#ff1744,#ffea00,#00e676,#00e5ff,#7c4dff,#ff2bd6,#ff1744);
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:rgbTextFlow 5s linear infinite;
+    text-shadow:none;
+}
+
+@keyframes rgbBackgroundFlow{
+    0%{background-position:0 0,0 0,0 0,0% 50%;}
+    50%{background-position:0 0,0 0,0 0,100% 50%;}
+    100%{background-position:0 0,0 0,0 0,0% 50%;}
+}
+@keyframes rgbBorderFlow{
+    0%{background-position:0 0,0% 50%;}
+    100%{background-position:0 0,300% 50%;}
+}
+@keyframes rgbButtonFlow{
+    0%{background-position:0% 50%;}
+    100%{background-position:300% 50%;}
+}
+@keyframes rgbTextFlow{
+    0%{background-position:0% 50%;}
+    100%{background-position:300% 50%;}
+}
+
+body[data-theme]{
+    color:var(--theme-text);
+    background:
+    radial-gradient(circle at 16% 2%,var(--theme-glow),transparent 34%),
+    radial-gradient(circle at 88% 12%,var(--theme-glow),transparent 30%),
+    linear-gradient(135deg,var(--theme-bg1),var(--theme-bg2));
+    background-attachment:fixed;
+}
+
+body[data-theme] .panel,
+body[data-theme] #usaClock,
+body[data-theme] #toast{
+    color:var(--theme-text);
+    background:var(--theme-panel);
+    border-color:var(--theme-border);
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.28),
+    0 0 22px var(--theme-glow);
+}
+
+body[data-theme] .panel:hover{
+    box-shadow:
+    0 18px 45px rgba(0,0,0,.34),
+    0 0 30px var(--theme-glow);
+}
+
+body[data-theme] textarea,
+body[data-theme] input[type=number]{
+    color:var(--theme-text);
+    background:var(--theme-input);
+    border-color:var(--theme-border);
+}
+
+body[data-theme] textarea:focus,
+body[data-theme] input[type=number]:focus,
+body[data-theme] textarea:hover{
+    border-color:var(--theme-accent);
+    box-shadow:0 0 15px var(--theme-glow);
+}
+
+body[data-theme] .panel-title,
+body[data-theme] label,
+body[data-theme] .header h1,
+body[data-theme] #usaTime{
+    color:var(--theme-text);
+}
+
+body[data-theme] .usaTitle,
+body[data-theme] #usaDate{
+    color:var(--theme-muted);
+}
+
+body[data-theme] .badge,
+body[data-theme] button:not(.theme-option):not(.theme-close):not(.clockOption){
+    color:var(--theme-button-text);
+    background:linear-gradient(135deg,var(--theme-accent),var(--theme-accent2));
+}
+
+body[data-theme] .badge{
+    box-shadow:0 0 22px var(--theme-glow);
+}
+
+body[data-theme] .header h1{
+    text-shadow:
+    0 0 12px var(--theme-glow),
+    0 0 28px var(--theme-glow);
+}
+
+body[data-theme] ::selection{
+    color:var(--theme-button-text);
+    background:var(--theme-accent);
+}
+
+body[data-theme] ::-webkit-scrollbar-track{
+    background:var(--theme-bg1);
+}
+
+body[data-theme] ::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--theme-accent),var(--theme-accent2));
+}
+
+@media(max-width:760px){
+    .theme-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .theme-popup{padding:12px;}
+    .theme-popup-card{padding:16px;max-height:92vh;}
+}
+
+@media(max-width:420px){
+    .theme-grid{grid-template-columns:1fr;}
+}
+
+
+/*==========================
+  EDITABLE LINK NAMES
+==========================*/
+.editable-link-name{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    cursor:pointer;
+    user-select:none;
+    border-radius:8px;
+    padding:2px 6px;
+    margin-left:-6px;
+    transition:.2s ease;
+}
+
+.editable-link-name::after{
+    content:"✎";
+    font-size:12px;
+    opacity:.55;
+    transition:.2s ease;
+}
+
+.editable-link-name:hover,
+.editable-link-name:focus-visible{
+    outline:none;
+    background:rgba(255,255,255,.08);
+    box-shadow:0 0 0 1px rgba(255,255,255,.10);
+}
+
+.editable-link-name:hover::after,
+.editable-link-name:focus-visible::after{
+    opacity:1;
+}
+
+body[data-theme] .editable-link-name:hover,
+body[data-theme] .editable-link-name:focus-visible{
+    background:var(--theme-input);
+    box-shadow:0 0 0 1px var(--theme-border),0 0 12px var(--theme-glow);
+}
+
+/*==========================
+  EDITABLE STATUS NAMES
+==========================*/
+.editable-status-name{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    cursor:pointer;
+    user-select:none;
+    border-radius:8px;
+    padding:2px 6px;
+    transition:.2s ease;
+}
+
+.editable-status-name::after{
+    content:"✎";
+    font-size:12px;
+    opacity:.55;
+    transition:.2s ease;
+}
+
+.editable-status-name:hover,
+.editable-status-name:focus-visible{
+    outline:none;
+    background:rgba(255,255,255,.08);
+    box-shadow:0 0 0 1px rgba(255,255,255,.10);
+}
+
+.editable-status-name:hover::after,
+.editable-status-name:focus-visible::after{
+    opacity:1;
+}
+
+body[data-theme] .editable-status-name:hover,
+body[data-theme] .editable-status-name:focus-visible{
+    background:var(--theme-input);
+    box-shadow:0 0 0 1px var(--theme-border),0 0 12px var(--theme-glow);
+}
+
+
+/* ==========================
+   LIVE PING WIDGET
+========================== */
+#livePing{
+    position:fixed;
+    top:145px;
+    right:20px;
+    z-index:99999;
+    width:145px;
+    padding:12px 18px;
+    border-radius:14px;
+    background:var(--theme-panel,rgba(15,23,42,.55));
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid var(--theme-border,rgba(255,255,255,.12));
+    box-shadow:0 0 20px var(--theme-glow,rgba(56,189,248,.15));
+    font-family:Consolas,monospace;
+    color:var(--theme-text,#fff);
+}
+
+body[data-theme] #livePing{
+    background:var(--theme-panel);
+    border-color:var(--theme-border);
+    box-shadow:0 0 22px var(--theme-glow);
+}
+
+body[data-theme] #livePing .pingTitle{
+    color:var(--theme-muted);
+}
+
+body[data-theme] #livePing #pingList{
+    color:var(--theme-text);
+}
+
+body[data-theme="rgb"] #livePing{
+    border-color:transparent;
+    background:
+    linear-gradient(rgba(8,14,30,.86),rgba(8,14,30,.86)) padding-box,
+    linear-gradient(90deg,#ff1744,#ff9100,#ffea00,#00e676,#00e5ff,#2979ff,#d500f9,#ff1744) border-box;
+    background-size:100% 100%,300% 300%;
+    animation:rgbBorderFlow 7s linear infinite;
+}
+
+#livePing .pingTitle{
+    font-size:12px;
+    font-weight:bold;
+    color:#9ecbff;
+    margin-bottom:8px;
+}
+.pingDot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#22c55e;
+    margin-right:6px;
+    animation:pingPulse .65s ease-in-out infinite;
+    box-shadow:0 0 10px #22c55e;
+}
+@keyframes pingPulse{
+    0%,100%{transform:scale(1);opacity:1;}
+    50%{transform:scale(1.8);opacity:.45;}
+}
+#myIP{
+    font-size:12px;
+    line-height:1.55;
+    color:#00e5ff;
+    margin-bottom:8px;
+    font-family:Consolas,monospace;
+    transition:.3s ease;
+}
+
+#myIP.ipChanged{
+    color:#ccff00;
+    background:rgba(204,255,0,0.15);
+    border-radius:8px;
+    padding:4px 8px;
+    text-shadow:
+        0 0 5px #ccff00,
+        0 0 15px #ccff00,
+        0 0 30px #99ff00,
+        0 0 50px #66ff00;
+    box-shadow:
+        0 0 10px #ccff00,
+        0 0 25px rgba(204,255,0,.8);
+    animation:ipFlash .8s ease-in-out infinite alternate;
+}
+
+@keyframes ipFlash{
+    from{
+        filter:brightness(1);
+        transform:scale(1);
+    }
+    to{
+        filter:brightness(1.8);
+        transform:scale(1.03);
+    }
+}
+#pingList{
+    font-size:12px;
+    line-height:1.55;
+    color:#fff;
+}
+.pingOk{color:#7cff9b;}
+.pingSlow{color:#ffe27a;}
+.pingBad{color:#ff7b7b;}
+@media(max-width:900px){
+ #livePing{display:none;}
+}
+
+</style></head>
+<body>
+<body>
+
+
+<div id="livePing">
+    <div id="myIP">IP : Loading...</div>
+    <div class="pingTitle"><span class="pingDot"></span>LIVE PING</div>
+    <div id="pingList">Loading...</div>
+</div>
+
+<div id="usaClock" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="clockPopup" title="Klik untuk pilih jam">
+
+    <div class="usaTitle" id="clockTitle">
+        NEW YORK
+    </div>
+
+    <div id="usaDate">
+        Mon, Jul 13, 2026
+    </div>
+
+    <div id="usaTime">
+        02:15:48
+    </div>
+
+</div>
+
+<div class="clockPopup" id="clockPopup" aria-hidden="true">
+    <div class="clockPopupTitle">PILIH JAM</div>
+    <button type="button" class="clockOption" data-clock-zone="America/New_York" data-clock-label="NEW YORK">
+        <span>🇺🇸 New York</span><span class="clockCheck">✓</span>
+    </button>
+    <button type="button" class="clockOption" data-clock-zone="Europe/Berlin" data-clock-label="GERMANY">
+        <span>🇩🇪 Jerman</span><span class="clockCheck">✓</span>
+    </button>
+    <button type="button" class="clockOption" data-clock-zone="Europe/Paris" data-clock-label="FRANCE">
+        <span>🇫🇷 Prancis</span><span class="clockCheck">✓</span>
+    </button>
+    <button type="button" class="clockOption" data-clock-zone="Europe/Madrid" data-clock-label="SPAIN">
+        <span>🇪🇸 Spanyol</span><span class="clockCheck">✓</span>
+    </button>
+</div>
+<div class="app">
+
+    <div class="header">
+
+        <div class="badge theme-launcher"
+             id="themeLauncher"
+             role="button"
+             tabindex="0"
+             aria-haspopup="dialog"
+             aria-controls="themePopup"
+             aria-expanded="false"
+             title="Buka pilihan tema">
+            <span aria-hidden="true">🚀</span>
+            <span>PARADISE</span>
+            <span class="theme-chevron" aria-hidden="true">▼</span>
+        </div>
+
+        <h1>LINK MANAGER</h1>
+
+    </div>
+
+
+
+
+    <!-- ==========================
+         THEME POPUP — 21 PILIHAN
+    =========================== -->
+    <div class="theme-popup" id="themePopup" role="dialog" aria-modal="true" aria-labelledby="themePopupTitle" aria-hidden="true">
+        <div class="theme-popup-card">
+            <div class="theme-popup-head">
+                <div class="theme-popup-title">
+                    <h2 id="themePopupTitle">Pilih Tema Paradise Lab</h2>
+                    <p>Klik salah satu tema. Pilihan akan tersimpan otomatis.</p>
+                </div>
+                <button type="button" class="theme-close" id="themeClose" aria-label="Tutup pilihan tema">×</button>
+            </div>
+            <div class="theme-grid">
+            <button type="button" class="theme-option" data-theme-choice="default" data-theme-icon="🚀" data-theme-label="Tema Bawaan" aria-pressed="false" style="--preview-a:#00d4ff;--preview-b:#0078ff;">
+                <span class="theme-icon" aria-hidden="true">🚀</span>
+                <span class="theme-name">Tema Bawaan</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="bright-blue" data-theme-icon="☀️" data-theme-label="Cerah Biru" aria-pressed="false" style="--preview-a:#f8fdff;--preview-b:#2384ff;">
+                <span class="theme-icon" aria-hidden="true">☀️</span>
+                <span class="theme-name">Cerah Biru</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="black-gold" data-theme-icon="🔥" data-theme-label="Hitam Emas" aria-pressed="false" style="--preview-a:#050505;--preview-b:#d99f16;">
+                <span class="theme-icon" aria-hidden="true">🔥</span>
+                <span class="theme-name">Hitam Emas</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="midnight" data-theme-icon="🌙" data-theme-label="Midnight" aria-pressed="false" style="--preview-a:#020617;--preview-b:#244baf;">
+                <span class="theme-icon" aria-hidden="true">🌙</span>
+                <span class="theme-name">Midnight</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="neon-purple" data-theme-icon="💜" data-theme-label="Neon Purple" aria-pressed="false" style="--preview-a:#09010f;--preview-b:#c43cff;">
+                <span class="theme-icon" aria-hidden="true">💜</span>
+                <span class="theme-name">Neon Purple</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="matrix" data-theme-icon="💚" data-theme-label="Matrix Green" aria-pressed="false" style="--preview-a:#010503;--preview-b:#20d963;">
+                <span class="theme-icon" aria-hidden="true">💚</span>
+                <span class="theme-name">Matrix Green</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="ocean" data-theme-icon="🌊" data-theme-label="Ocean Blue" aria-pressed="false" style="--preview-a:#01141d;--preview-b:#0b91ad;">
+                <span class="theme-icon" aria-hidden="true">🌊</span>
+                <span class="theme-name">Ocean Blue</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="crimson" data-theme-icon="🌹" data-theme-label="Crimson Red" aria-pressed="false" style="--preview-a:#0b0205;--preview-b:#c61543;">
+                <span class="theme-icon" aria-hidden="true">🌹</span>
+                <span class="theme-name">Crimson Red</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="sakura" data-theme-icon="🌸" data-theme-label="Sakura" aria-pressed="false" style="--preview-a:#fff1f6;--preview-b:#e05292;">
+                <span class="theme-icon" aria-hidden="true">🌸</span>
+                <span class="theme-name">Sakura</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="ice" data-theme-icon="🧊" data-theme-label="Ice Crystal" aria-pressed="false" style="--preview-a:#e9fbff;--preview-b:#46bddc;">
+                <span class="theme-icon" aria-hidden="true">🧊</span>
+                <span class="theme-name">Ice Crystal</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="forest" data-theme-icon="🌲" data-theme-label="Deep Forest" aria-pressed="false" style="--preview-a:#06110a;--preview-b:#367b46;">
+                <span class="theme-icon" aria-hidden="true">🌲</span>
+                <span class="theme-name">Deep Forest</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="sunset" data-theme-icon="🌅" data-theme-label="Sunset Glow" aria-pressed="false" style="--preview-a:#210927;--preview-b:#d95c35;">
+                <span class="theme-icon" aria-hidden="true">🌅</span>
+                <span class="theme-name">Sunset Glow</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="cyber" data-theme-icon="⚡" data-theme-label="Cyber Yellow" aria-pressed="false" style="--preview-a:#080900;--preview-b:#d9e500;">
+                <span class="theme-icon" aria-hidden="true">⚡</span>
+                <span class="theme-name">Cyber Yellow</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="cyan-glass" data-theme-icon="🩵" data-theme-label="Cyan Glass" aria-pressed="false" style="--preview-a:#021216;--preview-b:#16b6bf;">
+                <span class="theme-icon" aria-hidden="true">🩵</span>
+                <span class="theme-name">Cyan Glass</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="copper" data-theme-icon="🧡" data-theme-label="Copper" aria-pressed="false" style="--preview-a:#140905;--preview-b:#a95428;">
+                <span class="theme-icon" aria-hidden="true">🧡</span>
+                <span class="theme-name">Copper</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="mono" data-theme-icon="🤍" data-theme-label="Monochrome" aria-pressed="false" style="--preview-a:#f5f6f8;--preview-b:#25282e;">
+                <span class="theme-icon" aria-hidden="true">🤍</span>
+                <span class="theme-name">Monochrome</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="galaxy" data-theme-icon="🌌" data-theme-label="Galaxy" aria-pressed="false" style="--preview-a:#07031c;--preview-b:#813ed9;">
+                <span class="theme-icon" aria-hidden="true">🌌</span>
+                <span class="theme-name">Galaxy</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="candy" data-theme-icon="🍬" data-theme-label="Candy" aria-pressed="false" style="--preview-a:#fff0fa;--preview-b:#68b8ff;">
+                <span class="theme-icon" aria-hidden="true">🍬</span>
+                <span class="theme-name">Candy</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="desert" data-theme-icon="🏜️" data-theme-label="Desert Sand" aria-pressed="false" style="--preview-a:#f3dfbd;--preview-b:#a96d30;">
+                <span class="theme-icon" aria-hidden="true">🏜️</span>
+                <span class="theme-name">Desert Sand</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="emerald-gold" data-theme-icon="🐉" data-theme-label="Emerald Gold" aria-pressed="false" style="--preview-a:#02110a;--preview-b:#ba9c35;">
+                <span class="theme-icon" aria-hidden="true">🐉</span>
+                <span class="theme-name">Emerald Gold</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="theme-option" data-theme-choice="rgb" data-theme-icon="🌈" data-theme-label="RGB Rainbow" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">🌈</span>
+                <span class="theme-name">RGB Rainbow</span>
+                <span class="theme-check" aria-hidden="true">✓</span>
+            </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================
+         LINK
+    =========================== -->
+
+    <div class="row row3">
+
+    <section class="panel">
+
+        <div class="panel-title">
+            <span class="editable-link-name" data-link-name="1" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 1</span> (<span id="t1">0</span>)
+        </div>
+
+        <textarea id="l1"></textarea>
+
+    </section>
+
+    <section class="panel">
+
+        <div class="panel-title">
+            <span class="editable-link-name" data-link-name="2" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 2</span> (<span id="t2">0</span>)
+        </div>
+
+        <textarea id="l2"></textarea>
+
+    </section>
+
+    <section class="panel">
+
+        <div class="panel-title">
+            <span class="editable-link-name" data-link-name="3" role="button" tabindex="0" title="Klik untuk ganti nama">LINK 3</span> (<span id="t3">0</span>)
+        </div>
+
+        <textarea id="l3"></textarea>
+
+    </section>
+
+</div>
+
+
+    <!-- ==========================
+         STATUS
+    =========================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+            STATUS
+        </div>
+
+        <textarea id="status"></textarea>
+
+        <div class="option-group">
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="src"
+                    id="r1"
+                    checked>
+
+                <span id="srcName1">Link 1</span>
+
+            </label>
+			
+            <label>
+
+                <input
+                    type="radio"
+                    name="src"
+                    id="r2">
+
+                <span id="srcName2">Link 2</span>
+
+            </label>
+
+			<label>
+
+				<input
+					type="radio"
+					name="src"
+					id="r3">
+
+				<span id="srcName3">Link 3</span>
+
+			</label>
+
+            <div class="status-source-options" title="Pilih database status yang dipakai saat Generate">
+                <label><input type="radio" name="statusSrc" id="s1" value="statusDB" checked> <span id="statusSrcName1">Status 1</span></label>
+                <label><input type="radio" name="statusSrc" id="s2" value="statusDB2"> <span id="statusSrcName2">Status 2</span></label>
+                <label><input type="radio" name="statusSrc" id="s3" value="statusDB3"> <span id="statusSrcName3">Status 3</span></label>
+            </div>
+        </div>
+
+
+        <div class="status-option-bar">
+
+			<label class="check">
+
+				<input
+					type="checkbox"
+					id="inc">
+
+				Sertakan Status
+
+			</label>
+
+			<div class="status-tools">
+
+				<button id="genStatus">
+
+					🎲 Generate
+
+				</button>
+
+				<button id="copyStatus">
+
+					📋 Copy
+
+				</button>
+
+			</div>
+
+		</div>
+
+
+        <div class="cutGroup">
+
+			<button id="cut">
+				CUT LINK (0)
+			</button>
+
+			<button id="cut1">
+				CUT LINK 1 (0)
+			</button>
+
+			<button id="cut2">
+				CUT LINK 2 (0)
+			</button>
+
+			<button id="cut3">
+				CUT LINK 3 (0)
+			</button>
+
+</div>
+
+
+    </section>
+
+
+    <!-- ==========================
+         DATABASE
+    =========================== -->
+<div class="bottom-panels">
+
+    <section class="panel">
+
+        <div class="panel-title">
+DATABASE (<span id="dbCount">0</span>)
+</div>
+
+        <textarea id="db"></textarea>
+
+        <div class="toolbar">
+<input id="jumlah" type="number" value="10" min="1" max="1000">
+<button id="gas">🎲 RANDOM</button>
+<input id="hapusJumlah" type="number" value="100" min="1">
+<button id="hapusAtas">🗑 HAPUS</button>
+<input id="cutJumlah" type="number" value="500" min="1">
+<button id="cutAtas">✂ CUT</button>
+</div>
+
+    </section>
+
+
+    <!-- ==========================
+         HASIL
+    =========================== -->
+<div class="bottom-panels">
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            HASIL RANDOM
+
+        </div>
+
+        <textarea id="hasil"></textarea>
+
+        <div class="button-row">
+
+            <button id="copy">
+
+                COPY
+
+            </button>
+
+		
+		
+            <button id="clear">
+
+                CLEAR
+
+            </button>
+
+        </div>
+
+    </section>
+</div>
+</div>
+
+<!-- ==========================
+     STATUS DATABASE 1 - 3
+=========================== -->
+<div class="status-db-stack">
+
+<section class="panel status-db-panel" id="statusDBPanel1">
+
+    <div class="panel-title">
+
+        STATUS DATABASE — <span class="editable-status-name" data-status-name="1" role="button" tabindex="0" title="Klik untuk ganti nama">Status 1</span> (<span id="statusCount">0</span>)
+
+    </div>
+
+    <textarea id="statusDB" class="status-db-textarea"></textarea>
+
+    <div class="button-row">
+
+        <button id="clearStatusDB" class="status-clear-btn">
+
+            ✖ CLEAR STATUS 1
+
+        </button>
+
+    </div>
+
+</section>
+
+<section class="panel status-db-panel">
+
+    <div class="panel-title">
+
+        STATUS DATABASE — <span class="editable-status-name" data-status-name="2" role="button" tabindex="0" title="Klik untuk ganti nama">Status 2</span> (<span id="statusCount2">0</span>)
+
+    </div>
+
+    <textarea id="statusDB2" class="status-db-textarea"></textarea>
+
+    <div class="button-row">
+
+        <button id="clearStatusDB2" class="status-clear-btn">
+
+            ✖ CLEAR STATUS 2
+
+        </button>
+
+    </div>
+
+</section>
+
+<section class="panel status-db-panel">
+
+    <div class="panel-title">
+
+        STATUS DATABASE — <span class="editable-status-name" data-status-name="3" role="button" tabindex="0" title="Klik untuk ganti nama">Status 3</span> (<span id="statusCount3">0</span>)
+
+    </div>
+
+    <textarea id="statusDB3" class="status-db-textarea"></textarea>
+
+    <div class="button-row">
+
+        <button id="clearStatusDB3" class="status-clear-btn">
+
+            ✖ CLEAR STATUS 3
+
+        </button>
+
+    </div>
+
+</section>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/*==========================================
+ PARADISE MANAGER V3
+ PART 1 - CORE
+==========================================*/
+
+const $ = id => document.getElementById(id);
+
+const APP = {
+
+    links: ['l1','l2','l3'],
+
+    save(id){
+        const el=$(id);
+        if(el) localStorage.setItem(id,el.value);
+    },
+
+    load(id){
+        const el=$(id);
+        if(el) el.value=localStorage.getItem(id)||'';
+    },
+
+    count(id){
+        const el=$(id);
+        if(!el) return 0;
+
+        return el.value
+            .split(/\n/)
+            .filter(v=>v.trim())
+            .length;
+    }
+
+};
+/*==========================================
+ TOAST
+==========================================*/
+
+function toast(text){
+
+    const t=$('toast');
+
+    if(!t) return;
+
+    t.textContent=text;
+
+    t.classList.add('show');
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer=setTimeout(()=>{
+
+        t.classList.remove('show');
+
+    },1500);
+
+}
+/*==========================================
+ STORAGE
+==========================================*/
+
+APP.links.forEach(id=>{
+
+    APP.load(id);
+
+    const el=$(id);
+
+    if(!el) return;
+
+    el.addEventListener('input',()=>{
+
+        APP.save(id);
+
+        refreshUI();
+
+    });
+
+});
+
+APP.load('status');
+
+if($('status')){
+
+    $('status').addEventListener('input',()=>{
+
+        APP.save('status');
+
+    });
+
+}
+
+
+/*==========================================
+ LINK NAME STORAGE + EDITOR
+ - Hanya mengubah nama tampilan.
+ - ID internal l1/l2/l3 tetap sama.
+==========================================*/
+
+const LINK_NAME_DEFAULTS={
+    1:'LINK 1',
+    2:'LINK 2',
+    3:'LINK 3'
+};
+
+function getLinkName(index){
+    const saved=localStorage.getItem('paradiseLinkName'+index);
+
+    return saved && saved.trim()
+        ? saved.trim()
+        : LINK_NAME_DEFAULTS[index];
+}
+
+function saveLinkName(index,name){
+    const clean=(name||'').trim();
+
+    if(!clean){
+        toast('Nama tidak boleh kosong');
+        return false;
+    }
+
+    localStorage.setItem(
+        'paradiseLinkName'+index,
+        clean
+    );
+
+    return true;
+}
+
+function updateLinkNameUI(){
+
+    [1,2,3].forEach(index=>{
+
+        const name=getLinkName(index);
+
+        document
+            .querySelectorAll(
+                '.editable-link-name[data-link-name="'+index+'"]'
+            )
+            .forEach(el=>{
+                el.textContent=name;
+            });
+
+        const srcName=$('srcName'+index);
+
+        if(srcName){
+            srcName.textContent=name;
+        }
+
+    });
+
+}
+
+function editLinkName(index){
+
+    const current=getLinkName(index);
+
+    const next=window.prompt(
+        'Ganti nama '+LINK_NAME_DEFAULTS[index]+':',
+        current
+    );
+
+    if(next===null) return;
+
+    if(!saveLinkName(index,next)) return;
+
+    updateLinkNameUI();
+    refreshUI();
+
+    toast('Nama link disimpan');
+
+}
+
+document
+    .querySelectorAll('.editable-link-name')
+    .forEach(el=>{
+
+        const index=Number(el.dataset.linkName);
+
+        el.addEventListener('click',()=>{
+            editLinkName(index);
+        });
+
+        el.addEventListener('keydown',event=>{
+
+            if(
+                event.key==='Enter' ||
+                event.key===' '
+            ){
+                event.preventDefault();
+                editLinkName(index);
+            }
+
+        });
+
+    });
+
+updateLinkNameUI();
+
+/*==========================================
+ COUNTER
+==========================================*/
+
+function updateCounter(){
+
+    $('t1').textContent=APP.count('l1');
+
+    $('t2').textContent=APP.count('l2');
+
+    $('t3').textContent=APP.count('l3');
+
+}
+/*==========================================
+ ACTIVE LINK
+==========================================*/
+
+function activeTextarea(){
+
+    if($('r3').checked) return $('l3');
+
+    if($('r2').checked) return $('l2');
+
+    return $('l1');
+
+}
+/*==========================================
+ BUTTON COUNTER
+==========================================*/
+
+function updateButtons(){
+
+    const active=activeTextarea();
+    const total=APP.count(active.id);
+
+    const activeIndex=
+        active.id==='l3' ? 3 :
+        active.id==='l2' ? 2 : 1;
+
+    $('cut').textContent=
+        'CUT '+getLinkName(activeIndex)+' ('+total+')';
+
+    $('cut1').textContent=
+        'CUT '+getLinkName(1)+' ('+APP.count('l1')+')';
+
+    $('cut2').textContent=
+        'CUT '+getLinkName(2)+' ('+APP.count('l2')+')';
+
+    $('cut3').textContent=
+        'CUT '+getLinkName(3)+' ('+APP.count('l3')+')';
+
+}
+/*==========================================
+ REFRESH UI
+==========================================*/
+
+function refreshUI(){
+
+    updateCounter();
+
+    updateButtons();
+
+}
+/*==========================================
+ RADIO
+==========================================*/
+
+['r1','r2','r3'].forEach(id=>{
+
+    const radio=$(id);
+
+    if(!radio) return;
+
+    radio.addEventListener(
+
+        'change',
+
+        ()=>{
+
+            localStorage.setItem(
+
+                'src',
+
+                id
+
+            );
+
+            refreshUI();
+
+        }
+
+    );
+
+});
+/*==========================================
+ LOAD RADIO
+==========================================*/
+
+const lastRadio=
+
+localStorage.getItem('src');
+
+if($(lastRadio)){
+
+    $(lastRadio).checked=true;
+
+}else{
+
+    $('r1').checked=true;
+
+}
+refreshUI();
+
+/*==========================================
+ CUT ENGINE
+==========================================*/
+
+function cutFrom(textarea){
+
+    let arr=textarea.value
+        .split(/\n/)
+        .filter(v=>v.trim());
+
+    if(!arr.length){
+
+        toast('Link kosong');
+
+        return;
+
+    }
+
+    let link=arr.shift();
+
+    textarea.value=arr.join('\n');
+
+    APP.save(textarea.id);
+
+	let hasil=link;
+
+	if($('inc').checked){
+
+		if(!$('status').value.trim()){
+
+			generateStatus();
+
+		}
+
+		if($('status').value.trim()){
+
+			hasil=
+				$('status').value.trim()
+				+' ➢ '+
+				link;
+
+			$('status').value='';
+
+			APP.save('status');
+
+		}
+
+	}
+	
+    navigator.clipboard
+    .writeText(hasil)
+    .then(()=>{
+
+        toast('Berhasil dicopy');
+
+        refreshUI();
+
+    })
+    .catch(()=>{
+
+        toast('Gagal copy');
+
+    });
+
+}
+
+/*==========================================
+ CUT BUTTONS
+==========================================*/
+
+$('cut').onclick=()=>{
+
+    cutFrom(
+
+        activeTextarea()
+
+    );
+
+};
+
+$('cut1').onclick=()=>{
+
+    cutFrom(
+
+        $('l1')
+
+    );
+
+};
+
+$('cut2').onclick=()=>{
+
+    cutFrom(
+
+        $('l2')
+
+    );
+
+};
+
+$('cut3').onclick=()=>{
+
+    cutFrom(
+
+        $('l3')
+
+    );
+
+};
+
+/*==========================================
+ DATABASE
+==========================================*/
+
+function updateDBCount(){
+
+    $('dbCount').textContent=
+        APP.count('db');
+
+}
+
+APP.load('db');
+
+$('db').addEventListener(
+
+    'input',
+
+    ()=>{
+
+        APP.save('db');
+
+        updateDBCount();
+
+    }
+
+);
+
+/*==========================================
+ SETTINGS
+==========================================*/
+
+[
+'hasil',
+'jumlah',
+'hapusJumlah',
+'cutJumlah'
+
+].forEach(id=>{
+
+    APP.load(id);
+
+    const el=$(id);
+
+    if(!el) return;
+
+    el.addEventListener(
+
+        'input',
+
+        ()=>{
+
+            APP.save(id);
+
+        }
+
+    );
+
+});
+/*==========================================
+ COPY & CLEAR
+==========================================*/
+
+$('copy').onclick=()=>{
+
+    navigator.clipboard.writeText(
+
+        $('hasil').value
+
+    ).then(()=>{
+
+        toast('Berhasil dicopy');
+
+    });
+
+};
+
+/*==========================================*
+COPY STATUS
+*==========================================*/
+
+$('copyStatus').onclick=()=>{
+
+    const text=$('status').value.trim();
+
+    if(!text){
+
+        toast('Status kosong');
+
+        return;
+
+    }
+
+    navigator.clipboard
+
+    .writeText(text)
+
+    .then(()=>{
+
+        toast('Status berhasil dicopy');
+
+    })
+
+    .catch(()=>{
+
+        toast('Gagal copy');
+
+    });
+
+};
+
+$('clear').onclick=()=>{
+
+    $('hasil').value='';
+
+    APP.save('hasil');
+
+    toast('Hasil dibersihkan');
+
+};
+updateDBCount();
+
+/*==========================================
+ RANDOM
+==========================================*/
+
+$('gas').onclick=()=>{
+
+    let arr=$('db').value
+        .split(/\n/)
+        .filter(v=>v.trim());
+
+    if(!arr.length){
+
+        toast('Database kosong');
+
+        return;
+
+    }
+
+    let total=parseInt($('jumlah').value)||1;
+
+    if(total>arr.length) total=arr.length;
+
+    arr.sort(()=>Math.random()-0.5);
+
+    $('hasil').value=
+        arr.slice(0,total).join('\n');
+
+    APP.save('hasil');
+
+    toast('Random selesai');
+
+};
+
+/*==========================================
+ HAPUS ATAS
+==========================================*/
+
+$('hapusAtas').onclick=()=>{
+
+    let arr=$('db').value
+        .split(/\n/)
+        .filter(v=>v.trim());
+
+    let total=parseInt($('hapusJumlah').value)||1;
+
+    arr.splice(0,total);
+
+    $('db').value=arr.join('\n');
+
+    APP.save('db');
+
+    updateDBCount();
+
+    toast('Data dihapus');
+
+};
+
+/*==========================================
+ CUT ATAS
+==========================================*/
+
+$('cutAtas').onclick=()=>{
+
+    let arr=$('db').value
+        .split(/\n/)
+        .filter(v=>v.trim());
+
+    let total=parseInt($('cutJumlah').value)||1;
+
+    let hasil=arr.splice(0,total);
+
+    $('hasil').value=hasil.join('\n');
+
+    $('db').value=arr.join('\n');
+
+    APP.save('hasil');
+
+    APP.save('db');
+
+    updateDBCount();
+
+    navigator.clipboard.writeText(
+
+        $('hasil').value
+
+    ).then(()=>{
+
+        toast('Cut selesai');
+
+    });
+
+};
+
+/*==========================================
+ SELECTABLE WORLD CLOCK
+==========================================*/
+
+const CLOCK_STORAGE_KEY='paradiseSelectedClock';
+const CLOCKS={
+    'America/New_York':'NEW YORK',
+    'Europe/Berlin':'GERMANY',
+    'Europe/Paris':'FRANCE',
+    'Europe/Madrid':'SPAIN'
+};
+
+let selectedClockZone=localStorage.getItem(CLOCK_STORAGE_KEY);
+if(!CLOCKS[selectedClockZone]) selectedClockZone='America/New_York';
+
+function updateUSClock(){
+
+    const el=$('usaClock');
+    if(!el) return;
+
+    const now=new Date();
+
+    $('clockTitle').textContent=CLOCKS[selectedClockZone];
+
+    $('usaDate').textContent=now.toLocaleDateString(
+        'en-US',
+        {
+            timeZone:selectedClockZone,
+            weekday:'short',
+            year:'numeric',
+            month:'short',
+            day:'2-digit'
+        }
+    );
+
+    $('usaTime').textContent=now.toLocaleTimeString(
+        'en-US',
+        {
+            timeZone:selectedClockZone,
+            hour:'2-digit',
+            minute:'2-digit',
+            second:'2-digit',
+            hour12:false
+        }
+    );
+
+    document.querySelectorAll('.clockOption').forEach(btn=>{
+        btn.classList.toggle('active',btn.dataset.clockZone===selectedClockZone);
+    });
+}
+
+function setClockPopup(open){
+    const popup=$('clockPopup');
+    const clock=$('usaClock');
+    if(!popup || !clock) return;
+
+    popup.classList.toggle('show',open);
+    popup.setAttribute('aria-hidden',String(!open));
+    clock.setAttribute('aria-expanded',String(open));
+}
+
+if($('usaClock')){
+    $('usaClock').addEventListener('click',e=>{
+        e.stopPropagation();
+        setClockPopup(!$('clockPopup').classList.contains('show'));
+    });
+
+    $('usaClock').addEventListener('keydown',e=>{
+        if(e.key==='Enter' || e.key===' '){
+            e.preventDefault();
+            setClockPopup(!$('clockPopup').classList.contains('show'));
+        }
+    });
+}
+
+document.querySelectorAll('.clockOption').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+        e.stopPropagation();
+        const zone=btn.dataset.clockZone;
+        if(!CLOCKS[zone]) return;
+
+        selectedClockZone=zone;
+        localStorage.setItem(CLOCK_STORAGE_KEY,selectedClockZone);
+        updateUSClock();
+        setClockPopup(false);
+        toast('Jam '+CLOCKS[selectedClockZone]+' dipilih');
+    });
+});
+
+document.addEventListener('click',e=>{
+    const popup=$('clockPopup');
+    const clock=$('usaClock');
+    if(!popup || !clock) return;
+    if(!popup.contains(e.target) && !clock.contains(e.target)){
+        setClockPopup(false);
+    }
+});
+
+document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') setClockPopup(false);
+});
+
+updateUSClock();
+setInterval(updateUSClock,1000);
+
+/*==========================================
+ ENTER NUMBER ONLY
+==========================================*/
+
+[
+'jumlah',
+'hapusJumlah',
+'cutJumlah'
+
+].forEach(id=>{
+
+    const el=$(id);
+
+    if(!el) return;
+
+    el.addEventListener('input',()=>{
+
+        el.value=el.value.replace(/\D/g,'');
+
+    });
+
+});
+
+/*==========================================
+ AUTO FOCUS
+==========================================*/
+
+window.onload=()=>{
+
+    if($('l1'))
+
+        $('l1').focus();
+
+};
+
+/*==========================================
+ SHORTCUT
+==========================================*/
+
+document.addEventListener(
+
+'keydown',
+
+e=>{
+
+    if(e.ctrlKey && e.key==='1'){
+
+        $('cut1').click();
+
+    }
+
+    if(e.ctrlKey && e.key==='2'){
+
+        $('cut2').click();
+
+    }
+
+    if(e.ctrlKey && e.key==='3'){
+
+        $('cut3').click();
+
+    }
+
+    if(e.ctrlKey && e.key==='r'){
+
+        e.preventDefault();
+
+        $('gas').click();
+
+    }
+
+});
+
+/*==========================================
+ STARTUP
+==========================================*/
+
+refreshUI();
+
+updateDBCount();
+
+/*==========================================*
+STATUS DATABASE 1 - 3
+*==========================================*/
+
+const STATUS_DB_IDS=['statusDB','statusDB2','statusDB3'];
+const STATUS_COUNT_IDS={
+    statusDB:'statusCount',
+    statusDB2:'statusCount2',
+    statusDB3:'statusCount3'
+};
+const STATUS_CLEAR_IDS={
+    statusDB:'clearStatusDB',
+    statusDB2:'clearStatusDB2',
+    statusDB3:'clearStatusDB3'
+};
+const STATUS_LABELS={
+    statusDB:'Status 1',
+    statusDB2:'Status 2',
+    statusDB3:'Status 3'
+};
+
+/*==========================================
+ STATUS NAME STORAGE + EDITOR
+ - Hanya mengubah nama tampilan Status 1/2/3.
+ - ID internal statusDB/statusDB2/statusDB3 tetap sama.
+==========================================*/
+
+const STATUS_NAME_DEFAULTS={
+    1:'Status 1',
+    2:'Status 2',
+    3:'Status 3'
+};
+
+const STATUS_NAME_DB_IDS={
+    1:'statusDB',
+    2:'statusDB2',
+    3:'statusDB3'
+};
+
+function getStatusName(index){
+    const saved=localStorage.getItem('paradiseStatusName'+index);
+
+    return saved && saved.trim()
+        ? saved.trim()
+        : STATUS_NAME_DEFAULTS[index];
+}
+
+function saveStatusName(index,name){
+    const clean=(name||'').trim();
+
+    if(!clean){
+        toast('Nama status tidak boleh kosong');
+        return false;
+    }
+
+    localStorage.setItem(
+        'paradiseStatusName'+index,
+        clean
+    );
+
+    return true;
+}
+
+function updateStatusNameUI(){
+
+    [1,2,3].forEach(index=>{
+
+        const name=getStatusName(index);
+        const dbId=STATUS_NAME_DB_IDS[index];
+
+        document
+            .querySelectorAll(
+                '.editable-status-name[data-status-name="'+index+'"]'
+            )
+            .forEach(el=>{
+                el.textContent=name;
+            });
+
+        const srcName=$('statusSrcName'+index);
+        if(srcName){
+            srcName.textContent=name;
+        }
+
+        const clearButton=$(STATUS_CLEAR_IDS[dbId]);
+        if(clearButton){
+            clearButton.textContent='✖ CLEAR '+name;
+        }
+
+        STATUS_LABELS[dbId]=name;
+
+    });
+
+}
+
+function editStatusName(index){
+
+    const current=getStatusName(index);
+
+    const next=window.prompt(
+        'Ganti nama '+STATUS_NAME_DEFAULTS[index]+':',
+        current
+    );
+
+    if(next===null) return;
+
+    if(!saveStatusName(index,next)) return;
+
+    updateStatusNameUI();
+
+    toast('Nama status disimpan');
+
+}
+
+document
+    .querySelectorAll('.editable-status-name')
+    .forEach(el=>{
+
+        const index=Number(el.dataset.statusName);
+
+        el.addEventListener('click',event=>{
+            event.stopPropagation();
+            editStatusName(index);
+        });
+
+        el.addEventListener('keydown',event=>{
+
+            if(
+                event.key==='Enter' ||
+                event.key===' '
+            ){
+                event.preventDefault();
+                event.stopPropagation();
+                editStatusName(index);
+            }
+
+        });
+
+    });
+
+updateStatusNameUI();
+
+const statusPools={
+    statusDB:[],
+    statusDB2:[],
+    statusDB3:[]
+};
+
+function splitStatusDatabase(value){
+    return value
+    .split(/\n-\n|\r\n-\r\n|\n-\r|\r-\n/)
+    .map(v=>v.trim())
+    .filter(v=>v);
+}
+
+function updateStatusCount(dbId){
+    const db=$(dbId);
+    const count=$(STATUS_COUNT_IDS[dbId]);
+    if(!db || !count) return;
+    count.textContent=splitStatusDatabase(db.value).length;
+}
+
+STATUS_DB_IDS.forEach(dbId=>{
+    APP.load(dbId);
+    const db=$(dbId);
+    if(!db) return;
+
+    db.addEventListener('input',()=>{
+        APP.save(dbId);
+        statusPools[dbId]=[];
+        updateStatusCount(dbId);
+    });
+
+    updateStatusCount(dbId);
+});
+
+function activeStatusDBId(){
+    if($('s3') && $('s3').checked) return 'statusDB3';
+    if($('s2') && $('s2').checked) return 'statusDB2';
+    return 'statusDB';
+}
+
+['s1','s2','s3'].forEach(id=>{
+    const radio=$(id);
+    if(!radio) return;
+    radio.addEventListener('change',()=>{
+        if(radio.checked){
+            localStorage.setItem('statusSrc',id);
+        }
+    });
+});
+
+const lastStatusRadio=localStorage.getItem('statusSrc');
+if(lastStatusRadio && $(lastStatusRadio)){
+    $(lastStatusRadio).checked=true;
+}else if($('s1')){
+    $('s1').checked=true;
+}
+
+/*==========================================*
+STATUS GENERATE
+*==========================================*/
+
+function buildStatusPool(dbId){
+    const db=$(dbId);
+    if(!db) return [];
+
+    statusPools[dbId]=splitStatusDatabase(db.value);
+
+    // Acak urutan pool tanpa mengubah isi database
+    statusPools[dbId].sort(()=>Math.random()-0.5);
+    return statusPools[dbId];
+}
+
+function generateStatus(){
+    const dbId=activeStatusDBId();
+    let pool=statusPools[dbId];
+
+    // Kalau pool database terpilih habis, isi ulang
+    if(pool.length===0){
+        pool=buildStatusPool(dbId);
+    }
+
+    // Kalau database terpilih memang kosong
+    if(pool.length===0){
+        toast(STATUS_LABELS[dbId]+' kosong');
+        return false;
+    }
+
+    // Ambil satu status tanpa pengulangan sampai pool habis
+    const index=Math.floor(Math.random()*pool.length);
+    const status=pool.splice(index,1)[0];
+
+    $('status').value=status;
+    APP.save('status');
+
+    // Setelah status terakhir dipakai, pool berikutnya disiapkan lagi
+    if(pool.length===0){
+        buildStatusPool(dbId);
+    }
+
+    return true;
+}
+
+$('genStatus').onclick=()=>{
+    generateStatus();
+};
+
+STATUS_DB_IDS.forEach(dbId=>{
+    const clearButton=$(STATUS_CLEAR_IDS[dbId]);
+    if(!clearButton) return;
+
+    clearButton.onclick=()=>{
+        $(dbId).value='';
+        APP.save(dbId);
+        statusPools[dbId]=[];
+        updateStatusCount(dbId);
+        toast(STATUS_LABELS[dbId]+' dikosongkan');
+    };
+});
+
+toast('Paradise Manager Auto Update Ready');
+
+</script>
+
+
+<script>
+/* ==========================================================
+   THEME CONTROLLER — tambahan mandiri
+   Tidak mengubah fungsi, event, atau script utama aplikasi.
+========================================================== */
+(function(){
+    const STORAGE_KEY='paradiseLabTheme20';
+    const validThemes=new Set([
+        'default','bright-blue','black-gold','midnight','neon-purple',
+        'matrix','ocean','crimson','sakura','ice','forest','sunset',
+        'cyber','cyan-glass','copper','mono','galaxy','candy','desert',
+        'emerald-gold','rgb'
+    ]);
+
+    const launcher=document.getElementById('themeLauncher');
+    const popup=document.getElementById('themePopup');
+    const closeButton=document.getElementById('themeClose');
+    const options=Array.from(document.querySelectorAll('[data-theme-choice]'));
+
+    if(!launcher || !popup || !closeButton || !options.length) return;
+
+    function setPopup(open){
+        popup.classList.toggle('show',open);
+        popup.setAttribute('aria-hidden',String(!open));
+        launcher.setAttribute('aria-expanded',String(open));
+        document.body.classList.toggle('theme-popup-open',open);
+
+        if(open){
+            window.setTimeout(()=>{
+                const active=popup.querySelector('.theme-option.active') || options[0];
+                active.focus();
+            },60);
+        }else{
+            launcher.focus();
+        }
+    }
+
+    function applyTheme(theme,save){
+        if(!validThemes.has(theme)) theme='default';
+
+        if(theme==='default'){
+            document.body.removeAttribute('data-theme');
+        }else{
+            document.body.setAttribute('data-theme',theme);
+        }
+
+        options.forEach(option=>{
+            const active=option.dataset.themeChoice===theme;
+            option.classList.toggle('active',active);
+            option.setAttribute('aria-pressed',String(active));
+        });
+
+        const selected=options.find(option=>option.dataset.themeChoice===theme);
+        if(selected){
+            launcher.title='Tema aktif: '+selected.dataset.themeLabel+' — klik untuk mengganti';
+        }
+
+        if(save){
+            localStorage.setItem(STORAGE_KEY,theme);
+        }
+    }
+
+    launcher.addEventListener('click',()=>setPopup(true));
+    launcher.addEventListener('keydown',event=>{
+        if(event.key==='Enter' || event.key===' '){
+            event.preventDefault();
+            setPopup(true);
+        }
+    });
+
+    closeButton.addEventListener('click',()=>setPopup(false));
+
+    popup.addEventListener('click',event=>{
+        if(event.target===popup) setPopup(false);
+    });
+
+    options.forEach(option=>{
+        option.addEventListener('click',()=>{
+            applyTheme(option.dataset.themeChoice,true);
+            window.setTimeout(()=>setPopup(false),120);
+        });
+    });
+
+    document.addEventListener('keydown',event=>{
+        if(event.key==='Escape' && popup.classList.contains('show')){
+            setPopup(false);
+        }
+    });
+
+    applyTheme(localStorage.getItem(STORAGE_KEY) || 'default',false);
+})();
+</script>
+
+<script>
+/* ==========================
+   LIVE PING MONITOR
+   Update 1 detik - 10 baris
+========================== */
+(function(){
+ const list=document.getElementById('pingList');
+ if(!list) return;
+ let history=[];
+ let count=0;
+ async function pingGoogle(){
+   const start=performance.now();
+   let result='TIMEOUT';
+
+   try{
+     const controller = new AbortController();
+     const timeout = setTimeout(()=>controller.abort(),3000);
+
+     await fetch('https://www.google.com/generate_204?x='+Date.now(),{
+        mode:'no-cors',
+        cache:'no-store',
+        signal:controller.signal
+     });
+
+     clearTimeout(timeout);
+
+     const ms=Math.round(performance.now()-start);
+     result=ms;
+   }catch(e){
+     result='TIMEOUT';
+   }
+
+   history.push(result);
+
+   if(history.length>10) history.shift();
+
+   list.innerHTML=history.map((v)=>{
+      let cls=typeof v==='number'
+        ? (v<100?'pingOk':v<300?'pingSlow':'pingBad')
+        : 'pingBad';
+
+      return 'Ping : <span class="'+cls+'">'+
+             v+
+             (typeof v==='number'?'ms':'')+
+             '</span>';
+   }).join('<br>');
+ }
+ pingGoogle();
+ setInterval(pingGoogle,1000);
+})();
+</script>
+
+
+<script>
+let lastIP="";
+let ipAudioContext=null;
+
+function getIPAudioContext(){
+    if(ipAudioContext) return ipAudioContext;
+
+    const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+    if(!AudioContextClass) return null;
+
+    ipAudioContext=new AudioContextClass();
+    return ipAudioContext;
+}
+
+async function unlockIPChangeSound(){
+    const context=getIPAudioContext();
+    if(!context) return;
+
+    try{
+        if(context.state==='suspended') await context.resume();
+
+        if(context.state==='running'){
+            document.removeEventListener('pointerdown',unlockIPChangeSound);
+            document.removeEventListener('keydown',unlockIPChangeSound);
+            document.removeEventListener('touchstart',unlockIPChangeSound);
+        }
+    }catch(e){
+        // Browser akan mencoba lagi pada interaksi pengguna berikutnya.
+    }
+}
+
+function playIPChangeSound(){
+    const context=getIPAudioContext();
+    if(!context||context.state!=='running') return;
+
+    const start=context.currentTime;
+    const notes=[
+        {frequency:880,delay:0,duration:.13},
+        {frequency:1174.66,delay:.14,duration:.13},
+        {frequency:1567.98,delay:.28,duration:.22}
+    ];
+
+    notes.forEach(note=>{
+        const oscillator=context.createOscillator();
+        const gain=context.createGain();
+        const noteStart=start+note.delay;
+        const noteEnd=noteStart+note.duration;
+
+        oscillator.type='sine';
+        oscillator.frequency.setValueAtTime(note.frequency,noteStart);
+        gain.gain.setValueAtTime(.0001,noteStart);
+        gain.gain.exponentialRampToValueAtTime(.22,noteStart+.02);
+        gain.gain.exponentialRampToValueAtTime(.0001,noteEnd);
+
+        oscillator.connect(gain);
+        gain.connect(context.destination);
+        oscillator.start(noteStart);
+        oscillator.stop(noteEnd+.02);
+    });
+}
+
+document.addEventListener('pointerdown',unlockIPChangeSound);
+document.addEventListener('keydown',unlockIPChangeSound);
+document.addEventListener('touchstart',unlockIPChangeSound,{passive:true});
+
+async function loadMyIP(){
+    const el=document.getElementById("myIP");
+    if(!el) return;
+
+    try{
+        const res=await fetch("https://api.ipify.org?format=json&cache="+Date.now());
+        const data=await res.json();
+        const currentIP=String(data.ip||'').trim();
+
+        if(!currentIP) throw new Error('IP tidak tersedia');
+
+        if(currentIP!==lastIP){
+            const isIPChange=lastIP!=="";
+            lastIP=currentIP;
+            el.textContent="IP : "+currentIP;
+
+            // indikator IP baru
+            el.classList.add("ipChanged");
+
+            // Bunyi hanya saat IP benar-benar berganti, bukan saat pemuatan awal.
+            if(isIPChange) playIPChangeSound();
+
+            setTimeout(()=>{
+                el.classList.remove("ipChanged");
+            },7000);
+        }
+    }catch(e){
+        el.textContent="IP : -";
+    }
+}
+
+loadMyIP();
+setInterval(loadMyIP,10000);
+</script>
+</body>
+</html>
